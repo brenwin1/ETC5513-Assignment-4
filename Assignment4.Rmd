@@ -1,9 +1,19 @@
 ---
-title: "Assignment4"
+title: "Crime in Minneapolis"
 author: "ETC5513 Group 6"
 date: "30/05/2020"
 output: html_document
 ---
+
+Minneapolis has the highest violent crime rate in the US. 
+
+Research Questions (If anyone thinks of more, please add!!) 
+- Where is crime most common in Minneapolis?
+Heat map
+- What is the ethnicity of those who are commmitting the crimes? 
+Major crimes/minor crimes
+- Where is force used?
+Heat Map 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
