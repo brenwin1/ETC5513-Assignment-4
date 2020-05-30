@@ -1,0 +1,41 @@
+---
+title: "Assignment4"
+author: "ETC5513 Group 6"
+date: "30/05/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries}
+library(tidyverse)
+library(rgdal)
+```
+
+```{r}
+crime_incidents <- read_csv("data/Police_Incidents_Last_2Years.csv") 
+```
+
+```{r}
+shp <- rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Police_Incidents_Last_2Years-shp", sep=""), layer = "Police_Incidents_Last_2Years.shp") , stringsAsFactors = FALSE)
+
+summary(shp@data)
+```
+
+```{r}
+police_use_of_force <- read_csv("data/Police_Use_of_Force.csv")
+```
+
+```{r}
+police_stop_data <- read_csv("data/Police_Stop_Data.csv")
+```
+
+
+
+
+
+
+
+
