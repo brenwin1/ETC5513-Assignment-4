@@ -6,7 +6,6 @@ output: html_document
 ---
 
 Minneapolis has the highest violent crime rate in the US. 
-
 Research Questions (If anyone thinks of more, please add!!) 
 - Where is crime most common in Minneapolis?
 Heat map
@@ -22,6 +21,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r libraries}
 library(tidyverse)
 library(rgdal)
+library(lubridate)
 ```
 
 ```{r}
@@ -43,9 +43,78 @@ police_stop_data <- read_csv("data/Police_Stop_Data.csv")
 ```
 
 
+What is the ethnicity of those who are commmitting the crimes? 
 
+```{r}
+crime_incidents %>%
+  group_by(offense) %>%
+  summarise(unique(offense))
+```
 
+```{r clean-crime}
+clean_crime <- crime_incidents %>%
+  mutate(offense = case_when(
+    offense %in% c("ARSON") ~ "Arson",
+    offense %in% c("ASLT1",
+                   "ASLT2",
+                   "ASLT3",
+                   "ASLT4") ~ "Assault",
+    # Combining automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle, theft of motor vehicle parts
+    offense %in% c("AUTOTH",
+                   "MVTHFT",
+                   "BIKETF",
+                   "COINOP",
+                   "NOPAY",
+                   "ONLTHT",
+                   "PETIT",
+                   "POCKET",
+                   "SCRAP",
+                   "TBLDG",
+                   "TFMV",
+                   "TFPER",
+                   "THEFT",
+                   "THFTSW",
+                   "TMVP") ~ "Theft",
+    # Combining burglary of business and burglary of dwelling
+    offense %in% c("BURGB",
+                   "BURGD") ~ "Burglary",
+    offense %in% c("ROBBIZ",
+                   "ROBPAG",
+                   "ROBPER") ~ "Robbery",
+    offense %in% c("SHOPLF") ~ "Shoplifting",
+    offense %in% c("COMPUT") ~ "Computer Hacking",
+    offense %in% c("CSCR") ~ "Rape",
+    # Combing first, second and third degree domestic assult with domestic assault strangulation
+    offense %in% c("DASLT1",
+                   "DASLT2",
+                   "DASLT3",
+                   "DASTR") ~ "Domestic Assault",
+    offense %in% c("DISARM") ~ "Disarm a police officer",
+    offense %in% c("LOOT") ~ "Looting",
+    offense %in% c("MURDR") ~ "Murder"))
+clean_crime
+```
 
+```{r number-crimes}
+number_crimes <- clean_crime %>%
+  group_by(offense) %>%
+  summarise(Incidence = n()) %>%
+  mutate(Year = year(c("reportedDate")))
+```
 
+for last 2 years
+```{r plot-number-crimes}
+ggplot(number_crimes,
+       aes(x = offense,
+           y = Incidence.
+           group)) +
+  geom_col() +
+  xlab("Type of Offense") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r}
+
+```
 
 
