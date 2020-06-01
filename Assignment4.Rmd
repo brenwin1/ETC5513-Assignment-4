@@ -22,6 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(rgdal)
 library(lubridate)
+library(ggpubr)
 ```
 
 ```{r}
@@ -38,7 +39,7 @@ summary(shp@data)
 police_use_of_force <- read_csv("data/Police_Use_of_Force.csv")
 ```
 
-```{r}
+```{r eval=FALSE}
 police_stop_data <- read_csv("data/Police_Stop_Data.csv")
 ```
 
@@ -98,23 +99,408 @@ clean_crime
 ```{r number-crimes}
 number_crimes <- clean_crime %>%
   group_by(offense) %>%
-  summarise(Incidence = n()) %>%
-  mutate(Year = year(c("reportedDate")))
+  summarise(Incidence = n())
 ```
 
-for last 2 years
+for last 2 years - should we separate for years
 ```{r plot-number-crimes}
 ggplot(number_crimes,
        aes(x = offense,
-           y = Incidence.
-           group)) +
+           y = Incidence)) +
   geom_col() +
   xlab("Type of Offense") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
 ```
 
-```{r}
-
+```{r police-use-of-force-clean}
+police_use_of_force %>%
+  group_by(ForceType) %>%
+  summarise(unique(ForceType))
 ```
 
+```{r baton-use}
+baton_use <- police_use_of_force %>%
+  filter(ForceType == "Baton") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r baton-use-plot}
+baton_bar <- ggplot(baton_use ,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r baton-use-pie-chart}
+baton_pie <- ggplot(baton_use,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+```{r bodily-force}
+bodily_force <- police_use_of_force %>%
+  filter(ForceType == "Bodily Force") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r bodily-force-use-plot}
+bodily_force_bar <- ggplot(bodily_force,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r bodily-force-pie-chart}
+bodily_force_pie <- ggplot(bodily_force,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+```{r chemical-irritant}
+chemical_irritant <- police_use_of_force %>%
+  filter(ForceType == "Chemical Irritant") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r chemical-irritant-use-plot}
+chemical_irritant_bar <- ggplot(chemical_irritant,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r chemical_irritant-pie-chart}
+chemical_irritant_pie <- ggplot(chemical_irritant,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+```{r firearm}
+firearm <- police_use_of_force %>%
+  filter(ForceType == "Firearm") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r firearm-use-plot}
+firearm_bar <- ggplot(firearm,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r firearm-pie-chart}
+firearm_pie <- ggplot(firearm,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+```{r gun-point}
+gun_point <- police_use_of_force %>%
+  filter(ForceType == "Gun Point Display") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r gun-point-plot}
+gun_point_plot <- ggplot(gun_point,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r gun-point-pie-chart}
+gun_point_pie <- ggplot(gun_point,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+```{r improvised-weapon}
+improvised_weapon <- police_use_of_force %>%
+  filter(ForceType == "Improvised Weapon") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r improvised-weapon-plot}
+improvised_weapon_plot <- ggplot(improvised_weapon,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r improvised-weapon-pie-chart}
+improvised_weapon_pie <- ggplot(improvised_weapon,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+```{r less-lethal}
+less_lethal <- police_use_of_force %>%
+  filter(ForceType == "Less Lethal") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r less-lethal-plot}
+less_lethal_plot <- ggplot(less_lethal,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r less-lethal-pie-chart}
+less_lethal_pie <- ggplot(less_lethal,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+```{r less-lethal-projectile}
+less_lethal_projectile <- police_use_of_force %>%
+  filter(ForceType == "Less Lethal Projectile") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r less-lethal-projectile-plot}
+less_lethal_projectile_plot <- ggplot(less_lethal_projectile,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r less-lethal-projectile-pie-chart}
+less_lethal_projectile_pie <- ggplot(less_lethal_projectile,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+```{r maximal-restraint-technique}
+maximal_restraint_technique <- police_use_of_force %>%
+  filter(ForceType == "Maximal Restraint Technique") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r maximal-restraint-technique-plot}
+maximal_restraint_technique_plot <- ggplot(maximal_restraint_technique,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r maximal-restraint-technique-pie-chart}
+maximal_restraint_technique_pie <- ggplot(maximal_restraint_technique,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+```{r canine-bite}
+canine_bite <- police_use_of_force %>%
+  filter(ForceType == "Police K9 Bite") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r canine-bite-plot}
+canine_bite_plot <- ggplot(canine_bite,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r canine-bite-pie-chart}
+canine_bite_pie <- ggplot(canine_bite,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+```{r taser}
+taser <- police_use_of_force %>%
+  filter(ForceType == "Taser") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r taser-plot}
+taser_plot <- ggplot(taser,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r taser-pie-chart}
+taser_pie <- ggplot(taser,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+
+```{r arrange-bar, fig.dim=c(15,15)}
+ggarrange(baton_bar,
+          bodily_force_bar,
+          chemical_irritant_bar,
+          firearm_bar,
+          gun_point_plot,
+          improvised_weapon_plot,
+          less_lethal_plot,
+          less_lethal_projectile_plot,
+          maximal_restraint_technique_plot,
+          canine_bite_plot,
+          taser_plot,
+          labels = c("Baton",
+                     "Bodily Force",
+                     "Chemical Irritant",
+                     "Firearm",
+                     "Gun Point",
+                     "Improvised Weapon",
+                     "Less Lethal",
+                     "Less Lethal Projectile",
+                     "Maximal Restraint Technique",
+                     "Canine Bite",
+                     "Taser"),
+          vjust = 0.5,
+          hjust = -1.75,
+          font.label = list(size = 10),
+          legend = c("top"),
+          ncol = 3,
+          nrow = 4,
+          # Create a common legend
+          common.legend = TRUE)
+```
+
+```{r arrange-pie, fig.dim=c(15,15)}
+ggarrange(baton_pie,
+          bodily_force_pie,
+          chemical_irritant_pie,
+          firearm_pie,
+          gun_point_pie,
+          improvised_weapon_pie,
+          less_lethal_pie,
+          less_lethal_projectile_pie,
+          maximal_restraint_technique_pie,
+          canine_bite_pie,
+          taser_pie,
+          labels = c("Baton",
+                     "Bodily Force",
+                     "Chemical Irritant",
+                     "Firearm",
+                     "Gun Point",
+                     "Improvised Weapon",
+                     "Less Lethal",
+                     "Less Lethal Projectile",
+                     "Maximal Restraint Technique",
+                     "Canine Bite",
+                     "Taser"),
+          vjust = 0.5,
+          hjust = -1.75,
+          font.label = list(size = 10),
+          legend = c("top"),
+          ncol = 3,
+          nrow = 4,
+          # Create a common legend
+          common.legend = TRUE)
+```
 
