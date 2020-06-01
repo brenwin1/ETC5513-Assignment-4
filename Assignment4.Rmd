@@ -42,6 +42,177 @@ police_use_of_force <- read_csv("data/Police_Use_of_Force.csv")
 police_stop_data <- read_csv("data/Police_Stop_Data.csv")
 ```
 
+Minneapolis has the highest violent crime rate in the US. 
+Research Questions (If anyone thinks of more, please add!!) 
+- Where is crime most common in Minneapolis?
+Heat map
+- What is the ethnicity of those who are commmitting the crimes? 
+Major crimes/minor crimes
+- Where is force used?
+Heat Map 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+What; no. different crime offense?
+```{r}
+crime_incidents %>%
+  group_by(offense) %>%
+  summarise(unique(offense))
+```
+
+Grouping crime offense 
+```{r clean-crime}
+clean_crime <- crime_incidents %>%
+  mutate(offense = case_when(
+    offense %in% c("ARSON") ~ "Arson",
+    offense %in% c("ASLT1",
+                   "ASLT2",
+                   "ASLT3",
+                   "ASLT4") ~ "Assault",
+    # Combining automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle, theft of motor vehicle parts
+    offense %in% c("AUTOTH",
+                   "MVTHFT",
+                   "BIKETF",
+                   "COINOP",
+                   "NOPAY",
+                   "ONLTHT",
+                   "PETIT",
+                   "POCKET",
+                   "SCRAP",
+                   "TBLDG",
+                   "TFMV",
+                   "TFPER",
+                   "THEFT",
+                   "THFTSW",
+                   "TMVP") ~ "Theft",
+    # Combining burglary of business and burglary of dwelling
+    offense %in% c("BURGB",
+                   "BURGD") ~ "Burglary",
+    offense %in% c("ROBBIZ",
+                   "ROBPAG",
+                   "ROBPER") ~ "Robbery",
+    offense %in% c("SHOPLF") ~ "Shoplifting",
+    offense %in% c("COMPUT") ~ "Computer Hacking",
+    offense %in% c("CSCR") ~ "Rape",
+    # Combing first, second and third degree domestic assult with domestic assault strangulation
+    offense %in% c("DASLT1",
+                   "DASLT2",
+                   "DASLT3",
+                   "DASTR") ~ "Domestic Assault",
+    offense %in% c("DISARM") ~ "Disarm a police officer",
+    offense %in% c("LOOT") ~ "Looting",
+    offense %in% c("MURDR") ~ "Murder"))
+clean_crime
+```
+
+no. of crimes in each group 
+```{r number-crimes}
+number_crimes <- clean_crime %>%
+  group_by(offense) %>%
+  summarise(Incidence = n())
+
+number_crimes
+```
+
+no. of crimes; past for last 2 years
+```{r plot-number-crimes}
+ggplot(number_crimes,
+       aes(x = offense,
+           y = Incidence)) +
+  geom_col() +
+  xlab("Type of Offense") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+
+
+
+# Police use of force data
+
+What; type of police forcetype?
+```{r police-use-of-force-clean}
+police_use_of_force %>%
+  group_by(ForceType) %>%
+  summarise(unique(ForceType))
+```
+
+number of times; force types used by police
+```{r}
+police_use_of_force %>% 
+  group_by(ForceType) %>% 
+  count()
+```
+
+what; no. of times force types used against each race
+```{r}
+police_use_of_force %>% 
+  group_by(ForceType, Race) %>% 
+  count()
+```
+
+No. of incidence; force used; per race
+```{r}
+police_use_of_force %>% 
+  group_by(Race) %>% 
+  count()
+```
+
+
+
+Use of force per race faceted by Force Type
+```{r}
+use_of_force_bar <- police_use_of_force %>% 
+  filter(!is.na(Race),
+         ForceType != "Bodily Force") %>% # see other types; many Bodily Force incidence; extend the ylimit; so remove
+  ggplot() +
+  geom_bar(aes(x = Race)) +
+  facet_wrap(~ `ForceType`) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3)) +
+  coord_flip()
+
+use_of_force_bar
+```
+
+```{r bodily-force-pie-chart}
+use_of_force_bar +
+  coord_polar()
+```
+
+
+# attempting to do maps 
+
+```{r}
+library(ggmap)
+library(leaflet)
+
+make_bbox <- ggmap::make_bbox(lon = police_use_of_force$X,
+                     lat = police_use_of_force$y, f = 0.9)  
+
+minneapolis_map <- leaflet() %>%
+  # Base group
+  leaflet::addProviderTiles(provider = providers$Esri.WorldImagery, group="Satellite") %>%
+  # Add reciever location data
+  addCircles(
+    lng = police_use_of_force$X, 
+    lat = police_use_of_force$Y, 
+    fill=TRUE, color="yellow",
+    weight= 2,
+    radius = 2,
+    stroke = FALSE, fillOpacity = 0.8)
+
+minneapolis_map
+
+```
+
+
+
+
+
+
+
 
 
 
