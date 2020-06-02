@@ -15,6 +15,8 @@ Major crimes/minor crimes
 - Where is force used?
 Heat Map 
 
+# Year
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -22,10 +24,16 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r libraries}
 library(tidyverse)
 library(rgdal)
+library(lubridate)
+library(ggrepel)
+library(scales)
+library(gridExtra)
 ```
 
 ```{r}
 crime_incidents <- read_csv("data/Police_Incidents_Last_2Years.csv") 
+
+glimpse(crime_incidents)
 ```
 
 ```{r}
@@ -41,6 +49,185 @@ police_use_of_force <- read_csv("data/Police_Use_of_Force.csv")
 ```{r}
 police_stop_data <- read_csv("data/Police_Stop_Data.csv")
 ```
+
+What is the ethnicity of those who are commmitting the crimes? 
+
+```{r}
+crime_incidents %>%
+  group_by(offense) %>%
+  summarise(unique(offense))
+```
+
+```{r clean-crime}
+clean_crime <- crime_incidents %>%
+  mutate(offense = case_when(
+    offense %in% c("ARSON") ~ "Arson",
+    offense %in% c("ASLT1",
+                   "ASLT2",
+                   "ASLT3",
+                   "ASLT4") ~ "Assault",
+    # Combining automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle, theft of motor vehicle parts
+    offense %in% c("AUTOTH",
+                   "MVTHFT",
+                   "BIKETF",
+                   "COINOP",
+                   "NOPAY",
+                   "ONLTHT",
+                   "PETIT",
+                   "POCKET",
+                   "SCRAP",
+                   "TBLDG",
+                   "TFMV",
+                   "TFPER",
+                   "THEFT",
+                   "THFTSW",
+                   "TMVP") ~ "Theft",
+    # Combining burglary of business and burglary of dwelling
+    offense %in% c("BURGB",
+                   "BURGD") ~ "Burglary",
+    offense %in% c("ROBBIZ",
+                   "ROBPAG",
+                   "ROBPER") ~ "Robbery",
+    offense %in% c("SHOPLF") ~ "Shoplifting",
+    offense %in% c("COMPUT") ~ "Computer Hacking",
+    offense %in% c("CSCR") ~ "Rape",
+    # Combing first, second and third degree domestic assult with domestic assault strangulation
+    offense %in% c("DASLT1",
+                   "DASLT2",
+                   "DASLT3",
+                   "DASTR") ~ "Domestic Assault",
+    offense %in% c("DISARM") ~ "Disarm a police officer",
+    offense %in% c("LOOT") ~ "Looting",
+    offense %in% c("MURDR") ~ "Murder"))
+
+clean_crime
+```
+
+# Year's part
+
+```{r cleaning data}
+
+crime_MPLS_selected <- clean_crime %>% 
+  select(reportedDate, offense, neighborhood, precinct, X, Y, description)
+
+
+crime_MPLS_selected$year <- year(crime_MPLS_selected$reportedDate)
+crime_MPLS_selected$month <- month(crime_MPLS_selected$reportedDate)
+crime_MPLS_selected$days <- day(crime_MPLS_selected$reportedDate)
+
+
+
+```
+
+
+```{r}
+crime_MPLS_summary <- crime_MPLS_selected  %>%
+  group_by(offense) %>%
+  summarise(total = n()) %>%
+  distinct() %>%
+  top_n(20)
+
+crime_MPLS_summary %>%
+  ggplot(aes(reorder(offense, total), y = total)) +
+  geom_col(fill = "red") +
+  geom_label_repel(aes(label = total), size = 2.5) +
+  coord_flip() +
+  labs(title = "Top 20 Crime Commited in Minniapolis", 
+       x = "Crime Offense", 
+       y = "Total")
+```
+
+```{r}
+crime_MPLS_month_2018 <- crime_MPLS_selected %>%
+  filter(year == 2018) %>% 
+  select(year, month) %>% 
+  group_by(year) %>% 
+  count(month) 
+p1 <-   ggplot(crime_MPLS_month_2018, 
+        aes(x=as.factor(month), y=n)) + 
+        geom_bar(stat='identity', fill='red') +
+        scale_y_continuous(labels=comma, limits = c(0, 2000)) + 
+        facet_grid(.~year) + 
+        labs(x='Month', y='Number of incidents')
+
+crime_MPLS_month_2019 <- crime_MPLS_selected %>%
+  filter(year == 2019) %>% 
+  select(year, month) %>% 
+  group_by(year) %>% 
+  count(month) 
+p2 <-   ggplot(crime_MPLS_month_2019, 
+        aes(x=as.factor(month), y=n)) + 
+        geom_bar(stat='identity', fill='red') +
+        scale_y_continuous(labels=comma) + 
+        facet_grid(.~year) + 
+        labs(x='Month', y='Number of incidents')
+
+crime_MPLS_month_2020 <- crime_MPLS_selected %>%
+  filter(year == 2020) %>% 
+  select(year, month) %>% 
+  group_by(year) %>% 
+  count(month) 
+p3 <-  ggplot(crime_MPLS_month_2020, 
+          aes(x=as.factor(month), y=n)) + 
+          geom_bar(stat='identity', fill='red') +
+          scale_y_continuous(labels=comma, limits = c(0, 2000)) + 
+          facet_grid(.~year) + 
+          labs(x='Month', y='Number of incidents')
+
+
+grid.arrange(p1, p2, p3, ncol = 3)
+```
+
+
+
+```{r}
+crime_MPLS_selected %>% 
+  filter(neighborhood %in% (crime_MPLS_selected  %>% count(neighborhood) %>% arrange(-n) %>% head(10) %>% pull(neighborhood)),
+  offense %in% (crime_MPLS_selected  %>% count(offense) %>% arrange(-n) %>% head(5) %>% pull(offense))) %>% 
+    ggplot(aes(neighborhood, fill = offense))+
+    geom_bar(position = "fill")+
+    scale_fill_ordinal()+
+    coord_flip()
+```
+
+```{r}
+crime_MPLS_selected %>% filter(offense %in% (crime_MPLS_selected  %>% count(offense) %>% arrange(-n) %>% head(10) %>% pull(offense))) %>% 
+    ggplot(aes(year, fill = offense))+
+    geom_bar()+
+    coord_flip()+
+    scale_fill_ordinal()
+```
+
+```{r}
+crime_MPLS_selected %>% 
+  filter(offense %in% (crime_MPLS_selected %>% count(offense)%>% arrange(-n) %>% head(5) %>% pull(offense)))%>% 
+      ggplot(aes(precinct, fill = offense)) +
+      geom_bar(position = "fill") +
+      ggtitle("Offense Types by District") + xlab("District ID") +
+      scale_colour_gradientn(colours=rainbow(5))
+```
+
+```{r}
+crime_MPLS_selected %>% 
+  filter(neighborhood %in% (crime_MPLS_selected %>% count(neighborhood)%>% arrange(-n) %>% head(20) %>% pull(neighborhood)))%>% 
+      ggplot(aes(precinct, fill = neighborhood)) +
+      geom_bar(position = "fill") +
+      ggtitle("Offense Types by District") + xlab("District ID") +
+      scale_colour_gradientn(colours=rainbow(5))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
