@@ -31,7 +31,7 @@ crime_incidents <- read_csv("data/Police_Incidents_Last_2Years.csv")
 ```{r}
 shp <- rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Police_Incidents_Last_2Years-shp", sep=""), layer = "Police_Incidents_Last_2Years.shp") , stringsAsFactors = FALSE)
 
-summary(shp@data)
+head(shp@data)
 ```
 
 ```{r}
@@ -182,34 +182,58 @@ use_of_force_bar +
 ```
 
 
-# attempting to do maps 
+# attempting to do maps with `leaflet`
 
 ```{r}
-library(ggmap)
 library(leaflet)
+library(rgdal)
 
-make_bbox <- ggmap::make_bbox(lon = police_use_of_force$X,
-                     lat = police_use_of_force$y, f = 0.9)  
+shp <- rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Police_Incidents_Last_2Years-shp", sep=""), layer = "Police_Incidents_Last_2Years.shp") , stringsAsFactors = FALSE)
 
-minneapolis_map <- leaflet() %>%
-  # Base group
-  leaflet::addProviderTiles(provider = providers$Esri.WorldImagery, group="Satellite") %>%
-  # Add reciever location data
-  addCircles(
-    lng = police_use_of_force$X, 
-    lat = police_use_of_force$Y, 
-    fill=TRUE, color="yellow",
-    weight= 2,
-    radius = 2,
-    stroke = FALSE, fillOpacity = 0.8)
-
-minneapolis_map
-
+head(shp@data)
+summary(shp@data)
+head(shp@data)
 ```
 
 
 
 
+# trying to use `usmap` package
+```{r}
+library(usmap)
+```
+
+```{r, eval = FALSE}
+plot_usmap(include = "MN") 
+plot_usmap(counties = "Hennepin County")
+
+us_states <- map_data("state")
+```
+
+
+
+
+# attempting to do maps with `sf` package
+```{r}
+library(sf)
+
+shp_sf <- st_read(dsn = file.path(paste(getwd(),"/data/Police_Incidents_Last_2Years-shp/Police_Incidents_Last_2Years.shp", sep="")))
+```
+
+
+```{r}
+minneapolis_map <- get_map(location = c(long = ))
+
+Min_bbox <- c(-93.3, # min long
+              0.00, # min lat
+              0.00, # max long
+              45.05 ) # max lat
+
+Min_map <- get_map(location = Min_bbox, source = "osm")
+
+ggmap(usa_map)
+ggmap(Min_map)
+```
 
 
 
