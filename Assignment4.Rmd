@@ -179,3 +179,28 @@ neighborhood_summary2020 %>%
 
 ```
 
+```{r}
+precinct_summary <- clean_crime %>% select(precinct,
+                                                reportedDate)
+precinct_summary$year <- year(precinct_summary$reportedDate)
+
+precinct_summary <- precinct_summary %>%
+  dplyr::select(year,
+                precinct) %>%
+  group_by(year,
+                precinct) %>%
+  mutate(case = n()) %>%
+  unique() %>%
+  arrange(-case)
+
+precinct_summary %>% ggplot(aes(x = precinct,
+             y = case,
+             colour = year)) +
+  geom_point() +
+  facet_wrap(~ year) +
+  xlab("precinct") +
+  ylab("case") +
+  ggtitle("precinct summary in each year") +
+  theme(legend.position = "none")
+```
+
