@@ -195,46 +195,36 @@ summary(shp@data)
 head(shp@data)
 ```
 
-
-
-
-# trying to use `usmap` package
-```{r}
-library(usmap)
-```
-
-```{r, eval = FALSE}
-plot_usmap(include = "MN") 
-plot_usmap(counties = "Hennepin County")
-
-us_states <- map_data("state")
-```
-
-
-
-
-# attempting to do maps with `sf` package
 ```{r}
 library(sf)
+# Read shp file into a data frame
+shp_sf <- st_read(dsn = file.path(paste(getwd(),"/data/Police_Incidents_Last_2Years-shp/Police_Incidents_Last_2Years.shp", sep=""))) %>% 
+  dplyr::filter(centerLat != 0) # delete data (17 rows) where public address not provided
+```
 
-shp_sf <- st_read(dsn = file.path(paste(getwd(),"/data/Police_Incidents_Last_2Years-shp/Police_Incidents_Last_2Years.shp", sep="")))
+```{r}
+# make bounding box 
+ggmap::make_bbox(lon = shp_sf$centerLong, 
+                 lat = shp_sf$centerLat) 
+
+shp_sf %>% 
+  leaflet() %>% 
+  addTiles() %>% 
+  # Add Circle Markers 
+  addCircleMarkers(lng = shp_sf$centerLong, 
+             lat = shp_sf$centerLat, 
+             clusterOptions = markerClusterOptions()) # cluster circles and prevent hanging!
+
+
+# xxxxx potentially; group and label markers (by race and neighbourhood)
+# xxxxx change tile to Google maps (more familiar )
 ```
 
 
 ```{r}
-minneapolis_map <- get_map(location = c(long = ))
-
-Min_bbox <- c(-93.3, # min long
-              0.00, # min lat
-              0.00, # max long
-              45.05 ) # max lat
-
-Min_map <- get_map(location = Min_bbox, source = "osm")
-
-ggmap(usa_map)
-ggmap(Min_map)
+unique(police_use_of_force$Neighborhood)
+# 90 neighbourhoods
 ```
-
 
 
 
