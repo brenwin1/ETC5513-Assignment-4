@@ -209,7 +209,7 @@ force_used_summary <- police_use_of_force %>% select(PrimaryOffense,
                                                 ResponseDate,
                                                 ForceType,
                                                 SubjectInjury,
-                                                EventAge)
+                                                TypeOfResistance)
 force_used_summary$year <- year(force_used_summary$ResponseDate)
 
 force_used_summary2018 <- force_used_summary %>%
@@ -267,7 +267,7 @@ labs(x='total', y='force type')
 ```
 
 ```{r injury condition}
-subject_injury <- force_used_summary %>%
+injury_of_force <- force_used_summary %>%
   dplyr::filter(year %in% c("2018",
                             "2019",
                             "2020")) %>%
@@ -276,7 +276,7 @@ subject_injury <- force_used_summary %>%
   summarise(total = n()) %>%
   distinct()
 
-subject_injury %>% ggplot(aes(x = SubjectInjury,
+injury_of_force %>% ggplot(aes(x = SubjectInjury,
              y = total,
              colour = SubjectInjury)) +
 
@@ -285,4 +285,22 @@ subject_injury %>% ggplot(aes(x = SubjectInjury,
     ggtitle("injury condition") +
 labs(x='injury condition', y='total')
 
+```
+
+```{r resistant type}
+resistant_summary <- force_used_summary %>%
+  dplyr::filter(year %in% c("2018",
+                            "2019",
+                            "2020")) %>%
+  group_by(TypeOfResistance,
+           year) %>%
+  summarise(case = n()) %>%
+  distinct()
+
+resistant_summary %>% ggplot(aes(reorder(TypeOfResistance, case), y=case)) + 
+        geom_bar(stat='identity') +
+    facet_wrap(~ year) +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+    ggtitle("force used tpye") +
+labs(x='type of resistance', y='case')
 ```
