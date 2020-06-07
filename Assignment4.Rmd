@@ -30,7 +30,7 @@ library(ggpubr)
 library(RColorBrewer)
 ```
 
-## Introduction
+# Introduction
 
 George Floyd was arrested and killed by Derek Chauvin, a U.S. police officer, on the 25th of May in Minneapolis, @BBC-News-2020. Chauvin knelt on George Floyd’s neck for eight minutes and 46 seconds as Floyd gasped for air.  His abominable death has sparked outrage on police brutality across America.
 
@@ -56,8 +56,28 @@ police_use_of_force <- read_csv("data/Police_Use_of_Force.csv")
 police_stop_data <- read_csv("data/Police_Stop_Data.csv")
 ```
 
+# Data
 
-What is the ethnicity of those who are commmitting the crimes? 
+To perform this analysis 
+
+
+# Methodology 
+
+# Analysing the type of crime being committed
+
+The crime incidence data was wrangled. This involved assigning each crime to its relevant offence type. The incidence of each offense was calculated, and plotted according to year.
+
+# Analysing the force used
+
+
+
+
+
+# Results
+
+Figure \@ref(fig:plot-number-crimes) demonstrates that across all years, theft is the most commonly committed crime in Minneapolis. In this instance theft includes; automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle and theft of motor vehicle parts. 
+
+
 
 ```{r clean-crime}
 clean_crime <- crime_incidents %>%
@@ -99,26 +119,27 @@ clean_crime <- crime_incidents %>%
                    "DASTR") ~ "Domestic Assault",
     offense %in% c("DISARM") ~ "Disarm a police officer",
     offense %in% c("LOOT") ~ "Looting",
-    offense %in% c("MURDR") ~ "Murder"))
+    offense %in% c("MURDR") ~ "Murder")) %>%
+  mutate(Year = year(enteredDate))
 ```
 
 ```{r number-crimes}
 number_crimes <- clean_crime %>%
-  group_by(offense) %>%
+  group_by(offense,
+           Year) %>%
   summarise(Incidence = n())
 ```
 
-for last 2 years - should we separate for years
 ```{r plot-number-crimes}
 ggplot(number_crimes,
        aes(x = offense,
-           y = Incidence)) +
+           y = Incidence,
+           group = Year)) +
   geom_col() +
+  facet_wrap(~Year) +
   xlab("Type of Offense") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
 ```
-
-
 
 ```{r police-force-clean}
 police_use_of_force_count <- police_use_of_force %>%
@@ -129,23 +150,7 @@ police_use_of_force_count <- police_use_of_force %>%
   summarise(Count = n()) 
 ```
 
-
-
-```{r bar-chart-force-use}
-ggplot(police_use_of_force_count,
-       aes(x = Race,
-           y = Count,
-           group = ForceType,
-           fill = Race)) +
-  scale_fill_brewer(palette="Dark2") +
-  geom_bar(width = 1, 
-           stat = "identity") +
-  facet_wrap(~ForceType,
-             ncol = 3) +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
-```
-
-```{r}
+```{r bar-chart-force}
 ggplot(police_use_of_force_count,
        aes(x = "",
            y = Count,
@@ -510,7 +515,7 @@ ggarrange(baton_bar,
           common.legend = TRUE)
 ```
 
-```{r arrange-pie, fig.dim=c(15,15)}
+```{r arrange-pie, fig.dim=c(10,10)}
 ggarrange(baton_pie,
           bodily_force_pie,
           chemical_irritant_pie,
@@ -533,8 +538,9 @@ ggarrange(baton_pie,
                      "Maximal Restraint Technique",
                      "Canine Bite",
                      "Taser"),
+          align = "hv",
           vjust = 0.5,
-          hjust = -1.75,
+          hjust = -0.5,
           font.label = list(size = 10),
           legend = c("top"),
           ncol = 3,
@@ -543,3 +549,4 @@ ggarrange(baton_pie,
           common.legend = TRUE)
 ```
 
+# Conclusion 
