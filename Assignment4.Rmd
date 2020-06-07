@@ -203,4 +203,65 @@ precinct_summary %>% ggplot(aes(x = precinct,
   ggtitle("precinct summary in each year") +
   theme(legend.position = "none")
 ```
+# Analyse of police force used
+```{r force used for primary offense}
+force_used_summary <- police_use_of_force %>% select(PrimaryOffense,
+                                                ResponseDate,
+                                                ForceType,
+                                                SubjectInjury,
+                                                EventAge)
+force_used_summary$year <- year(force_used_summary$ResponseDate)
 
+force_used_summary2018 <- force_used_summary %>%
+  dplyr::filter(year %in% c("2018")) %>%
+  group_by(PrimaryOffense) %>%
+  summarise(case = n()) %>%
+  distinct() %>%
+  head(10)
+g1 <- force_used_summary2018 %>% ggplot(aes(x=case, reorder(PrimaryOffense, case))) + 
+        geom_bar(stat='identity', fill='red') +
+    ggtitle("force used in 2018") +
+labs(x='case2018', y='primary offence')
+
+force_used_summary2019 <- force_used_summary %>%
+  dplyr::filter(year %in% c("2019")) %>%
+  group_by(PrimaryOffense) %>%
+  summarise(case = n()) %>%
+  distinct() %>%
+  head(10)
+g2 <- force_used_summary2019 %>% ggplot(aes(x=case, reorder(PrimaryOffense, case))) + 
+        geom_bar(stat='identity', fill='blue') +
+    ggtitle("force used in 2019") +
+labs(x='case2019', y='primary offence')
+
+force_used_summary2020 <- force_used_summary %>%
+  dplyr::filter(year %in% c("2020")) %>%
+  group_by(PrimaryOffense) %>%
+  summarise(case = n()) %>%
+  distinct() %>%
+  head(10)
+
+g3 <- force_used_summary2020 %>% ggplot(aes(x=case, reorder(PrimaryOffense, case))) + 
+        geom_bar(stat='identity', fill='green') +
+    ggtitle("force used in 2020") +
+labs(x='case2020', y='primary offence')
+
+grid.arrange(g1, g2, g3, ncol = 3)
+```
+
+```{r force type}
+force_type_used <- force_used_summary %>%
+  dplyr::filter(year %in% c("2018",
+                            "2019",
+                            "2020")) %>%
+  group_by(ForceType,
+           year) %>%
+  summarise(total = n()) %>%
+  distinct()
+
+force_type_used %>% ggplot(aes(x=total, reorder(ForceType, total))) + 
+        geom_bar(stat='identity') +
+    facet_wrap(~ year) +
+    ggtitle("force used tpye") +
+labs(x='total', y='force type')
+```
