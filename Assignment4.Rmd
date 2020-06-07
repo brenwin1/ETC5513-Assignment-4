@@ -265,3 +265,24 @@ force_type_used %>% ggplot(aes(x=total, reorder(ForceType, total))) +
     ggtitle("force used tpye") +
 labs(x='total', y='force type')
 ```
+
+```{r injury condition}
+subject_injury <- force_used_summary %>%
+  dplyr::filter(year %in% c("2018",
+                            "2019",
+                            "2020")) %>%
+  group_by(SubjectInjury,
+           year) %>%
+  summarise(total = n()) %>%
+  distinct()
+
+subject_injury %>% ggplot(aes(x = SubjectInjury,
+             y = total,
+             colour = SubjectInjury)) +
+
+          geom_bar(stat='identity', fill="white") +
+    facet_wrap(~ year) +
+    ggtitle("injury condition") +
+labs(x='injury condition', y='total')
+
+```
