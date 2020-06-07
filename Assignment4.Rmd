@@ -3,6 +3,7 @@ title: "Crime in Minneapolis"
 author: "ETC5513 Group 6"
 date: "30/05/2020"
 output: html_document
+bibliography: reference.bib
 ---
 
 Minneapolis has the highest violent crime rate in the US. 
@@ -14,8 +15,11 @@ Major crimes/minor crimes
 - Where is force used?
 Heat Map 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup}
+knitr::opts_chunk$set(echo = FALSE, 
+                      cache=TRUE, 
+                      messages=FALSE,
+                      warning=FALSE)
 ```
 
 ```{r libraries}
@@ -23,34 +27,37 @@ library(tidyverse)
 library(rgdal)
 library(lubridate)
 library(ggpubr)
+library(RColorBrewer)
 ```
 
-```{r}
+## Introduction
+
+George Floyd was arrested and killed by Derek Chauvin, a U.S. police officer, on the 25th of May in Minneapolis, @BBC-News-2020. Chauvin knelt on George Floyd’s neck for eight minutes and 46 seconds as Floyd gasped for air.  His abominable death has sparked outrage on police brutality across America.
+
+For several years, African-Americans have been the subject of racial vilification. In a study by @Dottolo-2008 students were interviewed and asked about police harassment and crime. Close analysis revealed that the students had stereotyped the criminals to be poor African American men. Another study by … revealed
+
+This paper hopes to explore and understand crime in Minneapolis. Specifically, the areas where crime is most common, the ethnicity of those committing the crime, and the force used by police. 
+
+```{r crime-incident-data}
 crime_incidents <- read_csv("data/Police_Incidents_Last_2Years.csv") 
 ```
 
-```{r}
+```{r shapefiles-data}
 shp <- rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Police_Incidents_Last_2Years-shp", sep=""), layer = "Police_Incidents_Last_2Years.shp") , stringsAsFactors = FALSE)
 
 summary(shp@data)
 ```
 
-```{r}
+```{r police-force-data}
 police_use_of_force <- read_csv("data/Police_Use_of_Force.csv")
 ```
 
-```{r eval=FALSE}
+```{r police-stop-data, eval = FALSE}
 police_stop_data <- read_csv("data/Police_Stop_Data.csv")
 ```
 
 
 What is the ethnicity of those who are commmitting the crimes? 
-
-```{r}
-crime_incidents %>%
-  group_by(offense) %>%
-  summarise(unique(offense))
-```
 
 ```{r clean-crime}
 clean_crime <- crime_incidents %>%
@@ -93,7 +100,6 @@ clean_crime <- crime_incidents %>%
     offense %in% c("DISARM") ~ "Disarm a police officer",
     offense %in% c("LOOT") ~ "Looting",
     offense %in% c("MURDR") ~ "Murder"))
-clean_crime
 ```
 
 ```{r number-crimes}
@@ -112,11 +118,44 @@ ggplot(number_crimes,
   theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
 ```
 
-```{r police-use-of-force-clean}
-police_use_of_force %>%
-  group_by(ForceType) %>%
-  summarise(unique(ForceType))
+
+
+```{r police-force-clean}
+police_use_of_force_count <- police_use_of_force %>%
+  filter(ForceType != "NA",
+         Race != "NA") %>%
+  group_by(ForceType, 
+           Race) %>%
+  summarise(Count = n()) 
 ```
+
+
+
+```{r bar-chart-force-use}
+ggplot(police_use_of_force_count,
+       aes(x = Race,
+           y = Count,
+           group = ForceType,
+           fill = Race)) +
+  scale_fill_brewer(palette="Dark2") +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  facet_wrap(~ForceType,
+             ncol = 3) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r}
+ggplot(police_use_of_force_count,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  facet_wrap(~ForceType) 
+```
+
+
 
 ```{r baton-use}
 baton_use <- police_use_of_force %>%
