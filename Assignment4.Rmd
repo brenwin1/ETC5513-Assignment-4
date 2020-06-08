@@ -6,14 +6,17 @@ output: html_document
 bibliography: reference.bib
 ---
 
-Minneapolis has the highest violent crime rate in the US. 
-Research Questions (If anyone thinks of more, please add!!) 
-- Where is crime most common in Minneapolis?
-Heat map
-- What is the ethnicity of those who are commmitting the crimes? 
-Major crimes/minor crimes
-- Where is force used?
-Heat Map 
+Analysis of Crime in Minneapolis:
+
+* What types of crimes are most common?
+* What crime is committed by each race? Are they proportionate?
+* What are the most common force types?
+* Which months of the year have the most criminal records?
+* Which day of the week has the most crimes or forces used by police?
+* Which area has the most crime?
+* Is it the same police committing each crime?
+
+
 
 ```{r setup}
 knitr::opts_chunk$set(echo = FALSE, 
@@ -30,7 +33,7 @@ library(ggpubr)
 library(RColorBrewer)
 ```
 
-# Introduction
+## Introduction
 
 George Floyd was arrested and killed by Derek Chauvin, a U.S. police officer, on the 25th of May in Minneapolis, @BBC-News-2020. Chauvin knelt on George Floyd’s neck for eight minutes and 46 seconds as Floyd gasped for air.  His abominable death has sparked outrage on police brutality across America.
 
@@ -44,8 +47,6 @@ crime_incidents <- read_csv("data/Police_Incidents_Last_2Years.csv")
 
 ```{r shapefiles-data}
 shp <- rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Police_Incidents_Last_2Years-shp", sep=""), layer = "Police_Incidents_Last_2Years.shp") , stringsAsFactors = FALSE)
-
-summary(shp@data)
 ```
 
 ```{r police-force-data}
@@ -56,28 +57,33 @@ police_use_of_force <- read_csv("data/Police_Use_of_Force.csv")
 police_stop_data <- read_csv("data/Police_Stop_Data.csv")
 ```
 
-# Data
+## Data
 
 To perform this analysis 
 
 
-# Methodology 
+## Methodology 
 
-# Analysing the type of crime being committed
+#### Analysing the crime which is most common 
 
 The crime incidence data was wrangled. This involved assigning each crime to its relevant offence type. The incidence of each offense was calculated, and plotted according to year.
 
-# Analysing the force used
+#### Analysing the crime being committed by each race
 
+#### Computing the most common force type
 
+The police use of force data was wrangled, and a summary was generated to count the incidence of each offense according to race. The data was plotted. 
 
+#### Analysing the months of the year which have the most criminal records
+
+#### Analysing the areas that have the most crime 
+
+#### Analysing whether Police are repeat offenders?
 
 
 # Results
 
 Figure \@ref(fig:plot-number-crimes) demonstrates that across all years, theft is the most commonly committed crime in Minneapolis. In this instance theft includes; automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle and theft of motor vehicle parts. 
-
-
 
 ```{r clean-crime}
 clean_crime <- crime_incidents %>%
@@ -140,6 +146,9 @@ ggplot(number_crimes,
   xlab("Type of Offense") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
 ```
+
+According to Figure \@ref(fig:bar-chart-force) the most common force used is Bodily Force, then Chemical Irritant and taser.
+
 
 ```{r police-force-clean}
 police_use_of_force_count <- police_use_of_force %>%
@@ -481,6 +490,9 @@ taser_pie <- ggplot(taser,
               start = 0)
 ```
 
+Figure \@ref(fig:arrange-pie) captures how the police have used force on each race. Baton, bodily force, chemical irritant, firearm, gun point, improvised weapon, canine bite and taser are all used on African Americans most frequently. Interestingly enough, less lethal force is used on white people the most, proportionately. In addition, less lethal projectiles and maximal restraint technique are most commonly used on white and asian people. 
+
+Therefore, assuming that crime being committed by African-Americans is similar in nature to the crime being committed by all other races, it is likely African-Americans are more likely to be subject of ruthless force use. 
 
 ```{r arrange-bar, fig.dim=c(15,15)}
 ggarrange(baton_bar,
