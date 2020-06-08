@@ -78,6 +78,8 @@ crime_incidents <- read_csv("data/Police_Incidents_Last_2Years.csv")
 
 ```{r shapefiles-data}
 shp <- rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Police_Incidents_Last_2Years-shp", sep=""), layer = "Police_Incidents_Last_2Years.shp") , stringsAsFactors = FALSE)
+
+summary(shp@data)
 ```
 
 ```{r police-force-data}
@@ -88,6 +90,7 @@ police_use_of_force <- read_csv("data/Police_Use_of_Force.csv")
 police_stop_data <- read_csv("data/Police_Stop_Data.csv")
 ```
 
+
 ## Data
 
 To perform this analysis 
@@ -95,13 +98,18 @@ To perform this analysis
 
 ## Methodology 
 
+
 #### Analysing the crime which is most common 
 
 The crime incidence data was wrangled. This involved assigning each crime to its relevant offence type. The incidence of each offense was calculated, and plotted according to year.
 
+
 #### Analysing the crime being committed by each race
+number_crimes
+```
 
 #### Computing the most common force type
+
 
 The police use of force data was wrangled, and a summary was generated to count the incidence of each offense according to race. The data was plotted. 
 
@@ -593,3 +601,133 @@ ggarrange(baton_pie,
 ```
 
 # Conclusion 
+
+
+
+# brenwin's section
+What; no. different crime offense?
+```{r}
+crime_incidents %>%
+  group_by(offense) %>%
+  summarise(unique(offense))
+```
+
+
+# Police use of force data
+
+What; type of police forcetype?
+```{r police-use-of-force-clean}
+police_use_of_force %>%
+  group_by(ForceType) %>%
+  summarise(unique(ForceType))
+```
+
+number of times; force types used by police
+```{r}
+police_use_of_force %>% 
+  group_by(ForceType) %>% 
+  count()
+```
+
+what; no. of times force types used against each race
+```{r}
+police_use_of_force %>% 
+  group_by(ForceType, Race) %>% 
+  count()
+```
+
+No. of incidence; force used; per race
+```{r}
+police_use_of_force %>% 
+  group_by(Race) %>% 
+  count()
+```
+
+
+
+Use of force per race faceted by Force Type
+```{r}
+use_of_force_bar <- police_use_of_force %>% 
+  filter(!is.na(Race),
+         ForceType != "Bodily Force") %>% # see other types; many Bodily Force incidence; extend the ylimit; so remove
+  ggplot() +
+  geom_bar(aes(x = Race)) +
+  facet_wrap(~ `ForceType`) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3)) +
+  coord_flip()
+
+use_of_force_bar
+```
+
+```{r bodily-force-pie-chart}
+use_of_force_bar +
+  coord_polar()
+```
+
+
+# attempting to do maps with `leaflet`
+
+```{r}
+library(leaflet)
+library(rgdal)
+
+shp <- rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Police_Incidents_Last_2Years-shp", sep=""), layer = "Police_Incidents_Last_2Years.shp") , stringsAsFactors = FALSE)
+
+head(shp@data)
+summary(shp@data)
+head(shp@data)
+```
+
+```{r}
+library(sf)
+# Read shp file into a data frame
+shp_sf <- st_read(dsn = file.path(paste(getwd(),"/data/Police_Incidents_Last_2Years-shp/Police_Incidents_Last_2Years.shp", sep=""))) %>% 
+  dplyr::filter(centerLat != 0) # delete data (17 rows) where public address not provided
+```
+
+```{r}
+# make bounding box 
+ggmap::make_bbox(lon = shp_sf$centerLong, 
+                 lat = shp_sf$centerLat) 
+
+shp_sf %>% 
+  leaflet() %>% 
+  addTiles() %>% 
+  # Add Circle Markers 
+  addCircleMarkers(lng = shp_sf$centerLong, 
+             lat = shp_sf$centerLat, 
+             clusterOptions = markerClusterOptions()) # cluster circles and prevent hanging!
+
+
+# xxxxx potentially; group and label markers (by race and neighbourhood)
+# xxxxx change tile to Google maps (more familiar )
+```
+
+
+```{r}
+unique(police_use_of_force$Neighborhood)
+# 90 neighbourhoods
+```
+no. of crimes in each group 
+```{r number-crimes}
+number_crimes <- clean_crime %>%
+  group_by(offense) %>%
+  summarise(Incidence = n())
+number_crimes
+```
+
+no. of crimes; past for last 2 years
+```{r plot-number-crimes}
+ggplot(number_crimes,
+       aes(x = offense,
+           y = Incidence)) +
+  geom_col() +
+  xlab("Type of Offense") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+
+
+
+
+
