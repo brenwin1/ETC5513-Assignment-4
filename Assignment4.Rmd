@@ -102,9 +102,9 @@ clean_crime <- crime_incidents %>%
 clean_crime
 ```
 
+## the top neighborhood with the most cases in each year
 
-
-```{r neighbourhood2018}
+```{r neighborhood2018}
 neighborhood_summary <- clean_crime %>% select(precinct,
                                                 reportedDate,
                                                 neighborhood)
@@ -145,7 +145,7 @@ kable(neighborhood_summary2020, caption = "top 20 neighborhood with most cases i
   kable_styling(bootstrap_options = c("striped", "hover"))
 ```
 
-```{r}
+```{r neighborhood2018}
 neighborhood_summary2018 %>%
   ggplot(aes(reorder(neighborhood, case), y = case)) +
   geom_col(fill = "red") +
@@ -156,7 +156,7 @@ neighborhood_summary2018 %>%
        y = "case")
 ```
 
-```{r}
+```{r neighborhood2019}
 neighborhood_summary2019 %>%
   ggplot(aes(reorder(neighborhood, case), y = case)) +
   geom_col(fill = "blue") +
@@ -167,7 +167,7 @@ neighborhood_summary2019 %>%
        y = "case")
 ```
 
-```{r}
+```{r neighborhood2020}
 neighborhood_summary2020 %>%
   ggplot(aes(reorder(neighborhood, case), y = case)) +
   geom_col(fill = "green") +
@@ -178,8 +178,10 @@ neighborhood_summary2020 %>%
        y = "case")
 
 ```
+As in  Figure\@ref(fig:neighborhood2018), Figure\@ref(fig:neighborhood2019) and Figure\@ref(fig:neighborhood2020), **Downtown West** and **Whittier** always be the top areas with the most cases, the following areas would be **Longfellow**, **Lowry Hill East** and **Marcy Holmes** in each year. 
 
-```{r}
+
+```{r precinct}
 precinct_summary <- clean_crime %>% select(precinct,
                                                 reportedDate)
 precinct_summary$year <- year(precinct_summary$reportedDate)
@@ -203,7 +205,10 @@ precinct_summary %>% ggplot(aes(x = precinct,
   ggtitle("precinct summary in each year") +
   theme(legend.position = "none")
 ```
-# Analyse of police force used
+
+The precinct with the most cases contributed to precinct 3 in three years, as shown in the Figure\@ref(fig:precinct), while the top 2 neigorborhoods located in precinct 1 and 5. There should be more force transferred to the related precinct if it is necessary, and prepare efficient and effective resistance to the neighborhood with most cases as soon as possible. 
+
+## Analyse of police force used
 ```{r force used for primary offense}
 force_used_summary <- police_use_of_force %>% select(PrimaryOffense,
                                                 ResponseDate,
@@ -301,6 +306,8 @@ resistant_summary %>% ggplot(aes(reorder(TypeOfResistance, case), y=case)) +
         geom_bar(stat='identity') +
     facet_wrap(~ year) +
     theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-    ggtitle("force used tpye") +
+    ggtitle("resistant type") +
 labs(x='type of resistance', y='case')
 ```
+The most reason for force used in 2018, 2019 and 2020 is **ASLT4** as shown in Figure\@ref(fig:force used for primary offense), which means the offense is less than substantive harm. The safety of polices when they use of force is need to be paid attention as well. According to Figure\@ref(fig:resistant type), polices would provide resistant mostly with **tensed** cases, typically when people experienced anxiety or nervousness. Chasing crimes with cases when **fled on foot**, or dealing with **assaulted Officers** are the common tasks they faced every day no matter in which year. Therefore, polices would use **bodily force** in more than 70% cases as in Figure\@ref(fig:force type), the following would be using **chemical irritant**, and they actually would use gun in rare cases. However, they still got injured in approximately 52% cases according to the recorded data we have in 2018 and 2019 with Figure\@ref(fig:injury condition), since they take punches, kicks, Body Weight to pin and joint lock, related protection tools should be prepared to them and regularly training as well if possible. 
+
