@@ -59,6 +59,11 @@ knitr::opts_chunk$set(echo = FALSE,
 library(tidyverse)
 library(rgdal)
 library(lubridate)
+library(ggrepel)
+library(scales)
+library(gridExtra)
+library(kableExtra)
+library(lubridate)
 library(ggpubr)
 library(RColorBrewer)
 ```
@@ -74,6 +79,8 @@ This paper hopes to explore and understand crime in Minneapolis. Specifically, t
 
 ```{r crime-incident-data}
 crime_incidents <- read_csv("data/Police_Incidents_Last_2Years.csv") 
+
+glimpse(crime_incidents)
 ```
 
 ```{r shapefiles-data}
@@ -703,6 +710,7 @@ shp_sf %>%
 # xxxxx change tile to Google maps (more familiar )
 ```
 
+What is the ethnicity of those who are commmitting the crimes? 
 
 ```{r}
 unique(police_use_of_force$Neighborhood)
@@ -724,10 +732,217 @@ ggplot(number_crimes,
   geom_col() +
   xlab("Type of Offense") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+clean_crime
+```
+
+# lulupi's section
+## the top neighborhood with the most cases in each year
+
+```{r neighborhood2018}
+neighborhood_summary <- clean_crime %>% select(precinct,
+                                                reportedDate,
+                                                neighborhood)
+neighborhood_summary$year <- year(neighborhood_summary$reportedDate)
+
+neighborhood_summary2018 <- neighborhood_summary %>%
+  dplyr::filter(year %in% c("2018")) %>%
+  group_by(neighborhood) %>%
+  summarise(case = n()) %>%
+  distinct() %>%
+  top_n(20)
+
+kable(neighborhood_summary2018, caption = "top 20 neighborhood with most cases in 2018") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
 ```
 
 
+```{r neighborhood2019}
+neighborhood_summary2019 <- neighborhood_summary %>%
+  dplyr::filter(year %in% c("2019")) %>%
+  group_by(neighborhood) %>%
+  summarise(case = n()) %>%
+  distinct() %>%
+  top_n(20)
+
+kable(neighborhood_summary2019, caption = "top 20 neighborhood with most cases in 2019") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+```{r neighborhood2020}
+neighborhood_summary2020 <- neighborhood_summary %>%
+  dplyr::filter(year %in% c("2020")) %>%
+  group_by(neighborhood) %>%
+  summarise(case = n()) %>%
+  distinct() %>%
+  top_n(20)
+
+kable(neighborhood_summary2020, caption = "top 20 neighborhood with most cases in 2020") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+```{r neighborhood2018}
+neighborhood_summary2018 %>%
+  ggplot(aes(reorder(neighborhood, case), y = case)) +
+  geom_col(fill = "red") +
+  geom_label_repel(aes(label = case), size = 2.5) +
+  coord_flip() +
+  labs(title = "top 20 neighborhood with most cases in 2018", 
+       x = "neighborhood", 
+       y = "case")
+```
+
+```{r neighborhood2019}
+neighborhood_summary2019 %>%
+  ggplot(aes(reorder(neighborhood, case), y = case)) +
+  geom_col(fill = "blue") +
+  geom_label_repel(aes(label = case), size = 2.5) +
+  coord_flip() +
+  labs(title = "top 20 neighborhood with most cases in 2019", 
+       x = "neighborhood", 
+       y = "case")
+```
+
+```{r neighborhood2020}
+neighborhood_summary2020 %>%
+  ggplot(aes(reorder(neighborhood, case), y = case)) +
+  geom_col(fill = "green") +
+  geom_label_repel(aes(label = case), size = 2.5) +
+  coord_flip() +
+  labs(title = "top 20 neighborhood with most cases in 2020", 
+       x = "neighborhood", 
+       y = "case")
+
+```
+As in  Figure\@ref(fig:neighborhood2018), Figure\@ref(fig:neighborhood2019) and Figure\@ref(fig:neighborhood2020), **Downtown West** and **Whittier** always be the top areas with the most cases, the following areas would be **Longfellow**, **Lowry Hill East** and **Marcy Holmes** in each year. 
 
 
+```{r precinct}
+precinct_summary <- clean_crime %>% select(precinct,
+                                                reportedDate)
+precinct_summary$year <- year(precinct_summary$reportedDate)
 
+precinct_summary <- precinct_summary %>%
+  dplyr::select(year,
+                precinct) %>%
+  group_by(year,
+                precinct) %>%
+  mutate(case = n()) %>%
+  unique() %>%
+  arrange(-case)
+
+precinct_summary %>% ggplot(aes(x = precinct,
+             y = case,
+             colour = year)) +
+  geom_point() +
+  facet_wrap(~ year) +
+  xlab("precinct") +
+  ylab("case") +
+  ggtitle("precinct summary in each year") +
+  theme(legend.position = "none")
+```
+
+The precinct with the most cases contributed to precinct 3 in three years, as shown in the Figure\@ref(fig:precinct), while the top 2 neigorborhoods located in precinct 1 and 5. There should be more force transferred to the related precinct if it is necessary, and prepare efficient and effective resistance to the neighborhood with most cases as soon as possible. 
+
+## Analyse of police force used
+```{r force used for primary offense}
+force_used_summary <- police_use_of_force %>% select(PrimaryOffense,
+                                                ResponseDate,
+                                                ForceType,
+                                                SubjectInjury,
+                                                TypeOfResistance)
+force_used_summary$year <- year(force_used_summary$ResponseDate)
+
+force_used_summary2018 <- force_used_summary %>%
+  dplyr::filter(year %in% c("2018")) %>%
+  group_by(PrimaryOffense) %>%
+  summarise(case = n()) %>%
+  distinct() %>%
+  head(10)
+g1 <- force_used_summary2018 %>% ggplot(aes(x=case, reorder(PrimaryOffense, case))) + 
+        geom_bar(stat='identity', fill='red') +
+    ggtitle("force used in 2018") +
+labs(x='case2018', y='primary offence')
+
+force_used_summary2019 <- force_used_summary %>%
+  dplyr::filter(year %in% c("2019")) %>%
+  group_by(PrimaryOffense) %>%
+  summarise(case = n()) %>%
+  distinct() %>%
+  head(10)
+g2 <- force_used_summary2019 %>% ggplot(aes(x=case, reorder(PrimaryOffense, case))) + 
+        geom_bar(stat='identity', fill='blue') +
+    ggtitle("force used in 2019") +
+labs(x='case2019', y='primary offence')
+
+force_used_summary2020 <- force_used_summary %>%
+  dplyr::filter(year %in% c("2020")) %>%
+  group_by(PrimaryOffense) %>%
+  summarise(case = n()) %>%
+  distinct() %>%
+  head(10)
+
+g3 <- force_used_summary2020 %>% ggplot(aes(x=case, reorder(PrimaryOffense, case))) + 
+        geom_bar(stat='identity', fill='green') +
+    ggtitle("force used in 2020") +
+labs(x='case2020', y='primary offence')
+
+grid.arrange(g1, g2, g3, ncol = 3)
+```
+
+```{r force type}
+force_type_used <- force_used_summary %>%
+  dplyr::filter(year %in% c("2018",
+                            "2019",
+                            "2020")) %>%
+  group_by(ForceType,
+           year) %>%
+  summarise(total = n()) %>%
+  distinct()
+
+force_type_used %>% ggplot(aes(x=total, reorder(ForceType, total))) + 
+        geom_bar(stat='identity') +
+    facet_wrap(~ year) +
+    ggtitle("force used tpye") +
+labs(x='total', y='force type')
+```
+
+```{r injury condition}
+injury_of_force <- force_used_summary %>%
+  dplyr::filter(year %in% c("2018",
+                            "2019",
+                            "2020")) %>%
+  group_by(SubjectInjury,
+           year) %>%
+  summarise(total = n()) %>%
+  distinct()
+
+injury_of_force %>% ggplot(aes(x = SubjectInjury,
+             y = total,
+             colour = SubjectInjury)) +
+
+          geom_bar(stat='identity', fill="white") +
+    facet_wrap(~ year) +
+    ggtitle("injury condition") +
+labs(x='injury condition', y='total')
+
+```
+
+```{r resistant type}
+resistant_summary <- force_used_summary %>%
+  dplyr::filter(year %in% c("2018",
+                            "2019",
+                            "2020")) %>%
+  group_by(TypeOfResistance,
+           year) %>%
+  summarise(case = n()) %>%
+  distinct()
+
+resistant_summary %>% ggplot(aes(reorder(TypeOfResistance, case), y=case)) + 
+        geom_bar(stat='identity') +
+    facet_wrap(~ year) +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+    ggtitle("resistant type") +
+labs(x='type of resistance', y='case')
+```
+The most reason for force used in 2018, 2019 and 2020 is **ASLT4** as shown in Figure\@ref(fig:force used for primary offense), which means the offense is less than substantive harm. The safety of polices when they use of force is need to be paid attention as well. According to Figure\@ref(fig:resistant type), polices would provide resistant mostly with **tensed** cases, typically when people experienced anxiety or nervousness. Chasing crimes with cases when **fled on foot**, or dealing with **assaulted Officers** are the common tasks they faced every day no matter in which year. Therefore, polices would use **bodily force** in more than 70% cases as in Figure\@ref(fig:force type), the following would be using **chemical irritant**, and they actually would use gun in rare cases. However, they still got injured in approximately 52% cases according to the recorded data we have in 2018 and 2019 with Figure\@ref(fig:injury condition), since they take punches, kicks, Body Weight to pin and joint lock, related protection tools should be prepared to them and regularly training as well if possible. 
 
