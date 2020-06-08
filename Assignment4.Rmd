@@ -36,47 +36,560 @@ output:
     toc: true
 ---
 
-Minneapolis has the highest violent crime rate in the US. 
+Analysis of Crime in Minneapolis:
 
-Research Questions (If anyone thinks of more, please add!!) 
-- Where is crime most common in Minneapolis?
-Heat map
-- What is the ethnicity of those who are commmitting the crimes? 
-Major crimes/minor crimes
-- Where is force used?
-Heat Map 
+* What types of crimes are most common?
+* What crime is committed by each race? Are they proportionate?
+* What are the most common force types?
+* Which months of the year have the most criminal records?
+* Which day of the week has the most crimes or forces used by police?
+* Which area has the most crime?
+* Is it the same police committing each crime?
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+
+
+```{r setup}
+knitr::opts_chunk$set(echo = FALSE, 
+                      cache=TRUE, 
+                      messages=FALSE,
+                      warning=FALSE)
 ```
 
 ```{r libraries, include = FALSE}
 library(tidyverse)
 library(rgdal)
+library(lubridate)
+library(ggpubr)
+library(RColorBrewer)
 ```
 
 ```{r, include = FALSE}
+## Introduction
+
+George Floyd was arrested and killed by Derek Chauvin, a U.S. police officer, on the 25th of May in Minneapolis, @BBC-News-2020. Chauvin knelt on George Floyd’s neck for eight minutes and 46 seconds as Floyd gasped for air.  His abominable death has sparked outrage on police brutality across America.
+
+For several years, African-Americans have been the subject of racial vilification. In a study by @Dottolo-2008 students were interviewed and asked about police harassment and crime. Close analysis revealed that the students had stereotyped the criminals to be poor African American men. Another study by … revealed
+
+This paper hopes to explore and understand crime in Minneapolis. Specifically, the areas where crime is most common, the ethnicity of those committing the crime, and the force used by police. 
+
+```{r crime-incident-data}
 crime_incidents <- read_csv("data/Police_Incidents_Last_2Years.csv") 
 ```
 
-```{r}
+```{r shapefiles-data}
 shp <- rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Police_Incidents_Last_2Years-shp", sep=""), layer = "Police_Incidents_Last_2Years.shp") , stringsAsFactors = FALSE)
-
-summary(shp@data)
 ```
 
-```{r}
+```{r police-force-data}
 police_use_of_force <- read_csv("data/Police_Use_of_Force.csv")
 ```
 
-```{r}
+```{r police-stop-data, eval = FALSE}
 police_stop_data <- read_csv("data/Police_Stop_Data.csv")
+```
+
+## Data
+
+To perform this analysis 
+
+
+## Methodology 
+
+#### Analysing the crime which is most common 
+
+The crime incidence data was wrangled. This involved assigning each crime to its relevant offence type. The incidence of each offense was calculated, and plotted according to year.
+
+#### Analysing the crime being committed by each race
+
+#### Computing the most common force type
+
+The police use of force data was wrangled, and a summary was generated to count the incidence of each offense according to race. The data was plotted. 
+
+#### Analysing the months of the year which have the most criminal records
+
+#### Analysing the areas that have the most crime 
+
+#### Analysing whether Police are repeat offenders?
+
+
+# Results
+
+Figure \@ref(fig:plot-number-crimes) demonstrates that across all years, theft is the most commonly committed crime in Minneapolis. In this instance theft includes; automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle and theft of motor vehicle parts. 
+
+```{r clean-crime}
+clean_crime <- crime_incidents %>%
+  mutate(offense = case_when(
+    offense %in% c("ARSON") ~ "Arson",
+    offense %in% c("ASLT1",
+                   "ASLT2",
+                   "ASLT3",
+                   "ASLT4") ~ "Assault",
+    # Combining automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle, theft of motor vehicle parts
+    offense %in% c("AUTOTH",
+                   "MVTHFT",
+                   "BIKETF",
+                   "COINOP",
+                   "NOPAY",
+                   "ONLTHT",
+                   "PETIT",
+                   "POCKET",
+                   "SCRAP",
+                   "TBLDG",
+                   "TFMV",
+                   "TFPER",
+                   "THEFT",
+                   "THFTSW",
+                   "TMVP") ~ "Theft",
+    # Combining burglary of business and burglary of dwelling
+    offense %in% c("BURGB",
+                   "BURGD") ~ "Burglary",
+    offense %in% c("ROBBIZ",
+                   "ROBPAG",
+                   "ROBPER") ~ "Robbery",
+    offense %in% c("SHOPLF") ~ "Shoplifting",
+    offense %in% c("COMPUT") ~ "Computer Hacking",
+    offense %in% c("CSCR") ~ "Rape",
+    # Combing first, second and third degree domestic assult with domestic assault strangulation
+    offense %in% c("DASLT1",
+                   "DASLT2",
+                   "DASLT3",
+                   "DASTR") ~ "Domestic Assault",
+    offense %in% c("DISARM") ~ "Disarm a police officer",
+    offense %in% c("LOOT") ~ "Looting",
+    offense %in% c("MURDR") ~ "Murder")) %>%
+  mutate(Year = year(enteredDate))
+```
+
+```{r number-crimes}
+number_crimes <- clean_crime %>%
+  group_by(offense,
+           Year) %>%
+  summarise(Incidence = n())
+```
+
+```{r plot-number-crimes}
+ggplot(number_crimes,
+       aes(x = offense,
+           y = Incidence,
+           group = Year)) +
+  geom_col() +
+  facet_wrap(~Year) +
+  xlab("Type of Offense") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+According to Figure \@ref(fig:bar-chart-force) the most common force used is Bodily Force, then Chemical Irritant and taser.
+
+
+```{r police-force-clean}
+police_use_of_force_count <- police_use_of_force %>%
+  filter(ForceType != "NA",
+         Race != "NA") %>%
+  group_by(ForceType, 
+           Race) %>%
+  summarise(Count = n()) 
+```
+
+```{r bar-chart-force}
+ggplot(police_use_of_force_count,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  facet_wrap(~ForceType) 
 ```
 
 
 
+```{r baton-use}
+baton_use <- police_use_of_force %>%
+  filter(ForceType == "Baton") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
 
+```{r baton-use-plot}
+baton_bar <- ggplot(baton_use ,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
 
+```{r baton-use-pie-chart}
+baton_pie <- ggplot(baton_use,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
 
+```{r bodily-force}
+bodily_force <- police_use_of_force %>%
+  filter(ForceType == "Bodily Force") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
 
+```{r bodily-force-use-plot}
+bodily_force_bar <- ggplot(bodily_force,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
 
+```{r bodily-force-pie-chart}
+bodily_force_pie <- ggplot(bodily_force,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+```{r chemical-irritant}
+chemical_irritant <- police_use_of_force %>%
+  filter(ForceType == "Chemical Irritant") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r chemical-irritant-use-plot}
+chemical_irritant_bar <- ggplot(chemical_irritant,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r chemical_irritant-pie-chart}
+chemical_irritant_pie <- ggplot(chemical_irritant,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+```{r firearm}
+firearm <- police_use_of_force %>%
+  filter(ForceType == "Firearm") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r firearm-use-plot}
+firearm_bar <- ggplot(firearm,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r firearm-pie-chart}
+firearm_pie <- ggplot(firearm,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+```{r gun-point}
+gun_point <- police_use_of_force %>%
+  filter(ForceType == "Gun Point Display") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r gun-point-plot}
+gun_point_plot <- ggplot(gun_point,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r gun-point-pie-chart}
+gun_point_pie <- ggplot(gun_point,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+```{r improvised-weapon}
+improvised_weapon <- police_use_of_force %>%
+  filter(ForceType == "Improvised Weapon") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r improvised-weapon-plot}
+improvised_weapon_plot <- ggplot(improvised_weapon,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r improvised-weapon-pie-chart}
+improvised_weapon_pie <- ggplot(improvised_weapon,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+```{r less-lethal}
+less_lethal <- police_use_of_force %>%
+  filter(ForceType == "Less Lethal") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r less-lethal-plot}
+less_lethal_plot <- ggplot(less_lethal,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r less-lethal-pie-chart}
+less_lethal_pie <- ggplot(less_lethal,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+```{r less-lethal-projectile}
+less_lethal_projectile <- police_use_of_force %>%
+  filter(ForceType == "Less Lethal Projectile") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r less-lethal-projectile-plot}
+less_lethal_projectile_plot <- ggplot(less_lethal_projectile,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r less-lethal-projectile-pie-chart}
+less_lethal_projectile_pie <- ggplot(less_lethal_projectile,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+```{r maximal-restraint-technique}
+maximal_restraint_technique <- police_use_of_force %>%
+  filter(ForceType == "Maximal Restraint Technique") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r maximal-restraint-technique-plot}
+maximal_restraint_technique_plot <- ggplot(maximal_restraint_technique,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r maximal-restraint-technique-pie-chart}
+maximal_restraint_technique_pie <- ggplot(maximal_restraint_technique,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+```{r canine-bite}
+canine_bite <- police_use_of_force %>%
+  filter(ForceType == "Police K9 Bite") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r canine-bite-plot}
+canine_bite_plot <- ggplot(canine_bite,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r canine-bite-pie-chart}
+canine_bite_pie <- ggplot(canine_bite,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+```{r taser}
+taser <- police_use_of_force %>%
+  filter(ForceType == "Taser") %>%
+  group_by(Race) %>%
+  summarise(Count = n())
+```
+
+```{r taser-plot}
+taser_plot <- ggplot(taser,
+       aes(x = Race,
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  xlab("Race") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
+```
+
+```{r taser-pie-chart}
+taser_pie <- ggplot(taser,
+       aes(x = "",
+           y = Count,
+           fill = Race)) +
+  geom_bar(width = 1, 
+           stat = "identity") +
+  coord_polar("y",
+              start = 0)
+```
+
+Figure \@ref(fig:arrange-pie) captures how the police have used force on each race. Baton, bodily force, chemical irritant, firearm, gun point, improvised weapon, canine bite and taser are all used on African Americans most frequently. Interestingly enough, less lethal force is used on white people the most, proportionately. In addition, less lethal projectiles and maximal restraint technique are most commonly used on white and asian people. 
+
+Therefore, assuming that crime being committed by African-Americans is similar in nature to the crime being committed by all other races, it is likely African-Americans are more likely to be subject of ruthless force use. 
+
+```{r arrange-bar, fig.dim=c(15,15)}
+ggarrange(baton_bar,
+          bodily_force_bar,
+          chemical_irritant_bar,
+          firearm_bar,
+          gun_point_plot,
+          improvised_weapon_plot,
+          less_lethal_plot,
+          less_lethal_projectile_plot,
+          maximal_restraint_technique_plot,
+          canine_bite_plot,
+          taser_plot,
+          labels = c("Baton",
+                     "Bodily Force",
+                     "Chemical Irritant",
+                     "Firearm",
+                     "Gun Point",
+                     "Improvised Weapon",
+                     "Less Lethal",
+                     "Less Lethal Projectile",
+                     "Maximal Restraint Technique",
+                     "Canine Bite",
+                     "Taser"),
+          vjust = 0.5,
+          hjust = -1.75,
+          font.label = list(size = 10),
+          legend = c("top"),
+          ncol = 3,
+          nrow = 4,
+          # Create a common legend
+          common.legend = TRUE)
+```
+
+```{r arrange-pie, fig.dim=c(10,10)}
+ggarrange(baton_pie,
+          bodily_force_pie,
+          chemical_irritant_pie,
+          firearm_pie,
+          gun_point_pie,
+          improvised_weapon_pie,
+          less_lethal_pie,
+          less_lethal_projectile_pie,
+          maximal_restraint_technique_pie,
+          canine_bite_pie,
+          taser_pie,
+          labels = c("Baton",
+                     "Bodily Force",
+                     "Chemical Irritant",
+                     "Firearm",
+                     "Gun Point",
+                     "Improvised Weapon",
+                     "Less Lethal",
+                     "Less Lethal Projectile",
+                     "Maximal Restraint Technique",
+                     "Canine Bite",
+                     "Taser"),
+          align = "hv",
+          vjust = 0.5,
+          hjust = -0.5,
+          font.label = list(size = 10),
+          legend = c("top"),
+          ncol = 3,
+          nrow = 4,
+          # Create a common legend
+          common.legend = TRUE)
+```
+
+# Conclusion 
