@@ -21,7 +21,7 @@
 \PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
 \usepackage[unicode=true]{hyperref}
 \hypersetup{
-            pdftitle={Corona Virus Report},
+            pdftitle={Crime in Minneapolis},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
@@ -72,6 +72,15 @@
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 \IfFileExists{parskip.sty}{%
 \usepackage{parskip}
 }{% else
@@ -89,7 +98,7 @@
 \makeatother
 
 
-\title{Corona Virus Report}
+\title{Crime in Minneapolis}
 
 %% MONASH STUFF
 
@@ -325,65 +334,32 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-Minneapolis has the highest violent crime rate in the US.
+Analysis of Crime in Minneapolis:
 
-Research Questions (If anyone thinks of more, please add!!)
-- Where is crime most common in Minneapolis?
-Heat map
-- What is the ethnicity of those who are commmitting the crimes?
-Major crimes/minor crimes
-- Where is force used?
-Heat Map
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(tidyverse)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## -- Attaching packages -------------------------- tidyverse 1.3.0 --
-\end{verbatim}
-
-\begin{verbatim}
-## v ggplot2 3.3.1     v purrr   0.3.4
-## v tibble  3.0.1     v dplyr   1.0.0
-## v tidyr   1.1.0     v stringr 1.4.0
-## v readr   1.3.1     v forcats 0.5.0
-\end{verbatim}
-
-\begin{verbatim}
-## -- Conflicts ----------------------------- tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()
-\end{verbatim}
+\begin{itemize}
+\tightlist
+\item
+  What types of crimes are most common?
+\item
+  What crime is committed by each race? Are they proportionate?
+\item
+  What are the most common force types?
+\item
+  Which months of the year have the most criminal records?
+\item
+  Which day of the week has the most crimes or forces used by police?
+\item
+  Which area has the most crime?
+\item
+  Is it the same police committing each crime?
+\end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(rgdal)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Loading required package: sp
-\end{verbatim}
-
-\begin{verbatim}
-## rgdal: version: 1.5-8, (SVN revision 990)
-## Geospatial Data Abstraction Library extensions to R successfully loaded
-## Loaded GDAL runtime: GDAL 2.4.2, released 2019/06/28
-## Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rgdal/gdal
-## GDAL binary built with GEOS: FALSE 
-## Loaded PROJ runtime: Rel. 5.2.0, September 15th, 2018, [PJ_VERSION: 520]
-## Path to PROJ shared files: /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rgdal/proj
-## Linking to sp version:1.4-2
-## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
-## use options("rgdal_show_exportToProj4_warnings"="none") before loading rgdal.
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{crime_incidents <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/Police_Incidents_Last_2Years.csv"}\NormalTok{) }
+\NormalTok{knitr}\OperatorTok{::}\NormalTok{opts_chunk}\OperatorTok{$}\KeywordTok{set}\NormalTok{(}\DataTypeTok{echo =} \OtherTok{FALSE}\NormalTok{, }
+                      \DataTypeTok{cache=}\OtherTok{TRUE}\NormalTok{, }
+                      \DataTypeTok{messages=}\OtherTok{FALSE}\NormalTok{,}
+                      \DataTypeTok{warning=}\OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -408,81 +384,12 @@ Heat Map
 ## See spec(...) for full column specifications.
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{shp <-}\StringTok{ }\NormalTok{rgdal}\OperatorTok{::}\KeywordTok{readOGR}\NormalTok{(}\DataTypeTok{dsn =} \KeywordTok{file.path}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\KeywordTok{getwd}\NormalTok{(),}\StringTok{"/data/Police_Incidents_Last_2Years-shp"}\NormalTok{, }\DataTypeTok{sep=}\StringTok{""}\NormalTok{), }\DataTypeTok{layer =} \StringTok{"Police_Incidents_Last_2Years.shp"}\NormalTok{) , }\DataTypeTok{stringsAsFactors =} \OtherTok{FALSE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "/Users/brenwin/Desktop/ETC5513-Assignment-4/data/Police_Incidents_Last_2Years-shp/Police_Incidents_Last_2Years.shp", layer: "Police_Incidents_Last_2Years"
+## Source: "/Users/emsheehan/Documents/UNI - POSTGRAD/COLLAB/ETC5513-Assignment-4/data/Police_Incidents_Last_2Years-shp/Police_Incidents_Last_2Years.shp", layer: "Police_Incidents_Last_2Years"
 ## with 43283 features
-## It has 21 fields
+## It has 0 fields
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{summary}\NormalTok{(shp}\OperatorTok{@}\NormalTok{data)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##   publicaddr         caseNumber          precinct          reportedDa       
-##  Length:43283       Length:43283       Length:43283       Length:43283      
-##  Class :character   Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-##                                                                             
-##                                                                             
-##                                                                             
-##                                                                             
-##    reportedTi    beginDate          reported_1          beginTime   
-##  Min.   :   0   Length:43283       Length:43283       Min.   :   0  
-##  1st Qu.: 958   Class :character   Class :character   1st Qu.: 800  
-##  Median :1354   Mode  :character   Mode  :character   Median :1459  
-##  Mean   :1344                                         Mean   :1325  
-##  3rd Qu.:1820                                         3rd Qu.:1915  
-##  Max.   :2359                                         Max.   :2359  
-##                                                                     
-##    offense           descriptio          UCRCode           enteredDat       
-##  Length:43283       Length:43283       Length:43283       Length:43283      
-##  Class :character   Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-##                                                                             
-##                                                                             
-##                                                                             
-##                                                                             
-##    centergbsi      centerLong       centerLat        centerX         
-##  Min.   :    0   Min.   :-93.33   Min.   : 0.00   Min.   :-10389348  
-##  1st Qu.:14818   1st Qu.:-93.29   1st Qu.:44.95   1st Qu.:-10384804  
-##  Median :17254   Median :-93.27   Median :44.97   Median :-10382968  
-##  Mean   :17207   Mean   :-93.23   Mean   :44.95   Mean   :-10378492  
-##  3rd Qu.:19927   3rd Qu.:-93.25   3rd Qu.:44.99   3rd Qu.:-10380253  
-##  Max.   :26053   Max.   :  0.00   Max.   :45.05   Max.   :        0  
-##  NA's   :5423                                                        
-##     centerY         neighborho         lastchange         LastUpdate       
-##  Min.   :      0   Length:43283       Length:43283       Length:43283      
-##  1st Qu.:5613395   Class :character   Class :character   Class :character  
-##  Median :5616316   Mode  :character   Mode  :character   Mode  :character  
-##  Mean   :5614271                                                           
-##  3rd Qu.:5619473                                                           
-##  Max.   :5629589                                                           
-##                                                                            
-##     OBJECTID    
-##  Min.   :    1  
-##  1st Qu.:10822  
-##  Median :21642  
-##  Mean   :21642  
-##  3rd Qu.:32462  
-##  Max.   :43283  
-## 
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{police_use_of_force <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/Police_Use_of_Force.csv"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## Parsed with column specification:
@@ -510,48 +417,484 @@ Heat Map
 ## See spec(...) for full column specifications.
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{police_stop_data <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/Police_Stop_Data.csv"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+George Floyd was arrested and killed by Derek Chauvin, a U.S. police officer, on the 25th of May in Minneapolis, \textcite{BBC-News-2020}. Chauvin knelt on George Floyd's neck for eight minutes and 46 seconds as Floyd gasped for air. His abominable death has sparked outrage on police brutality across America.
+
+For several years, African-Americans have been the subject of racial vilification. In a study by \textcite{Dottolo-2008} students were interviewed and asked about police harassment and crime. Close analysis revealed that the students had stereotyped the criminals to be poor African American men. Another study by \ldots{} revealed
+
+This paper hopes to explore and understand crime in Minneapolis. Specifically, the areas where crime is most common, the ethnicity of those committing the crime, and the force used by police.
+
+\hypertarget{data}{%
+\section{Data}\label{data}}
+
+To perform this analysis
+
+\hypertarget{methodology}{%
+\section{Methodology}\label{methodology}}
+
+\hypertarget{analysing-the-crime-which-is-most-common}{%
+\subsection{Analysing the crime which is most common}\label{analysing-the-crime-which-is-most-common}}
+
+The crime incidence data was wrangled. This involved assigning each crime to its relevant offence type. The incidence of each offense was calculated, and plotted according to year.
+
+\hypertarget{analysing-the-crime-being-committed-by-each-race}{%
+\subsection{Analysing the crime being committed by each race}\label{analysing-the-crime-being-committed-by-each-race}}
+
+number\_crimes
+
+\hypertarget{computing-the-most-common-force-type}{%
+\subsection{Computing the most common force type}\label{computing-the-most-common-force-type}}
+
+The police use of force data was wrangled, and a summary was generated to count the incidence of each offense according to race. The data was plotted.
+
+\hypertarget{analysing-the-months-of-the-year-which-have-the-most-criminal-records}{%
+\subsection{Analysing the months of the year which have the most criminal records}\label{analysing-the-months-of-the-year-which-have-the-most-criminal-records}}
+
+\hypertarget{analysing-the-areas-that-have-the-most-crime}{%
+\subsection{Analysing the areas that have the most crime}\label{analysing-the-areas-that-have-the-most-crime}}
+
+\hypertarget{analysing-whether-police-are-repeat-offenders}{%
+\subsection{Analysing whether Police are repeat offenders?}\label{analysing-whether-police-are-repeat-offenders}}
+
+\hypertarget{results}{%
+\section{Results}\label{results}}
+
+\hypertarget{depth-analysis-on-crime}{%
+\subsection{Depth analysis on crime}\label{depth-analysis-on-crime}}
+
+To make the division of crime distribution more detailed, I used Neighborhood instead of Precinct, but due to the quite large number, I only took Top10 neighborhood with the highest crimes and the Top5 most frequent offenses(See Figure \ref{fig:offencetype}).
+It is obvious that basically in each neighborhood, theft is still the most frequent occurrence. But Longflow is the only exception, shoplifting is about to reach the number of theft.
+
+\textbackslash{}begin\{figure\}
+
+\{\centering \includegraphics{Assignment4_files/figure-latex/offencetype-1}
+
+\}
+
+\textbackslash{}caption\{The most common offence type in Top\_10 Neighborhoods with the most crimes\}\label{fig:offencetype}
+\textbackslash{}end\{figure\}
 
 \begin{verbatim}
-## Parsed with column specification:
-## cols(
-##   OBJECTID = col_double(),
-##   masterIncidentNumber = col_character(),
-##   responseDate = col_character(),
-##   reason = col_logical(),
-##   problem = col_character(),
-##   callDisposition = col_character(),
-##   citationIssued = col_logical(),
-##   personSearch = col_character(),
-##   vehicleSearch = col_character(),
-##   preRace = col_character(),
-##   race = col_character(),
-##   gender = col_character(),
-##   lat = col_double(),
-##   long = col_double(),
-##   x = col_double(),
-##   y = col_double(),
-##   policePrecinct = col_double(),
-##   neighborhood = col_character(),
-##   lastUpdateDate = col_character()
-## )
+## Selecting by case
+\end{verbatim}
+
+\begin{table}
+
+\caption{\label{tab:neighborhood-2018}top 20 neighborhood with most cases in 2018}
+\centering
+\begin{tabular}[t]{l|r}
+\hline
+neighborhood & case\\
+\hline
+CARAG & 194\\
+\hline
+Cedar Riverside & 225\\
+\hline
+Downtown West & 1199\\
+\hline
+East Phillips & 250\\
+\hline
+Elliot Park & 251\\
+\hline
+Folwell & 191\\
+\hline
+Hawthorne & 310\\
+\hline
+Jordan & 305\\
+\hline
+Longfellow & 378\\
+\hline
+Loring Park & 254\\
+\hline
+Lowry Hill East & 381\\
+\hline
+Marcy Holmes & 398\\
+\hline
+Near - North & 254\\
+\hline
+North Loop & 235\\
+\hline
+Powderhorn Park & 227\\
+\hline
+Prospect Park - East River Road & 246\\
+\hline
+Seward & 274\\
+\hline
+Ventura Village & 259\\
+\hline
+Whittier & 490\\
+\hline
+Willard - Hay & 221\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{verbatim}
+## Selecting by case
+\end{verbatim}
+
+\begin{table}
+
+\caption{\label{tab:neighborhood-2019}top 20 neighborhood with most cases in 2019}
+\centering
+\begin{tabular}[t]{l|r}
+\hline
+neighborhood & case\\
+\hline
+Cedar Riverside & 398\\
+\hline
+Downtown West & 2612\\
+\hline
+East Phillips & 439\\
+\hline
+Elliot Park & 508\\
+\hline
+Folwell & 363\\
+\hline
+Hawthorne & 578\\
+\hline
+Jordan & 483\\
+\hline
+Longfellow & 768\\
+\hline
+Loring Park & 515\\
+\hline
+Lowry Hill East & 817\\
+\hline
+Marcy Holmes & 726\\
+\hline
+Midtown Phillips & 490\\
+\hline
+Near - North & 506\\
+\hline
+North Loop & 470\\
+\hline
+Powderhorn Park & 460\\
+\hline
+Prospect Park - East River Road & 414\\
+\hline
+Seward & 553\\
+\hline
+Ventura Village & 516\\
+\hline
+Whittier & 1182\\
+\hline
+Willard - Hay & 369\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{verbatim}
+## Selecting by case
+\end{verbatim}
+
+\begin{table}
+
+\caption{\label{tab:neighborhood-2020}top 20 neighborhood with most cases in 2020}
+\centering
+\begin{tabular}[t]{l|r}
+\hline
+neighborhood & case\\
+\hline
+CARAG & 139\\
+\hline
+Cedar Riverside & 140\\
+\hline
+Downtown West & 589\\
+\hline
+East Phillips & 185\\
+\hline
+Elliot Park & 159\\
+\hline
+Hawthorne & 177\\
+\hline
+Jordan & 200\\
+\hline
+Longfellow & 274\\
+\hline
+Loring Park & 209\\
+\hline
+Lowry Hill East & 268\\
+\hline
+Marcy Holmes & 271\\
+\hline
+Midtown Phillips & 174\\
+\hline
+Near - North & 215\\
+\hline
+North Loop & 195\\
+\hline
+Powderhorn Park & 155\\
+\hline
+Prospect Park - East River Road & 150\\
+\hline
+Seward & 216\\
+\hline
+Ventura Village & 237\\
+\hline
+Whittier & 415\\
+\hline
+Willard - Hay & 146\\
+\hline
+\end{tabular}
+\end{table}
+
+\includegraphics{Assignment4_files/figure-latex/neighborhood2018-1.pdf}
+
+\includegraphics{Assignment4_files/figure-latex/neighborhood2019-1.pdf}
+
+\includegraphics{Assignment4_files/figure-latex/neighborhood2020-1.pdf}
+
+As in Figure\ref{fig:neighborhood2018}, Figure\ref{fig:neighborhood2019} and Figure\ref{fig:neighborhood2020}, \textbf{Downtown West} and \textbf{Whittier} always be the top areas with the most cases, the following areas would be \textbf{Longfellow}, \textbf{Lowry Hill East} and \textbf{Marcy Holmes} in each year.
+
+The precinct with the most cases contributed to precinct 3 in three years, as shown in the Figure\ref{fig:precinct}, while the top 2 neigorborhoods located in precinct 1 and 5. There should be more force transferred to the related precinct if it is necessary, and prepare efficient and effective resistance to the neighborhood with most cases as soon as possible.
+
+The most reason for force used in 2018, 2019 and 2020 is \textbf{ASLT4} as shown in Figure@ref(fig:force used for primary offense), which means the offense is less than substantive harm. The safety of polices when they use of force is need to be paid attention as well. According to Figure@ref(fig:resistant type), polices would provide resistant mostly with \textbf{tensed} cases, typically when people experienced anxiety or nervousness. Chasing crimes with cases when \textbf{fled on foot}, or dealing with \textbf{assaulted Officers} are the common tasks they faced every day no matter in which year. Therefore, polices would use \textbf{bodily force} in more than 70\% cases as in Figure@ref(fig:force type), the following would be using \textbf{chemical irritant}, and they actually would use gun in rare cases. However, they still got injured in approximately 52\% cases according to the recorded data we have in 2018 and 2019 with Figure@ref(fig:injury condition), since they take punches, kicks, Body Weight to pin and joint lock, related protection tools should be prepared to them and regularly training as well if possible.
+
+\hypertarget{crime-incident-data}{%
+\subsection{Crime incident Data}\label{crime-incident-data}}
+
+Figure \ref{fig:plot-number-crimes} demonstrates that across all years, theft is the most commonly committed crime in Minneapolis. In this instance theft includes; automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle and theft of motor vehicle parts.
+
+\includegraphics{Assignment4_files/figure-latex/plot-number-crimes-1.pdf}
+
+\begin{figure}
+
+{\centering \includegraphics{Assignment4_files/figure-latex/Crimeanalysis-1} 
+
+}
+
+\caption{Crimes comparison of different districts}\label{fig:Crimeanalysis}
+\end{figure}
+
+\hypertarget{crime-with-time}{%
+\subsection{Crime with time}\label{crime-with-time}}
+
+The part I am responsible for mainly includes the relationship between different time and precinct with crime.
+The first figure shows the total number of crimes in each month from 2018 to 2020, from which we can see that crimes soared from May, peaked in July and August, and then gradually began to decline(See Figure \ref{fig:timefig}). If we compare different years, 2018 is significantly safer than 2019. As for 2020, compared with the May of previous year, the number of crimes did not increase but decrease, which is probably due to COVID19.
+
+\begin{figure}
+
+{\centering \includegraphics{Assignment4_files/figure-latex/timefig-1} 
+
+}
+
+\caption{Comparison of crimes in different months}\label{fig:timefig}
+\end{figure}
+
+\hypertarget{force-used-by-police-data}{%
+\subsection{Force Used By Police Data}\label{force-used-by-police-data}}
+
+The following figures show the distribution of crimes and force using every day. It can be seen that there are more crimes on weekdays than on weekends, but the situation of force using by police is just the opposite. It is possible that most people will go to recreation places on weekends, and too many people gather will lead to conflicts, so the times of patrol by police will stay high. And criminals will not commit crimes when there are so many police (See Figure \ref{fig:weekdaysituation}).
+
+\begin{figure}
+
+{\centering \includegraphics{Assignment4_files/figure-latex/weekdaysituation-1} 
+
+}
+
+\caption{The average crimes and force using in a week}\label{fig:weekdaysituation}
+\end{figure}
+
+The last three figures are about the data of force using by police.
+Figure \ref{fig:TypeOfResistance} shows The Different Type of Resistance in Each Precinct. In a sense, it can be seen that the efficiency of the police and the risk of criminals in each precinct. For example, No.~4 precinct is significantly more dangerous than No.~1 precinct, the probability of criminals escaping is greatly increased, while the Commission of crime is too low to be frightening.
+
+\begin{figure}
+
+{\centering \includegraphics{Assignment4_files/figure-latex/TypeOfResistance-1} 
+
+}
+
+\caption{The different Resistance of criminals in each Precinct}\label{fig:TypeOfResistance}
+\end{figure}
+
+Figure \ref{fig:relationshipfig} shows the relationship between the force type and the type of resistance. The purpose of this figure is to show the effect of the force type used by the police when treating the criminals. I think the content in that figure is obvious, for example, if only using the police dog, the effect is not good and the criminals are easy to escape. If firearm and chemical irritant are combined, better results will be achieved.
+
+\begin{figure}
+
+{\centering \includegraphics{Assignment4_files/figure-latex/relationshipfig-1} 
+
+}
+
+\caption{The relationship between Force Type adopted by police and type of resistance of criminals}\label{fig:relationshipfig}
+\end{figure}
+
+The last one is the proportion of different Race in the use of force.(See Figure \ref{fig:Race}) This is a sensitive topic, but it is clear that without the influence of NA, only when police use the less lethal related way to deal with criminals then the incidences of black people will be significantly reduced, otherwise black people accounted for more than 70\% in the rest of the various use of force. Our group is not clear about the situation on the ground in Minneapolis, nor clear about other things about black people. Only from this figure alone, is the way the police treat black people too radical?
+
+\begin{figure}
+
+{\centering \includegraphics{Assignment4_files/figure-latex/Race-1} 
+
+}
+
+\caption{Different races are treated differently}\label{fig:Race}
+\end{figure}
+
+\hypertarget{mapping-the-the-use-of-police-force}{%
+\subsection{Mapping the the Use of Police Force}\label{mapping-the-the-use-of-police-force}}
+
+\begin{verbatim}
+## OGR data source with driver: ESRI Shapefile 
+## Source: "/Users/emsheehan/Documents/UNI - POSTGRAD/COLLAB/ETC5513-Assignment-4/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp", layer: "Police_Use_of_Force"
+## with 30024 features
+## It has 28 fields
 \end{verbatim}
 
 \begin{verbatim}
-## Warning: 232908 parsing failures.
-##   row    col           expected              actual                        file
-## 18901 reason 1/0/T/F/TRUE/FALSE Moving Violation    'data/Police_Stop_Data.csv'
-## 18902 reason 1/0/T/F/TRUE/FALSE Moving Violation    'data/Police_Stop_Data.csv'
-## 18919 reason 1/0/T/F/TRUE/FALSE Equipment Violation 'data/Police_Stop_Data.csv'
-## 18926 reason 1/0/T/F/TRUE/FALSE Moving Violation    'data/Police_Stop_Data.csv'
-## 18928 reason 1/0/T/F/TRUE/FALSE Moving Violation    'data/Police_Stop_Data.csv'
-## ..... ...... .................. ................... ...........................
-## See problems(...) for more details.
+##   PoliceUseO CaseNumber ResponseDa                    Problem Is911Call
+## 1   11164176  08-001987 2008/01/02       Paramedic Needs Help        No
+## 2   11164177  08-017957 2008/01/18 Domestic Abuse-In Progress       Yes
+## 3   11164178  08-028467 2008/01/29         Suspicious Vehicle        No
+## 4   11164179  08-034324 2008/02/04 Domestic Abuse-In Progress       Yes
+## 5   11164180  08-052461 2008/02/24          Suspicious Person        No
+## 6   11164181  08-054881 2008/02/26          Suspicious Person        No
+##   PrimaryOff SubjectInj ForceRepor SubjectRol SubjectR_1    ForceType
+## 1      ASLT5       <NA>          1          A          1 Bodily Force
+## 2     OBSTRU         No          2          A          1 Bodily Force
+## 3       FLEE        Yes          1          A          1 Bodily Force
+## 4     DASLT5       <NA>          1          A          1 Bodily Force
+## 5     DISCON         No          2          A          1 Bodily Force
+## 6     OBSTRU         No          2          A          1 Bodily Force
+##           ForceTypeA  Race    Sex EventAge          TypeOfResi Precinct
+## 1 Body Weight to Pin White   Male       46 Commission of Crime       05
+## 2              Knees Black   Male       34              Tensed       02
+## 3 Body Weight to Pin Black   Male       24     Fled in Vehicle       04
+## 4          Push Away White Female       29              Tensed       05
+## 5              Knees Black   Male       34              Tensed       01
+## 6              Knees Black   Male       40        Fled on Foot       03
+##        Neighborho TotalCityC TotalPreci TotalNeigh CenterGBSI CenterLati
+## 1        Whittier     322402      55689      13263      17960   44.95919
+## 2      Waite Park     322402      48901       2071      20459   45.03253
+## 3    Near - North     322402      80434      10077      25298   44.99637
+## 4 Lowry Hill East     322402      55689       5734      16102   44.96181
+## 5   Downtown West     322402      46998      23458      16700   44.98007
+## 6 Ventura Village     322402      84018      10316      20569   44.96332
+##   CenterLong   CenterX CenterY  DateAdded OBJECTID
+## 1  -93.27720 -10383570 5615100 2020/05/31        1
+## 2  -93.24723 -10380234 5626645 2020/05/31        2
+## 3  -93.27993 -10383875 5620950 2020/05/31        3
+## 4  -93.29054 -10385055 5615512 2020/05/31        4
+## 5  -93.27188 -10382979 5618384 2020/05/31        5
+## 6  -93.26511 -10382224 5615749 2020/05/31        6
 \end{verbatim}
+
+\begin{verbatim}
+##    PoliceUseO        CaseNumber         ResponseDa          Problem         
+##  Min.   :11164176   Length:30024       Length:30024       Length:30024      
+##  1st Qu.:11171682   Class :character   Class :character   Class :character  
+##  Median :11179188   Mode  :character   Mode  :character   Mode  :character  
+##  Mean   :11179188                                                           
+##  3rd Qu.:11186693                                                           
+##  Max.   :11194199                                                           
+##                                                                             
+##   Is911Call          PrimaryOff         SubjectInj          ForceRepor    
+##  Length:30024       Length:30024       Length:30024       Min.   : 0.000  
+##  Class :character   Class :character   Class :character   1st Qu.: 1.000  
+##  Mode  :character   Mode  :character   Mode  :character   Median : 1.000  
+##                                                           Mean   : 1.473  
+##                                                           3rd Qu.: 2.000  
+##                                                           Max.   :19.000  
+##                                                                           
+##   SubjectRol          SubjectR_1      ForceType          ForceTypeA       
+##  Length:30024       Min.   : 0.000   Length:30024       Length:30024      
+##  Class :character   1st Qu.: 1.000   Class :character   Class :character  
+##  Mode  :character   Median : 1.000   Mode  :character   Mode  :character  
+##                     Mean   : 1.153                                        
+##                     3rd Qu.: 1.000                                        
+##                     Max.   :18.000                                        
+##                     NA's   :12                                            
+##      Race               Sex               EventAge         TypeOfResi       
+##  Length:30024       Length:30024       Min.   :-1952.00   Length:30024      
+##  Class :character   Class :character   1st Qu.:   21.00   Class :character  
+##  Mode  :character   Mode  :character   Median :   26.00   Mode  :character  
+##                                        Mean   :   28.25                     
+##                                        3rd Qu.:   34.00                     
+##                                        Max.   :   82.00                     
+##                                        NA's   :1626                         
+##    Precinct          Neighborho          TotalCityC       TotalPreci   
+##  Length:30024       Length:30024       Min.   :     0   Min.   :    0  
+##  Class :character   Class :character   1st Qu.:314926   1st Qu.:53956  
+##  Mode  :character   Mode  :character   Median :324520   Median :68123  
+##                                        Mean   :327649   Mean   :66215  
+##                                        3rd Qu.:351659   3rd Qu.:79638  
+##                                        Max.   :380794   Max.   :90815  
+##                                                         NA's   :1131   
+##    TotalNeigh      CenterGBSI      CenterLati      CenterLong    
+##  Min.   :    0   Min.   :    0   Min.   : 0.00   Min.   :-93.33  
+##  1st Qu.: 4692   1st Qu.:15327   1st Qu.:44.96   1st Qu.:-93.29  
+##  Median : 8509   Median :17122   Median :44.98   Median :-93.27  
+##  Mean   :12802   Mean   :17119   Mean   :43.07   Mean   :-89.33  
+##  3rd Qu.:23458   3rd Qu.:20302   3rd Qu.:45.00   3rd Qu.:-93.26  
+##  Max.   :38522   Max.   :26058   Max.   :45.05   Max.   :  0.00  
+##                                                                  
+##     CenterX             CenterY         DateAdded            OBJECTID    
+##  Min.   :-10389272   Min.   :      0   Length:30024       Min.   :    1  
+##  1st Qu.:-10385027   1st Qu.:5614789   Class :character   1st Qu.: 7507  
+##  Median :-10383119   Median :5618315   Mode  :character   Median :15012  
+##  Mean   : -9943743   Mean   :5380373                      Mean   :15012  
+##  3rd Qu.:-10381650   3rd Qu.:5621043                      3rd Qu.:22518  
+##  Max.   :        0   Max.   :5629593                      Max.   :30024  
+## 
+\end{verbatim}
+
+\begin{verbatim}
+##   PoliceUseO CaseNumber ResponseDa                    Problem Is911Call
+## 1   11164176  08-001987 2008/01/02       Paramedic Needs Help        No
+## 2   11164177  08-017957 2008/01/18 Domestic Abuse-In Progress       Yes
+## 3   11164178  08-028467 2008/01/29         Suspicious Vehicle        No
+## 4   11164179  08-034324 2008/02/04 Domestic Abuse-In Progress       Yes
+## 5   11164180  08-052461 2008/02/24          Suspicious Person        No
+## 6   11164181  08-054881 2008/02/26          Suspicious Person        No
+##   PrimaryOff SubjectInj ForceRepor SubjectRol SubjectR_1    ForceType
+## 1      ASLT5       <NA>          1          A          1 Bodily Force
+## 2     OBSTRU         No          2          A          1 Bodily Force
+## 3       FLEE        Yes          1          A          1 Bodily Force
+## 4     DASLT5       <NA>          1          A          1 Bodily Force
+## 5     DISCON         No          2          A          1 Bodily Force
+## 6     OBSTRU         No          2          A          1 Bodily Force
+##           ForceTypeA  Race    Sex EventAge          TypeOfResi Precinct
+## 1 Body Weight to Pin White   Male       46 Commission of Crime       05
+## 2              Knees Black   Male       34              Tensed       02
+## 3 Body Weight to Pin Black   Male       24     Fled in Vehicle       04
+## 4          Push Away White Female       29              Tensed       05
+## 5              Knees Black   Male       34              Tensed       01
+## 6              Knees Black   Male       40        Fled on Foot       03
+##        Neighborho TotalCityC TotalPreci TotalNeigh CenterGBSI CenterLati
+## 1        Whittier     322402      55689      13263      17960   44.95919
+## 2      Waite Park     322402      48901       2071      20459   45.03253
+## 3    Near - North     322402      80434      10077      25298   44.99637
+## 4 Lowry Hill East     322402      55689       5734      16102   44.96181
+## 5   Downtown West     322402      46998      23458      16700   44.98007
+## 6 Ventura Village     322402      84018      10316      20569   44.96332
+##   CenterLong   CenterX CenterY  DateAdded OBJECTID
+## 1  -93.27720 -10383570 5615100 2020/05/31        1
+## 2  -93.24723 -10380234 5626645 2020/05/31        2
+## 3  -93.27993 -10383875 5620950 2020/05/31        3
+## 4  -93.29054 -10385055 5615512 2020/05/31        4
+## 5  -93.27188 -10382979 5618384 2020/05/31        5
+## 6  -93.26511 -10382224 5615749 2020/05/31        6
+\end{verbatim}
+
+\hypertarget{police-use-of-force-map}{%
+\section{Police use of force map}\label{police-use-of-force-map}}
+
+\begin{verbatim}
+## Reading layer `Police_Use_of_Force' from data source `/Users/emsheehan/Documents/UNI - POSTGRAD/COLLAB/ETC5513-Assignment-4/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp' using driver `ESRI Shapefile'
+## Simple feature collection with 30024 features and 28 fields
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: -93.32842 ymin: 0 xmax: 0 ymax: 45.05124
+## CRS:            4326
+\end{verbatim}
+
+\includegraphics{Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\hypertarget{analysis-of-the-neighborhood-data}{%
+\subsection{Analysis of the neighborhood data}\label{analysis-of-the-neighborhood-data}}
+
+These next figures are made by ggplot2 and scale\_fill\_ ordinal, to show the relationship between crime and various factors more clearly. This figure shows the total number of crimes per precinct between 2018 and 2020(See Figure \ref{fig:Crimeanalysis}). No.~3 precinct has the highest number of crimes, while No.~2 precinct has the lowest number of crimes, which is relatively safe. It can be seen from the above that theft accounts for the highest proportion of all precinct crimes, while burglary and robbery are closely followed, ranking second and third respectively.
 
 \printbibliography
 
