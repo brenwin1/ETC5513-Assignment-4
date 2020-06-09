@@ -42,7 +42,7 @@ output:
     toc: true
 ---
 
-```{r setup}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
                       cache=TRUE, 
                       messages=FALSE,
@@ -63,17 +63,17 @@ library(RColorBrewer)
 library(leaflet)
 ```
 
-```{r crime-incident-data}
+```{r crime-incident-data, include = FALSE}
 # read crime incident data
 crime_incidents <- read_csv("data/Police_Incidents_Last_2Years.csv") 
 ```
 
-```{r shapefiles-data}
+```{r shapefiles-data, include = FALSE}
 # read shapefiles data
 shp <- rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Police_Incidents_Last_2Years-shp", sep=""), layer = "Police_Incidents_Last_2Years.shp") , stringsAsFactors = FALSE)
 ```
 
-```{r police-force-data}
+```{r police-force-data, include = FALSE}
 # read police use of force data
 police_use_of_force <- read_csv("data/Police_Use_of_Force.csv")
 ```
@@ -144,23 +144,25 @@ police_force_2018 <- police_force_selected %>%
 
 # Introduction
 
-George Floyd was arrested and killed by Derek Chauvin, a U.S. police officer, on the 25th of May in Minneapolis, @BBC-News-2020. Chauvin knelt on George Floyd’s neck for eight minutes and 46 seconds as Floyd gasped for air.  His abominable death has sparked outrage on police brutality across America.
+George Floyd was arrested and killed by Derek Chauvin, a U.S. police officer, on the 25th of May in Minneapolis, @BBC-News-2020. Chauvin knelt on George Floyd’s neck for eight minutes and 46 seconds as Floyd gasped for air.  His abominable death has sparked outrage on police brutality across America. 
 
-For several years, African-Americans have been the subject of racial vilification. In a study by @Dottolo-2008 students were interviewed and asked about police harassment and crime. Close analysis revealed that the students had stereotyped the criminals to be poor African American men. Another study by … revealed
+For several years, African-Americans have been the subject of racial vilification. In a study by @Dottolo-2008 students were interviewed and asked about police harassment and crime. Close analysis revealed that the students had stereotyped the criminals to be poor African American men.
 
-This paper hopes to explore and understand crime in Minneapolis. Specifically, the areas where crime is most common, the ethnicity of those committing the crime, and the force used by police. 
+This paper hopes to explore and understand crime in Minneapolis. Specifically, the crime incidence, the neighborhoods where crime is most common, the crime incidence over time, the force used by police and the areas where police have used force. 
 
 # Data
 
 To perform this analysis data was downloaded from the City of @Minneapolis-2020. The data obtained included the shapefiles, the crime dashboard (crime incident data) and the use of force dashboard (the use of force data). 
 
-The crime incident data had a high number of NA's, where the race of the offender was not recorded. To mitigate the impact on the calculated proportions, particularly where race is concerned, they were not removed. Unfortunately, this considered, the analysis will still be impacted and the resulting proportions may be over or under-estimated as a result of the missing values. 
+The crime incident data had a high number of missing values, where the race of the offender was not recorded. To mitigate the impact on the calculated proportions, particularly where race is concerned, they were not removed. This considered, the analysis will be impacted and the resulting proportions may be over or under-estimated as a result of the missing values. 
 
-More limitations... 
+The use of force data has a high number of missing values which will adversely impact the accuracy of the analysis. In addition, there is a Precinct 0 and there is no explanation on the offical Minneapolis website which will certainly impact the results. The 'ResponseDate' can be traced back to 2008, however, no records have been kept, therefore it cannot be used in analysis. Finally, the 'PoliceUseOfForceID' and 'OBJECTID' cannot be used for analysis as they are arranged in order and are independent of 'real' police officers and 'real' witnesses. While it protects the privacy of these individuals, it means that conclusions on agressive police officers cannot be drawn. 
 
 # Methodology 
 
 ## Analysing the Crime Incidence
+
+The crime incident data was wrangled, and each offense was assigned to its relevant offense type. Each offense was grouped according to year, and the incidence of each offense was calculated. The results were plotted.
 
 ## Analysing the Neighborhoods with the Most Crime
 
@@ -216,7 +218,7 @@ crime_MPLS_selected %>%
     coord_flip()
 ```
 
-```{r neighborhood-2018}
+```{r neighborhood-2018, include=FALSE}
 neighborhood_summary <- clean_crime %>% select(precinct,
                                                 reportedDate,
                                                 neighborhood)
@@ -229,34 +231,43 @@ neighborhood_summary2018 <- neighborhood_summary %>%
   summarise(case = n()) %>%
   distinct() %>%
   top_n(20)
+```
 
+```{r neighborhood-2018-table}
 kable(neighborhood_summary2018, caption = "Top 20 Neighborhoods with the Highest Crime Rate for 2018") %>%
   kable_styling(bootstrap_options = c("striped", "hover"))
 ```
 
-```{r neighborhood-2019}
+
+```{r neighborhood-2019, include=FALSE}
 neighborhood_summary2019 <- neighborhood_summary %>%
   dplyr::filter(year %in% c("2019")) %>%
   group_by(neighborhood) %>%
   summarise(case = n()) %>%
   distinct() %>%
   top_n(20)
+```
 
+```{r neighborhood-2019-table}
 kable(neighborhood_summary2019, caption = "Top 20 Neighborhoods with the Highest Crime Rate for 2019") %>%
   kable_styling(bootstrap_options = c("striped", "hover"))
 ```
 
-```{r neighborhood-2020}
+
+```{r neighborhood-2020, include=FALSE}
 neighborhood_summary2020 <- neighborhood_summary %>%
   dplyr::filter(year %in% c("2020")) %>%
   group_by(neighborhood) %>%
   summarise(case = n()) %>%
   distinct() %>%
   top_n(20)
+```
 
+```{r neighborhood-2020-table}
 kable(neighborhood_summary2020, caption = "Top 20 Neighborhoods with the Highest Crime Rate for 2020") %>%
   kable_styling(bootstrap_options = c("striped", "hover"))
 ```
+
 
 ```{r neighborhood2018, fig.dim = c(6,4), fig.cap= "Top 20 Neighborhoods with the Highest Crime Rate for 2018"}
 neighborhood_summary2018 %>%
@@ -436,7 +447,7 @@ police_force_selected %>%
 
 \clearpage
 
-# Police use of force map analysis
+## Use of Force Map Analysis
 
 ```{r puofbar, fig.cap = "proportion of race in police use of force by Precincts"}
 police_use_of_force %>% 
@@ -452,7 +463,6 @@ Dataset comes from @openmn
 
 > WIP: need to join table with demographics (racial composition in each Precinct) and data on proportion of crimes commited by race in each precinct.
 
-## Police use of force map
 ```{r}
 library(leaflet)
 library(rgdal)
@@ -480,13 +490,14 @@ shp_sf1 %>%
 
 **Figure \@ref(fig:puofmap)** shows the police use of force map in Minneapolis. The numbers show number of incidents per precinct. 
 
-## Precincts
 ```{r}
 # mapping points where police use of force were recorded. 
 shp_sf1 %>% 
   ggplot() +
   geom_sf(aes(colour = Precinct)) # colour points by precincts
 ```
+
+# Conclusion
 
 
 
