@@ -325,20 +325,6 @@
 \setstretch{1.5}
 
 %% Any special functions or other packages can be loaded here.
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{multirow}
-\usepackage{wrapfig}
-\usepackage{float}
-\usepackage{colortbl}
-\usepackage{pdflscape}
-\usepackage{tabu}
-\usepackage{threeparttable}
-\usepackage{threeparttablex}
-\usepackage[normalem]{ulem}
-\usepackage{makecell}
-\usepackage{xcolor}
 
 
 \begin{document}           % Begining of document body -----------------------------------------------
@@ -400,7 +386,7 @@ Analysis of Crime in Minneapolis:
 
 \begin{verbatim}
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "/Users/emsheehan/Documents/UNI - POSTGRAD/COLLAB/ETC5513-Assignment-4/data/Police_Incidents_Last_2Years-shp/Police_Incidents_Last_2Years.shp", layer: "Police_Incidents_Last_2Years"
+## Source: "/Users/brenwin/Desktop/ETC5513-Assignment-4/data/Police_Incidents_Last_2Years-shp/Police_Incidents_Last_2Years.shp", layer: "Police_Incidents_Last_2Years"
 ## with 43283 features
 ## It has 0 fields
 \end{verbatim}
@@ -472,14 +458,18 @@ To perform this analysis
 To make the division of crime distribution more detailed, I used Neighborhood instead of Precinct, but due to the quite large number, I only took Top10 neighborhood with the highest crimes and the Top5 most frequent offenses(See Figure \ref{fig:offencetype}).
 It is obvious that basically in each neighborhood, theft is still the most frequent occurrence. But Longflow is the only exception, shoplifting is about to reach the number of theft.
 
-\textbackslash{}begin\{figure\}
+\textbackslash begin\{figure\}
 
 \{\centering \includegraphics{Assignment4_files/figure-latex/offencetype-1}
 
 \}
 
-\textbackslash{}caption\{The most common offence type in Top\_10 Neighborhoods with the most crimes\}\label{fig:offencetype}
-\textbackslash{}end\{figure\}
+\textbackslash caption\{The most common offence type in Top\_10 Neighborhoods with the most crimes\}\label{fig:offencetype}
+\textbackslash end\{figure\}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
 
 \begin{verbatim}
 ## Selecting by case
@@ -537,6 +527,10 @@ Willard - Hay & 221\\
 \end{table}
 
 \begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{verbatim}
 ## Selecting by case
 \end{verbatim}
 
@@ -590,6 +584,10 @@ Willard - Hay & 369\\
 \hline
 \end{tabular}
 \end{table}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
 
 \begin{verbatim}
 ## Selecting by case
@@ -660,6 +658,10 @@ The precinct with the most cases contributed to precinct 3 in three years, as sh
 \subsection{Crime incident Data}\label{crime-incident-data}}
 
 Figure \ref{fig:plot-number-crimes} demonstrates that across all years, theft is the most commonly committed crime in Minneapolis. In this instance theft includes; automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle and theft of motor vehicle parts. Burglary and assault are the second and third highest committed crimes, respectively. It should be noted that 2019 is the only complete year, hence the higher incidence.
+
+\begin{verbatim}
+## `summarise()` regrouping output by 'offense' (override with `.groups` argument)
+\end{verbatim}
 
 \begin{table}
 
@@ -754,7 +756,7 @@ Figure \ref{fig:Crimeanalysis} explores the relationship between precinct and of
 \end{figure}
 
 \hypertarget{crime-with-time}{%
-\subsection{Crime with time}\label{crime-with-time}}
+\subsection{Crime with Time}\label{crime-with-time}}
 
 Figure \ref{fig:timefig} compares the incidence of crimes in each month. As stated above, 2019 is the only complete year in the data set. In 2018, crime peaked in October, and dropped in December. In 2019, crime was very low in the colder months (January, February and March), peaking in the summer months (July and August). Comparitively, the incidence of crime in 2020 was much lower than 2019 and did not increase in May, which is likely due to the stay at home orders resulting from COVID-19.
 
@@ -768,7 +770,7 @@ Figure \ref{fig:timefig} compares the incidence of crimes in each month. As stat
 \end{figure}
 
 \hypertarget{force-used-by-police-data}{%
-\subsection{Force Used By Police Data}\label{force-used-by-police-data}}
+\subsection{Force Used by Police Data}\label{force-used-by-police-data}}
 
 The following figures show the distribution of crimes and force using every day. It can be seen that there are more crimes on weekdays than on weekends, but the situation of force using by police is just the opposite. It is possible that most people will go to recreation places on weekends, and too many people gather will lead to conflicts, so the times of patrol by police will stay high. And criminals will not commit crimes when there are so many police (See Figure \ref{fig:weekdaysituation}).
 
@@ -815,27 +817,55 @@ The last one is the proportion of different Race in the use of force.(See Figure
 \caption{Different races are treated differently}\label{fig:Race}
 \end{figure}
 
-\hypertarget{mapping-the-the-use-of-police-force}{%
-\subsection{Mapping the the Use of Police Force}\label{mapping-the-the-use-of-police-force}}
+\clearpage
 
-\begin{verbatim}
-## OGR data source with driver: ESRI Shapefile 
-## Source: "/Users/emsheehan/Documents/UNI - POSTGRAD/COLLAB/ETC5513-Assignment-4/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp", layer: "Police_Use_of_Force"
-## with 30024 features
-## It has 28 fields
-\end{verbatim}
+\hypertarget{police-use-of-force-map-analysis}{%
+\section{Police use of force map analysis}\label{police-use-of-force-map-analysis}}
+
+\begin{figure}
+\centering
+\includegraphics{Assignment4_files/figure-latex/puofbar-1.pdf}
+\caption{\label{fig:puofbar}proportion of race in police use of force by Precincts}
+\end{figure}
+
+\textbf{Figure \ref{fig:puofbar}} shows the proportion of race in police use of force by Precincts.
+
+\begin{quote}
+WIP: need to join table with demographics (racial composition in each Precinct) and data on proportion of crimes commited by race in each precinct.
+\end{quote}
 
 \hypertarget{police-use-of-force-map}{%
 \subsection{Police use of force map}\label{police-use-of-force-map}}
 
 \begin{verbatim}
-## Reading layer `Police_Use_of_Force' from data source `/Users/emsheehan/Documents/UNI - POSTGRAD/COLLAB/ETC5513-Assignment-4/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp' using driver `ESRI Shapefile'
+## OGR data source with driver: ESRI Shapefile 
+## Source: "/Users/brenwin/Desktop/ETC5513-Assignment-4/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp", layer: "Police_Use_of_Force"
+## with 30024 features
+## It has 28 fields
+\end{verbatim}
+
+\begin{verbatim}
+## Reading layer `Police_Use_of_Force' from data source `/Users/brenwin/Desktop/ETC5513-Assignment-4/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 30024 features and 28 fields
 ## geometry type:  POINT
 ## dimension:      XY
 ## bbox:           xmin: -93.32842 ymin: 0 xmax: 0 ymax: 45.05124
 ## CRS:            4326
 \end{verbatim}
+
+\begin{figure}
+
+{\centering \includegraphics{Assignment4_files/figure-latex/puofmap-1} 
+
+}
+
+\caption{Number of police use of force incidents in Precincts}\label{fig:puofmap}
+\end{figure}
+
+\textbf{Figure \ref{fig:puofmap}} shows the police use of force map in Minneapolis. The numbers show number of incidents per precinct.
+
+\hypertarget{precincts}{%
+\subsection{Precincts}\label{precincts}}
 
 \includegraphics{Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf}
 
