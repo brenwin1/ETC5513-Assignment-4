@@ -289,8 +289,7 @@ kable(number_crimes,
       # Add caption to the table
       caption = "The Incidence of Crime according to Year and Offense Type") %>%
   # Add kable styling options, position the table in the centre of the report
-  kable_styling(bootstrap_options = "striped", 
-                position = "center") 
+  kable_styling(position = "center") 
 ```
 
 ```{r plot-number-crimes, fig.cap= "Crime incidence according to Year and Offense Type"}
