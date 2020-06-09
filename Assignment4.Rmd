@@ -455,10 +455,6 @@ police_force_selected %>%
 ```
 
 \clearpage
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> master
 
 # Police use of force map analysis
 
@@ -471,23 +467,7 @@ police_use_of_force %>%
   coord_flip()
 ```
 
-<<<<<<< HEAD
-=======
-=======
-
-# Police use of force map analysis
-
-```{r puofbar, fig.cap = "proportion of race in police use of force by Precincts"}
-police_use_of_force %>% 
-  ggplot(aes(x = Race)) +
-  geom_bar(aes(y = stat(prop),
-               group = 1)) +
-  facet_wrap(~Precinct) +
-  coord_flip()
-```
-
->>>>>>> Stashed changes
->>>>>>> master
+Dataset comes from @openmn
 **Figure \@ref(fig:puofbar)** shows the proportion of race in police use of force by Precincts.
 
 > WIP: need to join table with demographics (racial composition in each Precinct) and data on proportion of crimes commited by race in each precinct.

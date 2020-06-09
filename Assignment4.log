@@ -1,12 +1,4 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.9)  9 JUN 2020 16:52
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.8)  9 JUN 2020 17:16
->>>>>>> Stashed changes
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.8)  9 JUN 2020 17:16
->>>>>>> Stashed changes
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.8)  9 JUN 2020 17:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1636,12 +1628,12 @@ Package pdftex.def Info: Assignment4_files/figure-latex/puofbar-1.pdf  used on
 input line 827.
 (pdftex.def)             Requested size: 455.24165pt x 284.52603pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 838--838
+Underfull \hbox (badness 10000) in paragraph at lines 839--839
 |[]\T1/fvs/b/n/12 Police use of force map|
  []
 
 
-Overfull \hbox (318.08553pt too wide) in paragraph at lines 845--845
+Overfull \hbox (318.08553pt too wide) in paragraph at lines 846--846
 []\T1/fvm/m/n/10.95 ## Source: "/Users/brenwin/Desktop/ETC5513-Assignment-4/dat
 a/Police_Use_of_Force-shp/Police_Use_of_Force.shp", layer: "Police_Use_of_Force
 "[] 
@@ -1649,15 +1641,15 @@ a/Police_Use_of_Force-shp/Police_Use_of_Force.shp", layer: "Police_Use_of_Force
 
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 854.
+(textcomp)             Default family used instead on input line 855.
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 854.
+(textcomp)             Default family used instead on input line 855.
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 854.
+(textcomp)             Default family used instead on input line 855.
 
-Overfull \hbox (569.836pt too wide) in paragraph at lines 854--854
+Overfull \hbox (569.836pt too wide) in paragraph at lines 855--855
 []\T1/fvm/m/n/10.95 ## Reading layer \TS1/cmtt/m/n/10.95 `\T1/fvm/m/n/10.95 Pol
 ice_Use_of_Force\TS1/fvm/m/n/10.95 ' \T1/fvm/m/n/10.95 from data source \TS1/cm
 tt/m/n/10.95 `\T1/fvm/m/n/10.95 /Users/brenwin/Desktop/ETC5513-Assignment-4/dat
@@ -1666,38 +1658,39 @@ a/Police_Use_of_Force-shp/Police_Use_of_Force.shp\TS1/fvm/m/n/10.95 ' \T1/fvm/m
 /fvm/m/n/10.95 '[] 
  []
 
-<Assignment4_files/figure-latex/puofmap-1.pdf, id=264, 578.16pt x 361.35pt>
-File: Assignment4_files/figure-latex/puofmap-1.pdf Graphic file (type pdf)
-<use Assignment4_files/figure-latex/puofmap-1.pdf>
-Package pdftex.def Info: Assignment4_files/figure-latex/puofmap-1.pdf  used on 
-input line 858.
-(pdftex.def)             Requested size: 455.24165pt x 284.52603pt.
 [16
 
  <./Assignment4_files/figure-latex/puofbar-1.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 868--868
+<Assignment4_files/figure-latex/puofmap-1.pdf, id=279, 578.16pt x 361.35pt>
+File: Assignment4_files/figure-latex/puofmap-1.pdf Graphic file (type pdf)
+<use Assignment4_files/figure-latex/puofmap-1.pdf>
+Package pdftex.def Info: Assignment4_files/figure-latex/puofmap-1.pdf  used on 
+input line 859.
+(pdftex.def)             Requested size: 455.24165pt x 284.52603pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 869--869
 |[]\T1/fvs/b/n/12 Precincts|
  []
 
-<Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf, id=278, 578.16pt x 361.3
+<Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf, id=281, 578.16pt x 361.3
 5pt>
 File: Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type p
 df)
 <use Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf  
-used on input line 870.
+used on input line 871.
 (pdftex.def)             Requested size: 455.24165pt x 284.52603pt.
 [17 <./Assignment4_files/figure-latex/puofmap-1.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 873--873
+Underfull \hbox (badness 10000) in paragraph at lines 874--874
 |\T1/fvs/b/n/14.4 References|
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 874.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 875.
 [18 <./Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 874.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 875.
 (./Assignment4.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 874.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 874.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 875.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 875.
 Package rerunfilecheck Info: File `Assignment4.out' has not changed.
 (rerunfilecheck)             Checksum: F68FB9B1E52C109982BA4F5E37608F6A;3139.
 
@@ -1706,37 +1699,16 @@ LaTeX Warning: There were undefined references.
 Package logreq Info: Writing requests to 'Assignment4.run.xml'.
 \openout1 = `Assignment4.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 874.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 875.
  ) 
 Here is how much of TeX's memory you used:
- 25637 strings out of 482401
- 428010 string characters out of 5946079
- 1085068 words of memory out of 5000000
- 40793 multiletter control sequences out of 15000+600000
- 631423 words of font info for 218 fonts, out of 8000000 for 9000
+ 25659 strings out of 482401
+ 428497 string characters out of 5946079
+ 1085119 words of memory out of 5000000
+ 40806 multiletter control sequences out of 15000+600000
+ 631976 words of font info for 224 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
- 44i,14n,90p,1018b,1429s stack positions out of 5000i,500n,10000p,200000b,80000s
- </Users/emsheehan/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt
-1095.600pk>{/Users/emsheehan/Library/TinyTeX/texmf-dist/fonts/enc/dvips/ly1/tex
-nansi.enc}{/Users/emsheehan/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.
-enc}{/Users/emsheehan/Library/TinyTeX/texmf-dist/fonts/enc/dvips/fontawesome/fo
-ntawesometwo.enc}</Users/emsheehan/Library/TinyTeX/texmf-dist/fonts/type1/publi
-c/fontawesome/FontAwesome.pfb></Users/emsheehan/Library/TinyTeX/texmf-dist/font
-s/type1/bitstrea/charter/bchb8a.pfb></Users/emsheehan/Library/TinyTeX/texmf-dis
-t/fonts/type1/bitstrea/charter/bchr8a.pfb></Users/emsheehan/Library/TinyTeX/tex
-mf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb></Users/emsheehan/Library/Tiny
-TeX/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></Users/emsheehan/Library/Tin
-yTeX/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></Users/emsheehan/Library/Ti
-nyTeX/texmf-dist/fonts/type1/public/bera/fvsb8a.pfb></Users/emsheehan/Library/T
-inyTeX/texmf-dist/fonts/type1/public/bera/fvsr8a.pfb></Users/emsheehan/Library/
-TinyTeX/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr8t.pfb>
-Output written on Assignment4.pdf (16 pages, 451204 bytes).
-=======
-=======
->>>>>>> Stashed changes
- 44i,13n,90p,1018b,1429s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,13n,90p,1018b,1436s stack positions out of 5000i,500n,10000p,200000b,80000s
  </Users/brenwin/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt10
 95.600pk>{/Users/brenwin/Library/TinyTeX/texmf-dist/fonts/enc/dvips/ly1/texnans
 i.enc}{/Users/brenwin/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{/
@@ -1751,14 +1723,10 @@ s/type1/public/bera/fvmr8a.pfb></Users/brenwin/Library/TinyTeX/texmf-dist/fonts
 /type1/public/bera/fvsb8a.pfb></Users/brenwin/Library/TinyTeX/texmf-dist/fonts/
 type1/public/bera/fvsr8a.pfb></Users/brenwin/Library/TinyTeX/texmf-dist/fonts/t
 ype1/public/mathdesign/mdbch/md-chr8t.pfb>
-Output written on Assignment4.pdf (18 pages, 1304160 bytes).
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+Output written on Assignment4.pdf (18 pages, 1304934 bytes).
 PDF statistics:
- 380 PDF objects out of 1000 (max. 8388607)
- 308 compressed objects within 4 object streams
- 66 named destinations out of 1000 (max. 500000)
+ 385 PDF objects out of 1000 (max. 8388607)
+ 313 compressed objects within 4 object streams
+ 67 named destinations out of 1000 (max. 500000)
  30924 words of extra memory for PDF output out of 35830 (max. 10000000)
 
