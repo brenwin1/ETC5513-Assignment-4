@@ -181,6 +181,7 @@ To perform this analysis
 To make the division of crime distribution more detailed, I used Neighborhood instead of Precinct, but due to the quite large number, I only took Top10 neighborhood with the highest crimes and the Top5 most frequent offenses(See Figure \@ref(fig:offencetype)).
 It is obvious that basically in each neighborhood, theft is still the most frequent occurrence. But Longflow is the only exception, shoplifting is about to reach the number of theft.
 
+
 ```{r offencetype, fig.align="center", fig.width= 8, fig.cap="The most common offence type in Top_10 Neighborhoods with the most crimes"}
 crime_MPLS_selected %>% 
   filter(neighborhood %in% (crime_MPLS_selected  %>% count(neighborhood) %>% arrange(-n) %>% head(10) %>% pull(neighborhood)),
@@ -281,6 +282,11 @@ number_crimes <- clean_crime %>%
   group_by(offense,
            Year) %>%
   summarise(Incidence = n())
+
+kable(number_crimes,
+      caption = "The Incidence of Crime according to Year and Offense Type") %>%
+  kable_styling(bootstrap_options = "striped", 
+                position = "center") 
 ```
 
 ```{r plot-number-crimes, fig.cap= "Crime incidence according to Year and Offense Type"}

@@ -661,6 +661,81 @@ The precinct with the most cases contributed to precinct 3 in three years, as sh
 
 Figure \ref{fig:plot-number-crimes} demonstrates that across all years, theft is the most commonly committed crime in Minneapolis. In this instance theft includes; automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle and theft of motor vehicle parts. Burglary and assault are the second and third highest committed crimes, respectively. It should be noted that 2019 is the only complete year, hence the higher incidence.
 
+\begin{table}
+
+\caption{\label{tab:number-crimes}The Incidence of Crime according to Year and Offense Type}
+\centering
+\begin{tabular}[t]{l|r|r}
+\hline
+offense & Year & Incidence\\
+\hline
+Arson & 2018 & 43\\
+\hline
+Arson & 2019 & 72\\
+\hline
+Arson & 2020 & 21\\
+\hline
+Assault & 2018 & 586\\
+\hline
+Assault & 2019 & 1019\\
+\hline
+Assault & 2020 & 404\\
+\hline
+Burglary & 2018 & 1935\\
+\hline
+Burglary & 2019 & 3319\\
+\hline
+Burglary & 2020 & 1133\\
+\hline
+Computer Hacking & 2018 & 3\\
+\hline
+Computer Hacking & 2019 & 11\\
+\hline
+Computer Hacking & 2020 & 3\\
+\hline
+Disarm a police officer & 2019 & 1\\
+\hline
+Domestic Assault & 2018 & 416\\
+\hline
+Domestic Assault & 2019 & 889\\
+\hline
+Domestic Assault & 2020 & 320\\
+\hline
+Looting & 2019 & 1\\
+\hline
+Murder & 2018 & 20\\
+\hline
+Murder & 2019 & 44\\
+\hline
+Murder & 2020 & 15\\
+\hline
+Rape & 2018 & 212\\
+\hline
+Rape & 2019 & 402\\
+\hline
+Rape & 2020 & 132\\
+\hline
+Robbery & 2018 & 696\\
+\hline
+Robbery & 2019 & 1295\\
+\hline
+Robbery & 2020 & 478\\
+\hline
+Shoplifting & 2018 & 444\\
+\hline
+Shoplifting & 2019 & 1082\\
+\hline
+Shoplifting & 2020 & 320\\
+\hline
+Theft & 2018 & 7531\\
+\hline
+Theft & 2019 & 14842\\
+\hline
+Theft & 2020 & 5594\\
+\hline
+\end{tabular}
+\end{table}
+
 \begin{figure}
 \centering
 \includegraphics{Assignment4_files/figure-latex/plot-number-crimes-1.pdf}
@@ -763,11 +838,6 @@ The last one is the proportion of different Race in the use of force.(See Figure
 \end{verbatim}
 
 \includegraphics{Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf}
-
-\hypertarget{analysis-of-the-neighborhood-data}{%
-\subsection{Analysis of the neighborhood data}\label{analysis-of-the-neighborhood-data}}
-
-These next figures are made by ggplot2 and scale\_fill\_ ordinal, to show the relationship between crime and various factors more clearly. This figure shows the total number of crimes per precinct between 2018 and 2020(See Figure \ref{fig:Crimeanalysis}). No.~3 precinct has the highest number of crimes, while No.~2 precinct has the lowest number of crimes, which is relatively safe. It can be seen from the above that theft accounts for the highest proportion of all precinct crimes, while burglary and robbery are closely followed, ranking second and third respectively.
 
 \printbibliography
 

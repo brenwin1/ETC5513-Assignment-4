@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.9)  9 JUN 2020 13:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.9)  9 JUN 2020 16:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1233,7 +1233,7 @@ ction with package mdbch, on input line 344.
 Package mathdesign/mdbch Warning: Package 'amsfonts' shouldn't be used in conjo
 nction with package mdbch, on input line 344.
 
-<logo.jpg, id=68, 702.625pt x 702.625pt>
+<logo.jpg, id=64, 702.625pt x 702.625pt>
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
 Package pdftex.def Info: logo.jpg  used on input line 345.
@@ -1518,10 +1518,10 @@ File: ts1mdbch.fd 2013/08/29 Fontinst v1.933 font definitions for TS1/mdbch.
 )
 LaTeX Font Info:    Font shape `TS1/mdbch/m/n' will be
 (Font)              scaled to size 10.51207pt on input line 356.
-[2]
 
 Package xcolor Warning: Incompatible color definition on input line 371.
 
+[2]
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
 (Font)              scaled to size 9.24173pt on input line 372.
 LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
@@ -1539,14 +1539,7 @@ B/ETC5513-Assignment-4/data/Police_Incidents_Last_2Years-shp/Police_Incidents_L
 ast_2Years.shp", layer: "Police_Incidents_Last_2Years"[] 
  []
 
-[3]
-
-LaTeX Warning: Citation 'BBC-News-2020' on page 4 undefined on input line 437.
-
-
-LaTeX Warning: Citation 'Dottolo-2008' on page 4 undefined on input line 439.
-
-[4]
+[3] [4]
 <Assignment4_files/figure-latex/offencetype-1.pdf, id=113, 562.1pt x 349.305pt>
 
 File: Assignment4_files/figure-latex/offencetype-1.pdf Graphic file (type pdf)
@@ -1562,7 +1555,7 @@ Overfull \hbox (3.6927pt too wide) in paragraph at lines 477--478
 [5 <./Assignment4_files/figure-latex/offencetype-1.pdf>]
 LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
 (Font)              scaled to size 10.51207pt on input line 490.
-<Assignment4_files/figure-latex/neighborhood2018-1.pdf, id=133, 573.14125pt x 3
+<Assignment4_files/figure-latex/neighborhood2018-1.pdf, id=132, 573.14125pt x 3
 49.305pt>
 File: Assignment4_files/figure-latex/neighborhood2018-1.pdf Graphic file (type 
 pdf)
@@ -1571,7 +1564,7 @@ Package pdftex.def Info: Assignment4_files/figure-latex/neighborhood2018-1.pdf
  used on input line 649.
 (pdftex.def)             Requested size: 455.25157pt x 277.4563pt.
 [6] [7]
-<Assignment4_files/figure-latex/neighborhood2019-1.pdf, id=147, 568.1225pt x 34
+<Assignment4_files/figure-latex/neighborhood2019-1.pdf, id=146, 568.1225pt x 34
 9.305pt>
 File: Assignment4_files/figure-latex/neighborhood2019-1.pdf Graphic file (type 
 pdf)
@@ -1579,7 +1572,7 @@ pdf)
 Package pdftex.def Info: Assignment4_files/figure-latex/neighborhood2019-1.pdf 
  used on input line 651.
 (pdftex.def)             Requested size: 455.26146pt x 279.9134pt.
-<Assignment4_files/figure-latex/neighborhood2020-1.pdf, id=148, 568.1225pt x 34
+<Assignment4_files/figure-latex/neighborhood2020-1.pdf, id=147, 568.1225pt x 34
 9.305pt>
 File: Assignment4_files/figure-latex/neighborhood2020-1.pdf Graphic file (type 
 pdf)
@@ -1609,116 +1602,117 @@ Underfull \hbox (badness 10000) in paragraph at lines 660--660
 |[]\T1/fvs/b/n/12 Crime in-ci-dent Data|
  []
 
-<Assignment4_files/figure-latex/plot-number-crimes-1.pdf, id=169, 562.1pt x 352
+<Assignment4_files/figure-latex/plot-number-crimes-1.pdf, id=168, 562.1pt x 352
 .31625pt>
 File: Assignment4_files/figure-latex/plot-number-crimes-1.pdf Graphic file (typ
 e pdf)
 <use Assignment4_files/figure-latex/plot-number-crimes-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/plot-number-crimes-1.pd
-f  used on input line 666.
+f  used on input line 741.
 (pdftex.def)             Requested size: 455.24706pt x 285.34233pt.
-<Assignment4_files/figure-latex/Crimeanalysis-1.pdf, id=172, 562.1pt x 349.305p
+<Assignment4_files/figure-latex/Crimeanalysis-1.pdf, id=171, 562.1pt x 349.305p
 t>
 File: Assignment4_files/figure-latex/Crimeanalysis-1.pdf Graphic file (type pdf
 )
 <use Assignment4_files/figure-latex/Crimeanalysis-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/Crimeanalysis-1.pdf  us
-ed on input line 674.
+ed on input line 749.
 (pdftex.def)             Requested size: 455.24706pt x 282.90352pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 682--682
+Underfull \hbox (badness 10000) in paragraph at lines 757--757
 |[]\T1/fvs/b/n/12 Crime with time|
  []
 
 [9 <./Assignment4_files/figure-latex/neighborhood2020-1.pdf>] [10 <./Assignment
 4_files/figure-latex/plot-number-crimes-1.pdf> <./Assignment4_files/figure-late
 x/Crimeanalysis-1.pdf>]
-<Assignment4_files/figure-latex/timefig-1.pdf, id=207, 572.1375pt x 349.305pt>
+<Assignment4_files/figure-latex/timefig-1.pdf, id=206, 572.1375pt x 349.305pt>
 File: Assignment4_files/figure-latex/timefig-1.pdf Graphic file (type pdf)
 <use Assignment4_files/figure-latex/timefig-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/timefig-1.pdf  used on 
-input line 688.
+input line 763.
 (pdftex.def)             Requested size: 455.24872pt x 277.94131pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 696--696
+Underfull \hbox (badness 10000) in paragraph at lines 771--771
 |[]\T1/fvs/b/n/12 Force Used By Po-lice Data|
  []
 
-<Assignment4_files/figure-latex/weekdaysituation-1.pdf, id=209, 572.1375pt x 35
+[11]
+<Assignment4_files/figure-latex/weekdaysituation-1.pdf, id=215, 572.1375pt x 35
 1.3125pt>
 File: Assignment4_files/figure-latex/weekdaysituation-1.pdf Graphic file (type 
 pdf)
 <use Assignment4_files/figure-latex/weekdaysituation-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/weekdaysituation-1.pdf 
- used on input line 702.
+ used on input line 777.
 (pdftex.def)             Requested size: 455.24872pt x 279.53868pt.
-<Assignment4_files/figure-latex/TypeOfResistance-1.pdf, id=211, 562.1pt x 349.3
+<Assignment4_files/figure-latex/TypeOfResistance-1.pdf, id=217, 562.1pt x 349.3
 05pt>
 File: Assignment4_files/figure-latex/TypeOfResistance-1.pdf Graphic file (type 
 pdf)
 <use Assignment4_files/figure-latex/TypeOfResistance-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/TypeOfResistance-1.pdf 
- used on input line 714.
+ used on input line 789.
 (pdftex.def)             Requested size: 455.24706pt x 282.90352pt.
-[11 <./Assignment4_files/figure-latex/timefig-1.pdf>]
-<Assignment4_files/figure-latex/relationshipfig-1.pdf, id=228, 562.1pt x 349.30
+<Assignment4_files/figure-latex/relationshipfig-1.pdf, id=219, 562.1pt x 349.30
 5pt>
 File: Assignment4_files/figure-latex/relationshipfig-1.pdf Graphic file (type p
 df)
 <use Assignment4_files/figure-latex/relationshipfig-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/relationshipfig-1.pdf  
-used on input line 725.
+used on input line 800.
 (pdftex.def)             Requested size: 455.24706pt x 282.90352pt.
-<Assignment4_files/figure-latex/Race-1.pdf, id=230, 562.1pt x 349.305pt>
+[12 <./Assignment4_files/figure-latex/timefig-1.pdf>] [13 <./Assignment4_files/
+figure-latex/weekdaysituation-1.pdf> <./Assignment4_files/figure-latex/TypeOfRe
+sistance-1.pdf>]
+<Assignment4_files/figure-latex/Race-1.pdf, id=254, 562.1pt x 349.305pt>
 File: Assignment4_files/figure-latex/Race-1.pdf Graphic file (type pdf)
 <use Assignment4_files/figure-latex/Race-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/Race-1.pdf  used on inp
-ut line 736.
+ut line 811.
 (pdftex.def)             Requested size: 455.24706pt x 282.90352pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 744--744
+Underfull \hbox (badness 10000) in paragraph at lines 819--819
 |[]\T1/fvs/b/n/12 Mapping the the Use of Po-lice Force|
  []
 
 
-Overfull \hbox (462.7371pt too wide) in paragraph at lines 751--751
+Overfull \hbox (462.7371pt too wide) in paragraph at lines 826--826
 []\T1/fvm/m/n/10.95 ## Source: "/Users/emsheehan/Documents/UNI - POSTGRAD/COLLA
 B/ETC5513-Assignment-4/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp", l
 ayer: "Police_Use_of_Force"[] 
  []
 
-[12 <./Assignment4_files/figure-latex/weekdaysituation-1.pdf>] [13 <./Assignmen
-t4_files/figure-latex/TypeOfResistance-1.pdf> <./Assignment4_files/figure-latex
-/relationshipfig-1.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 754--754
+
+Underfull \hbox (badness 10000) in paragraph at lines 829--829
 |[]\T1/fvs/b/n/12 Police use of force map|
  []
 
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 763.
+(textcomp)             Default family used instead on input line 838.
 LaTeX Font Info:    Font shape `T1/cmtt/m/n' will be
-(Font)              scaled to size 11.73846pt on input line 763.
+(Font)              scaled to size 11.73846pt on input line 838.
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-763.
+838.
 (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    Trying to load font information for TS1+fvm on input line 7
-63.
+LaTeX Font Info:    Trying to load font information for TS1+fvm on input line 8
+38.
 (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/bera/ts1fvm.fd
 File: ts1fvm.fd 2004/09/07 scalable font definitions for TS1/fvm.
 )
 LaTeX Font Info:    Font shape `TS1/fvm/m/n' will be
-(Font)              scaled to size 9.85492pt on input line 763.
+(Font)              scaled to size 9.85492pt on input line 838.
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 763.
+(textcomp)             Default family used instead on input line 838.
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 763.
+(textcomp)             Default family used instead on input line 838.
 
-Overfull \hbox (714.48758pt too wide) in paragraph at lines 763--763
+Overfull \hbox (714.48758pt too wide) in paragraph at lines 838--838
 []\T1/fvm/m/n/10.95 ## Reading layer \TS1/cmtt/m/n/10.95 `\T1/fvm/m/n/10.95 Pol
 ice_Use_of_Force\TS1/fvm/m/n/10.95 ' \T1/fvm/m/n/10.95 from data source \TS1/cm
 tt/m/n/10.95 `\T1/fvm/m/n/10.95 /Users/emsheehan/Documents/UNI - POSTGRAD/COLLA
@@ -1727,51 +1721,45 @@ B/ETC5513-Assignment-4/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp\TS1
 n/10.95 ESRI Shapefile\TS1/fvm/m/n/10.95 '[] 
  []
 
-<Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf, id=264, 580.1675pt x 361
+[14 <./Assignment4_files/figure-latex/relationshipfig-1.pdf>]
+<Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf, id=270, 580.1675pt x 361
 .35pt>
 File: Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type p
 df)
 <use Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf  
-used on input line 765.
+used on input line 840.
 (pdftex.def)             Requested size: 455.24657pt x 283.54459pt.
-[14 <./Assignment4_files/figure-latex/Race-1.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 768--768
-|[]\T1/fvs/b/n/12 Analysis of the neigh-bor-hood data|
+[15 <./Assignment4_files/figure-latex/Race-1.pdf> <./Assignment4_files/figure-l
+atex/unnamed-chunk-3-1.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 843--843
+|\T1/fvs/b/n/14.4 References|
  []
 
-
-LaTeX Warning: Empty bibliography on input line 772.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 774.
-[15 <./Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 774.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 844.
+[16]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 844.
 (./Assignment4.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 774.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 774.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 844.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 844.
 Package rerunfilecheck Info: File `Assignment4.out' has not changed.
-(rerunfilecheck)             Checksum: F7559B8F8301A14CCDC8EE4FCF4D233D;3313.
+(rerunfilecheck)             Checksum: F639A0734E7970E1E00245A5C486B2AC;3056.
 
 LaTeX Warning: There were undefined references.
-
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                Assignment4
-(biblatex)                and rerun LaTeX afterwards.
 
 Package logreq Info: Writing requests to 'Assignment4.run.xml'.
 \openout1 = `Assignment4.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 774.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 844.
  ) 
 Here is how much of TeX's memory you used:
- 26887 strings out of 482401
- 446220 string characters out of 5945901
- 1111056 words of memory out of 5000000
- 42008 multiletter control sequences out of 15000+600000
- 630824 words of font info for 210 fonts, out of 8000000 for 9000
+ 26923 strings out of 482401
+ 446899 string characters out of 5945901
+ 1111155 words of memory out of 5000000
+ 42030 multiletter control sequences out of 15000+600000
+ 631529 words of font info for 219 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 44i,14n,90p,947b,1130s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,14n,90p,1018b,1429s stack positions out of 5000i,500n,10000p,200000b,80000s
  </Users/emsheehan/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt
 1095.600pk>{/Users/emsheehan/Library/TinyTeX/texmf-dist/fonts/enc/dvips/ly1/tex
 nansi.enc}{/Users/emsheehan/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.
@@ -1786,10 +1774,10 @@ yTeX/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></Users/emsheehan/Library/Ti
 nyTeX/texmf-dist/fonts/type1/public/bera/fvsb8a.pfb></Users/emsheehan/Library/T
 inyTeX/texmf-dist/fonts/type1/public/bera/fvsr8a.pfb></Users/emsheehan/Library/
 TinyTeX/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr8t.pfb>
-Output written on Assignment4.pdf (15 pages, 449182 bytes).
+Output written on Assignment4.pdf (16 pages, 451203 bytes).
 PDF statistics:
- 367 PDF objects out of 1000 (max. 8388607)
- 292 compressed objects within 3 object streams
- 58 named destinations out of 1000 (max. 500000)
- 30914 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 369 PDF objects out of 1000 (max. 8388607)
+ 293 compressed objects within 3 object streams
+ 60 named destinations out of 1000 (max. 500000)
+ 30906 words of extra memory for PDF output out of 35830 (max. 10000000)
 
