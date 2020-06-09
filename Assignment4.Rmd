@@ -42,16 +42,6 @@ output:
     toc: true
 ---
 
-Analysis of Crime in Minneapolis:
-
-* What types of crimes are most common?
-* What crime is committed by each race? Are they proportionate?
-* What are the most common force types?
-* Which months of the year have the most criminal records?
-* Which day of the week has the most crimes or forces used by police?
-* Which area has the most crime?
-* Is it the same police committing each crime?
-
 ```{r setup}
 knitr::opts_chunk$set(echo = FALSE, 
                       cache=TRUE, 
@@ -60,6 +50,7 @@ knitr::opts_chunk$set(echo = FALSE,
 ```
 
 ```{r libraries}
+# load libraries
 library(tidyverse)
 library(rgdal)
 library(ggrepel)
@@ -73,20 +64,20 @@ library(leaflet)
 ```
 
 ```{r crime-incident-data}
+# read crime incident data
 crime_incidents <- read_csv("data/Police_Incidents_Last_2Years.csv") 
 ```
 
 ```{r shapefiles-data}
+# read shapefiles data
 shp <- rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Police_Incidents_Last_2Years-shp", sep=""), layer = "Police_Incidents_Last_2Years.shp") , stringsAsFactors = FALSE)
 ```
 
 ```{r police-force-data}
+# read police use of force data
 police_use_of_force <- read_csv("data/Police_Use_of_Force.csv")
 ```
 
-```{r police-stop-data, eval = FALSE}
-police_stop_data <- read_csv("data/Police_Stop_Data.csv")
-```
 ```{r clean-crime}
 clean_crime <- crime_incidents %>%
   mutate(offense = case_when(
@@ -132,6 +123,7 @@ clean_crime <- crime_incidents %>%
 ```
 
 ```{r cleaning data}
+# prepare crime data for analysis
 crime_MPLS_selected <- clean_crime %>% 
   select(reportedDate, offense, neighborhood, precinct, X, Y, description)
 crime_MPLS_selected$year <- year(crime_MPLS_selected$reportedDate)
@@ -160,120 +152,27 @@ This paper hopes to explore and understand crime in Minneapolis. Specifically, t
 
 # Data
 
-To perform this analysis 
+To perform this analysis data was downloaded from the City of @Minneapolis-2020. The data obtained included the shapefiles, the crime dashboard (crime incident data) and the use of force dashboard (the use of force data). 
+
+The crime incident data had a high number of NA's, where the race of the offender was not recorded. To mitigate the impact on the calculated proportions, particularly where race is concerned, they were not removed. Unfortunately, this considered, the analysis will still be impacted and the resulting proportions may be over or under-estimated as a result of the missing values. 
+
+More limitations... 
 
 # Methodology 
 
-## Analysis on neighborhoods with the most crimes
+## Analysing the Crime Incidence
 
-## Analysing the crime incident data 
+## Analysing the Neighborhoods with the Most Crime
 
-## Analysing crime with time 
+## Analysing the Crime over Time
 
-## Analysing the force used by Police
+## Analysing the Force Used by Police
 
-## Mapping the use of force data
+## Mapping the Use of Force Data
 
 # Results
 
-## Analysis on neighborhoods with the most crimes
-
-To make the division of crime distribution more detailed, I used Neighborhood instead of Precinct, but due to the quite large number, I only took Top10 neighborhood with the highest crimes and the Top5 most frequent offenses(See Figure \@ref(fig:offencetype)).
-It is obvious that basically in each neighborhood, theft is still the most frequent occurrence. But Longflow is the only exception, shoplifting is about to reach the number of theft.
-
-
-```{r offencetype, fig.align="center", fig.width= 8, fig.cap="The most common offence type in Top_10 Neighborhoods with the most crimes"}
-crime_MPLS_selected %>% 
-  filter(neighborhood %in% (crime_MPLS_selected  %>% count(neighborhood) %>% arrange(-n) %>% head(10) %>% pull(neighborhood)),
-  offense %in% (crime_MPLS_selected  %>% count(offense) %>% arrange(-n) %>% head(5) %>% pull(offense))) %>% 
-    ggplot(aes(neighborhood, fill = offense))+
-    geom_bar(position = "fill")+
-    ggtitle("The Offence Type in Top 10 neighbourhoods")+
-    scale_fill_ordinal()+
-    coord_flip()
-```
-
-```{r neighborhood-2018}
-neighborhood_summary <- clean_crime %>% select(precinct,
-                                                reportedDate,
-                                                neighborhood)
-neighborhood_summary$year <- year(neighborhood_summary$reportedDate)
-
-
-neighborhood_summary2018 <- neighborhood_summary %>%
-  dplyr::filter(year %in% c("2018")) %>%
-  group_by(neighborhood) %>%
-  summarise(case = n()) %>%
-  distinct() %>%
-  top_n(20)
-
-kable(neighborhood_summary2018, caption = "Top 20 neighborhood with most cases in 2018") %>%
-  kable_styling(bootstrap_options = c("striped", "hover"))
-```
-
-```{r neighborhood-2019}
-neighborhood_summary2019 <- neighborhood_summary %>%
-  dplyr::filter(year %in% c("2019")) %>%
-  group_by(neighborhood) %>%
-  summarise(case = n()) %>%
-  distinct() %>%
-  top_n(20)
-
-kable(neighborhood_summary2019, caption = "top 20 neighborhood with most cases in 2019") %>%
-  kable_styling(bootstrap_options = c("striped", "hover"))
-```
-
-```{r neighborhood-2020}
-neighborhood_summary2020 <- neighborhood_summary %>%
-  dplyr::filter(year %in% c("2020")) %>%
-  group_by(neighborhood) %>%
-  summarise(case = n()) %>%
-  distinct() %>%
-  top_n(20)
-
-kable(neighborhood_summary2020, caption = "top 20 neighborhood with most cases in 2020") %>%
-  kable_styling(bootstrap_options = c("striped", "hover"))
-```
-
-```{r neighborhood2018}
-neighborhood_summary2018 %>%
-  ggplot(aes(reorder(neighborhood, case), y = case)) +
-  geom_col(fill = "red") +
-  geom_label_repel(aes(label = case), size = 2.5) +
-  coord_flip() +
-  labs(title = "top 20 neighborhood with most cases in 2018", 
-       x = "neighborhood", 
-       y = "case")
-```
-
-```{r neighborhood2019}
-neighborhood_summary2019 %>%
-  ggplot(aes(reorder(neighborhood, case), y = case)) +
-  geom_col(fill = "blue") +
-  geom_label_repel(aes(label = case), size = 2.5) +
-  coord_flip() +
-  labs(title = "top 20 neighborhood with most cases in 2019", 
-       x = "neighborhood", 
-       y = "case")
-```
-
-```{r neighborhood2020}
-neighborhood_summary2020 %>%
-  ggplot(aes(reorder(neighborhood, case), y = case)) +
-  geom_col(fill = "green") +
-  geom_label_repel(aes(label = case), size = 2.5) +
-  coord_flip() +
-  labs(title = "top 20 neighborhood with most cases in 2020", 
-       x = "neighborhood", 
-       y = "case")
-
-```
-
-As in  Figure\@ref(fig:neighborhood2018), Figure\@ref(fig:neighborhood2019) and Figure\@ref(fig:neighborhood2020), **Downtown West** and **Whittier** always be the top areas with the most cases, the following areas would be **Longfellow**, **Lowry Hill East** and **Marcy Holmes** in each year. 
-
-The precinct with the most cases contributed to precinct 3 in three years, as shown in the Figure\@ref(fig:precinct), while the top 2 neigorborhoods located in precinct 1 and 5. There should be more force transferred to the related precinct if it is necessary, and prepare efficient and effective resistance to the neighborhood with most cases as soon as possible. 
-
-## Crime incident Data
+## Crime Incidence 
 
 Figure \@ref(fig:plot-number-crimes) demonstrates that across all years, theft is the most commonly committed crime in Minneapolis. In this instance theft includes; automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle and theft of motor vehicle parts. Burglary and assault are the second and third highest committed crimes, respectively. It should be noted that 2019 is the only complete year, hence the higher incidence. 
 
@@ -284,12 +183,6 @@ number_crimes <- clean_crime %>%
            Year) %>%
   # calculate crime incidence 
   summarise(Incidence = n())
-
-kable(number_crimes,
-      # Add caption to the table
-      caption = "The Incidence of Crime according to Year and Offense Type") %>%
-  # Add kable styling options, position the table in the centre of the report
-  kable_styling(position = "center") 
 ```
 
 ```{r plot-number-crimes, fig.cap= "Crime incidence according to Year and Offense Type"}
@@ -308,6 +201,94 @@ ggplot(number_crimes,
   # rotate the text to enhance readability of the plot
   theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
 ```
+
+## Neighborhoods with the Most Crimes
+
+Figure \@ref(fig:offencetype) captures the top five most frequent offenses in the neighborhoods with the highest crime rates. It is clear that theft is the most commonly committed crime across all neighborhoods, consistent with Figure \@ref(fig:plot-number-crimes). Comparitively, Longflow has a similar incidence of shoplifting and theft. 
+
+```{r offencetype, fig.dim = c(6,4), fig.align="center", fig.cap="The most common offence type in the Neighborhoods with the highest Crime Incidence"}
+crime_MPLS_selected %>% 
+  filter(neighborhood %in% (crime_MPLS_selected  %>% count(neighborhood) %>% arrange(-n) %>% head(10) %>% pull(neighborhood)),
+  offense %in% (crime_MPLS_selected  %>% count(offense) %>% arrange(-n) %>% head(5) %>% pull(offense))) %>% 
+    ggplot(aes(neighborhood, fill = offense))+
+    geom_bar(position = "fill")+
+    scale_fill_ordinal()+
+    coord_flip()
+```
+
+```{r neighborhood-2018}
+neighborhood_summary <- clean_crime %>% select(precinct,
+                                                reportedDate,
+                                                neighborhood)
+neighborhood_summary$year <- year(neighborhood_summary$reportedDate)
+
+
+neighborhood_summary2018 <- neighborhood_summary %>%
+  dplyr::filter(year %in% c("2018")) %>%
+  group_by(neighborhood) %>%
+  summarise(case = n()) %>%
+  distinct() %>%
+  top_n(20)
+
+kable(neighborhood_summary2018, caption = "Top 20 Neighborhoods with the Highest Crime Rate for 2018") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+```{r neighborhood-2019}
+neighborhood_summary2019 <- neighborhood_summary %>%
+  dplyr::filter(year %in% c("2019")) %>%
+  group_by(neighborhood) %>%
+  summarise(case = n()) %>%
+  distinct() %>%
+  top_n(20)
+
+kable(neighborhood_summary2019, caption = "Top 20 Neighborhoods with the Highest Crime Rate for 2019") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+```{r neighborhood-2020}
+neighborhood_summary2020 <- neighborhood_summary %>%
+  dplyr::filter(year %in% c("2020")) %>%
+  group_by(neighborhood) %>%
+  summarise(case = n()) %>%
+  distinct() %>%
+  top_n(20)
+
+kable(neighborhood_summary2020, caption = "Top 20 Neighborhoods with the Highest Crime Rate for 2020") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+```{r neighborhood2018, fig.dim = c(6,4), fig.cap= "Top 20 Neighborhoods with the Highest Crime Rate for 2018"}
+neighborhood_summary2018 %>%
+  ggplot(aes(reorder(neighborhood, case), y = case)) +
+  geom_col(fill = "yellow") +
+  geom_label_repel(aes(label = case), size = 2.5) +
+  coord_flip() +
+  labs(x = "Neighborhood", 
+       y = "Incidence")
+```
+
+```{r neighborhood2019, fig.dim = c(6,4), fig.cap = "Top 20 Neighborhoods with the Highest Crime Rate for 2019"}
+neighborhood_summary2019 %>%
+  ggplot(aes(reorder(neighborhood, case), y = case)) +
+  geom_col(fill = "midnight blue") +
+  geom_label_repel(aes(label = case), size = 2.5) +
+  coord_flip() +
+  labs(x = "Neighborhood", 
+       y = "Incidence")
+```
+
+```{r neighborhood2020, fig.dim = c(6,4), fig.cap = "Top 20 Neighborhoods with the Highest Crime Rate for 2020"}
+neighborhood_summary2020 %>%
+  ggplot(aes(reorder(neighborhood, case), y = case)) +
+  geom_col(fill = "light green") +
+  geom_label_repel(aes(label = case), size = 2.5) +
+  coord_flip() +
+  labs(x = "Neighborhood", 
+       y = "Incidence")
+```
+
+Figure \@ref(fig:neighborhood2018), Figure \@ref(fig:neighborhood2019) and Figure \@ref(fig:neighborhood2020), show that across all years **Downtown West** and **Whittier** have the highest crime rate, followed by **Longfellow**, **Lowry Hill East** and **Marcy Holmes**. 
 
 Figure \@ref(fig:Crimeanalysis) explores the relationship between precinct and offense type. Across all precincts, theft is the most commonly committed crime, consistent with Figure \@ref(fig:plot-number-crimes). Interestingly enough, precinct 1 and 2 have a similar incidence of theft, however, precinct 5 has a much higher incidence of bulglary. 
 
@@ -328,7 +309,7 @@ crime_MPLS_selected %>% filter(offense %in%
     scale_fill_ordinal()
 ```
 
-## Crime with Time
+## Crime over Time 
 
 Figure \@ref(fig:timefig) compares the incidence of crimes in each month. As stated above, 2019 is the only complete year in the data set. In 2018, crime peaked in October, and dropped in December. In 2019, crime was very low in the colder months (January, February and March), peaking in the summer months (July and August). Comparitively, the incidence of crime in 2020 was much lower than 2019 and did not increase in May, which is likely due to the stay at home orders resulting from COVID-19. 
 
@@ -343,7 +324,7 @@ crime_MPLS_month_2018 <- crime_MPLS_selected %>%
 p1 <-   ggplot(crime_MPLS_month_2018, 
         aes(x=as.factor(month), y=n)) + 
   # fill with red
-        geom_bar(stat='identity', fill='red') +
+        geom_bar(stat='identity', fill="light green") +
         scale_y_continuous(labels=comma, limits = c(0, 2000)) + 
   # facet according to year
         facet_grid(.~year) + 
@@ -360,7 +341,7 @@ crime_MPLS_month_2019 <- crime_MPLS_selected %>%
 p2 <-   ggplot(crime_MPLS_month_2019, 
         aes(x=as.factor(month), y=n)) + 
   # fill with red
-        geom_bar(stat='identity', fill='red') +
+        geom_bar(stat='identity', fill="light green") +
         scale_y_continuous(labels=comma) + 
   # facet according to year
         facet_grid(.~year) + 
@@ -377,7 +358,7 @@ crime_MPLS_month_2020 <- crime_MPLS_selected %>%
 p3 <-  ggplot(crime_MPLS_month_2020, 
           aes(x=as.factor(month), y=n)) + 
   # fill with red
-          geom_bar(stat='identity', fill='red') +
+          geom_bar(stat='identity', fill="light green") +
           scale_y_continuous(labels=comma, limits = c(0, 2000)) + 
   # facet according to year
           facet_grid(.~year) + 
@@ -390,7 +371,7 @@ grid.arrange(p1, p2, p3, ncol = 3)
 
 ## Force Used by Police Data
 
-The following figures show the distribution of crimes and force using every day. It can be seen that there are more crimes on weekdays than on weekends, but the situation of force using by police is just the opposite. It is possible that most people will go to recreation places on weekends, and too many people gather will lead to conflicts, so the times of patrol by police will stay high. And criminals will not commit crimes when there are so many police (See Figure \@ref(fig:weekdaysituation)). 
+Figure \@ref(fig:weekdaysituation) show the distribution of crime and force used over a given week. There are more crimes on weekdays than on weekends, however, the force use by police is the opposite with greater force use on weekends. It is likely that weekends will attract larger crowds, particularly at entertainment venues, therefore attracting a larger police presence. Furthermore, it is unlikely criminals will commit crimes, particularly when police presence is so high. 
 
 ```{r weekdaysituation, fig.align="center", fig.width= 8, fig.cap="The average crimes and force using in a week"}
 crime_MPLS_selected$weekday <- wday(crime_MPLS_selected$reportedDate, label=TRUE)
@@ -399,22 +380,21 @@ police_force_2018$weekday <- wday(police_force_2018$ResponseDate, label=TRUE)
 w1 <- crime_MPLS_selected %>% 
         count(weekday) %>%
           ggplot(aes(x=weekday, y=n)) + 
-          geom_bar(stat='identity', fill='red') +
+          geom_bar(stat='identity', fill="midnight blue") +
           scale_y_continuous(labels=comma) +
           labs(x='Weekday', y='Number of incidents', title='Incidents in each day')
 
 w2 <- police_force_2018 %>% 
         count(weekday) %>%
           ggplot(aes(x=weekday, y=n)) + 
-          geom_bar(stat='identity', fill='red') +
+          geom_bar(stat='identity', fill="yellow") +
           scale_y_continuous(labels=comma) +
           labs(x='Weekday', y='Number of using force', title='force using in each day')
 
 grid.arrange(w1, w2, ncol = 2)
 ```
 
-The last three figures are about the data of force using by police. 
-Figure \@ref(fig:TypeOfResistance) shows The Different Type of Resistance in Each Precinct. In a sense, it can be seen that the efficiency of the police and the risk of criminals in each precinct. For example, No. 4 precinct is significantly more dangerous than No. 1 precinct, the probability of criminals escaping is greatly increased, while the Commission of crime is too low to be frightening. 
+Figure \@ref(fig:TypeOfResistance) shows the resistance used in each precinct. In essence, this figure captures the prevalance of crime and perhaps the effiency of police in controlling the crime rate. It can be inferred that the fourth precinct is significantly more dangerous than the fifth precinct, and the force use in the fourth precinct is much higher. 
 
 ```{r TypeOfResistance, fig.align="center", fig.width= 8, fig.cap="The different Resistance of criminals in each Precinct"}
 police_force_selected %>% 
@@ -427,7 +407,7 @@ police_force_selected %>%
     coord_flip()
 ```
 
-Figure \@ref(fig:relationshipfig) shows the relationship between the force type and the type of resistance. The purpose of this figure is to show the effect of the force type used by the police when treating the criminals. I think the content in that figure is obvious, for example, if only using the police dog, the effect is not good and the criminals are easy to escape. If firearm and chemical irritant are combined, better results will be achieved.
+Figure \@ref(fig:relationshipfig) shows the relationship between the force type and the type of resistance. This figure captures the effectiveness of the force type used by police. If the only resistance used by police is a dog, criminals are more likely to flee on foot. However, if a firearm or chemical irritant is used, criminals are less likely to escape.  
 
 ```{r relationshipfig, fig.align="center", fig.width= 8, fig.cap="The relationship between Force Type adopted by police and type of resistance of criminals"}
 
@@ -441,7 +421,7 @@ police_force_selected %>%
     coord_flip()
 ```
 
-The last one is the proportion of different Race in the use of force.(See Figure \@ref(fig:Race)) This is a sensitive topic, but it is clear that without the influence of NA, only when police use the less lethal related way to deal with criminals then the incidences of black people will be significantly reduced, otherwise black people accounted for more than 70% in the rest of the various use of force. Our group is not clear about the situation on the ground in Minneapolis, nor clear about other things about black people. Only from this figure alone, is the way the police treat black people too radical?
+Figure \@ref(fig:Race) shows the use of force, according to race. It is clear that African Americans are subject to more aggressive forms of force. Further, the figure demonstrates police are less likely to use less lethal force on African Americans.
 
 ```{r Race, fig.align="center", fig.width= 8, fig.cap="Different races are treated differently"}
 police_force_selected %>% 

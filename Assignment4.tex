@@ -325,6 +325,20 @@
 \setstretch{1.5}
 
 %% Any special functions or other packages can be loaded here.
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 
 
 \begin{document}           % Begining of document body -----------------------------------------------
@@ -334,26 +348,6 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-Analysis of Crime in Minneapolis:
-
-\begin{itemize}
-\tightlist
-\item
-  What types of crimes are most common?
-\item
-  What crime is committed by each race? Are they proportionate?
-\item
-  What are the most common force types?
-\item
-  Which months of the year have the most criminal records?
-\item
-  Which day of the week has the most crimes or forces used by police?
-\item
-  Which area has the most crime?
-\item
-  Is it the same police committing each crime?
-\end{itemize}
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{knitr}\OperatorTok{::}\NormalTok{opts_chunk}\OperatorTok{$}\KeywordTok{set}\NormalTok{(}\DataTypeTok{echo =} \OtherTok{FALSE}\NormalTok{, }
@@ -386,7 +380,7 @@ Analysis of Crime in Minneapolis:
 
 \begin{verbatim}
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "/Users/brenwin/Desktop/ETC5513-Assignment-4/data/Police_Incidents_Last_2Years-shp/Police_Incidents_Last_2Years.shp", layer: "Police_Incidents_Last_2Years"
+## Source: "/Users/emsheehan/Documents/UNI - POSTGRAD/COLLAB/ETC5513-Assignment-4/data/Police_Incidents_Last_2Years-shp/Police_Incidents_Last_2Years.shp", layer: "Police_Incidents_Last_2Years"
 ## with 43283 features
 ## It has 0 fields
 \end{verbatim}
@@ -429,47 +423,57 @@ This paper hopes to explore and understand crime in Minneapolis. Specifically, t
 \hypertarget{data}{%
 \section{Data}\label{data}}
 
-To perform this analysis
+To perform this analysis data was downloaded from the City of \textcite{Minneapolis-2020}. The data obtained included the shapefiles, the crime dashboard (crime incident data) and the use of force dashboard (the use of force data).
+
+The crime incident data had a high number of NA's, where the race of the offender was not recorded. To mitigate the impact on the calculated proportions, particularly where race is concerned, they were not removed. Unfortunately, this considered, the analysis will still be impacted and the resulting proportions may be over or under-estimated as a result of the missing values.
+
+More limitations\ldots{}
 
 \hypertarget{methodology}{%
 \section{Methodology}\label{methodology}}
 
-\hypertarget{analysis-on-neighborhoods-with-the-most-crimes}{%
-\subsection{Analysis on neighborhoods with the most crimes}\label{analysis-on-neighborhoods-with-the-most-crimes}}
+\hypertarget{analysing-the-crime-incidence}{%
+\subsection{Analysing the Crime Incidence}\label{analysing-the-crime-incidence}}
 
-\hypertarget{analysing-the-crime-incident-data}{%
-\subsection{Analysing the crime incident data}\label{analysing-the-crime-incident-data}}
+\hypertarget{analysing-the-neighborhoods-with-the-most-crime}{%
+\subsection{Analysing the Neighborhoods with the Most Crime}\label{analysing-the-neighborhoods-with-the-most-crime}}
 
-\hypertarget{analysing-crime-with-time}{%
-\subsection{Analysing crime with time}\label{analysing-crime-with-time}}
+\hypertarget{analysing-the-crime-over-time}{%
+\subsection{Analysing the Crime over Time}\label{analysing-the-crime-over-time}}
 
 \hypertarget{analysing-the-force-used-by-police}{%
-\subsection{Analysing the force used by Police}\label{analysing-the-force-used-by-police}}
+\subsection{Analysing the Force Used by Police}\label{analysing-the-force-used-by-police}}
 
 \hypertarget{mapping-the-use-of-force-data}{%
-\subsection{Mapping the use of force data}\label{mapping-the-use-of-force-data}}
+\subsection{Mapping the Use of Force Data}\label{mapping-the-use-of-force-data}}
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
-\hypertarget{analysis-on-neighborhoods-with-the-most-crimes-1}{%
-\subsection{Analysis on neighborhoods with the most crimes}\label{analysis-on-neighborhoods-with-the-most-crimes-1}}
+\hypertarget{crime-incidence}{%
+\subsection{Crime Incidence}\label{crime-incidence}}
 
-To make the division of crime distribution more detailed, I used Neighborhood instead of Precinct, but due to the quite large number, I only took Top10 neighborhood with the highest crimes and the Top5 most frequent offenses(See Figure \ref{fig:offencetype}).
-It is obvious that basically in each neighborhood, theft is still the most frequent occurrence. But Longflow is the only exception, shoplifting is about to reach the number of theft.
+Figure \ref{fig:plot-number-crimes} demonstrates that across all years, theft is the most commonly committed crime in Minneapolis. In this instance theft includes; automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle and theft of motor vehicle parts. Burglary and assault are the second and third highest committed crimes, respectively. It should be noted that 2019 is the only complete year, hence the higher incidence.
 
-\textbackslash begin\{figure\}
+\begin{figure}
+\centering
+\includegraphics{Assignment4_files/figure-latex/plot-number-crimes-1.pdf}
+\caption{\label{fig:plot-number-crimes}Crime incidence according to Year and Offense Type}
+\end{figure}
 
-\{\centering \includegraphics{Assignment4_files/figure-latex/offencetype-1}
+\hypertarget{neighborhoods-with-the-most-crimes}{%
+\subsection{Neighborhoods with the Most Crimes}\label{neighborhoods-with-the-most-crimes}}
 
-\}
+Figure \ref{fig:offencetype} captures the top five most frequent offenses in the neighborhoods with the highest crime rates. It is clear that theft is the most commonly committed crime across all neighborhoods, consistent with Figure \ref{fig:plot-number-crimes}. Comparitively, Longflow has a similar incidence of shoplifting and theft.
 
-\textbackslash caption\{The most common offence type in Top\_10 Neighborhoods with the most crimes\}\label{fig:offencetype}
-\textbackslash end\{figure\}
+\begin{figure}
 
-\begin{verbatim}
-## `summarise()` ungrouping output (override with `.groups` argument)
-\end{verbatim}
+{\centering \includegraphics{Assignment4_files/figure-latex/offencetype-1} 
+
+}
+
+\caption{The most common offence type in the Neighborhoods with the highest Crime Incidence}\label{fig:offencetype}
+\end{figure}
 
 \begin{verbatim}
 ## Selecting by case
@@ -477,7 +481,7 @@ It is obvious that basically in each neighborhood, theft is still the most frequ
 
 \begin{table}
 
-\caption{\label{tab:neighborhood-2018}Top 20 neighborhood with most cases in 2018}
+\caption{\label{tab:neighborhood-2018}Top 20 Neighborhoods with the Highest Crime Rate for 2018}
 \centering
 \begin{tabular}[t]{l|r}
 \hline
@@ -527,16 +531,12 @@ Willard - Hay & 221\\
 \end{table}
 
 \begin{verbatim}
-## `summarise()` ungrouping output (override with `.groups` argument)
-\end{verbatim}
-
-\begin{verbatim}
 ## Selecting by case
 \end{verbatim}
 
 \begin{table}
 
-\caption{\label{tab:neighborhood-2019}top 20 neighborhood with most cases in 2019}
+\caption{\label{tab:neighborhood-2019}Top 20 Neighborhoods with the Highest Crime Rate for 2019}
 \centering
 \begin{tabular}[t]{l|r}
 \hline
@@ -586,16 +586,12 @@ Willard - Hay & 369\\
 \end{table}
 
 \begin{verbatim}
-## `summarise()` ungrouping output (override with `.groups` argument)
-\end{verbatim}
-
-\begin{verbatim}
 ## Selecting by case
 \end{verbatim}
 
 \begin{table}
 
-\caption{\label{tab:neighborhood-2020}top 20 neighborhood with most cases in 2020}
+\caption{\label{tab:neighborhood-2020}Top 20 Neighborhoods with the Highest Crime Rate for 2020}
 \centering
 \begin{tabular}[t]{l|r}
 \hline
@@ -644,105 +640,25 @@ Willard - Hay & 146\\
 \end{tabular}
 \end{table}
 
-\includegraphics{Assignment4_files/figure-latex/neighborhood2018-1.pdf}
-
-\includegraphics{Assignment4_files/figure-latex/neighborhood2019-1.pdf}
-
-\includegraphics{Assignment4_files/figure-latex/neighborhood2020-1.pdf}
-
-As in Figure\ref{fig:neighborhood2018}, Figure\ref{fig:neighborhood2019} and Figure\ref{fig:neighborhood2020}, \textbf{Downtown West} and \textbf{Whittier} always be the top areas with the most cases, the following areas would be \textbf{Longfellow}, \textbf{Lowry Hill East} and \textbf{Marcy Holmes} in each year.
-
-The precinct with the most cases contributed to precinct 3 in three years, as shown in the Figure\ref{fig:precinct}, while the top 2 neigorborhoods located in precinct 1 and 5. There should be more force transferred to the related precinct if it is necessary, and prepare efficient and effective resistance to the neighborhood with most cases as soon as possible.
-
-\hypertarget{crime-incident-data}{%
-\subsection{Crime incident Data}\label{crime-incident-data}}
-
-Figure \ref{fig:plot-number-crimes} demonstrates that across all years, theft is the most commonly committed crime in Minneapolis. In this instance theft includes; automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle and theft of motor vehicle parts. Burglary and assault are the second and third highest committed crimes, respectively. It should be noted that 2019 is the only complete year, hence the higher incidence.
-
-\begin{verbatim}
-## `summarise()` regrouping output by 'offense' (override with `.groups` argument)
-\end{verbatim}
-
-\begin{table}
-
-\caption{\label{tab:number-crimes}The Incidence of Crime according to Year and Offense Type}
+\begin{figure}
 \centering
-\begin{tabular}[t]{l|r|r}
-\hline
-offense & Year & Incidence\\
-\hline
-Arson & 2018 & 43\\
-\hline
-Arson & 2019 & 72\\
-\hline
-Arson & 2020 & 21\\
-\hline
-Assault & 2018 & 586\\
-\hline
-Assault & 2019 & 1019\\
-\hline
-Assault & 2020 & 404\\
-\hline
-Burglary & 2018 & 1935\\
-\hline
-Burglary & 2019 & 3319\\
-\hline
-Burglary & 2020 & 1133\\
-\hline
-Computer Hacking & 2018 & 3\\
-\hline
-Computer Hacking & 2019 & 11\\
-\hline
-Computer Hacking & 2020 & 3\\
-\hline
-Disarm a police officer & 2019 & 1\\
-\hline
-Domestic Assault & 2018 & 416\\
-\hline
-Domestic Assault & 2019 & 889\\
-\hline
-Domestic Assault & 2020 & 320\\
-\hline
-Looting & 2019 & 1\\
-\hline
-Murder & 2018 & 20\\
-\hline
-Murder & 2019 & 44\\
-\hline
-Murder & 2020 & 15\\
-\hline
-Rape & 2018 & 212\\
-\hline
-Rape & 2019 & 402\\
-\hline
-Rape & 2020 & 132\\
-\hline
-Robbery & 2018 & 696\\
-\hline
-Robbery & 2019 & 1295\\
-\hline
-Robbery & 2020 & 478\\
-\hline
-Shoplifting & 2018 & 444\\
-\hline
-Shoplifting & 2019 & 1082\\
-\hline
-Shoplifting & 2020 & 320\\
-\hline
-Theft & 2018 & 7531\\
-\hline
-Theft & 2019 & 14842\\
-\hline
-Theft & 2020 & 5594\\
-\hline
-\end{tabular}
-\end{table}
+\includegraphics{Assignment4_files/figure-latex/neighborhood2018-1.pdf}
+\caption{\label{fig:neighborhood2018}Top 20 Neighborhoods with the Highest Crime Rate for 2018}
+\end{figure}
 
 \begin{figure}
 \centering
-\includegraphics{Assignment4_files/figure-latex/plot-number-crimes-1.pdf}
-\caption{\label{fig:plot-number-crimes}Crime incidence according to Year and Offense Type}
+\includegraphics{Assignment4_files/figure-latex/neighborhood2019-1.pdf}
+\caption{\label{fig:neighborhood2019}Top 20 Neighborhoods with the Highest Crime Rate for 2019}
 \end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{Assignment4_files/figure-latex/neighborhood2020-1.pdf}
+\caption{\label{fig:neighborhood2020}Top 20 Neighborhoods with the Highest Crime Rate for 2020}
+\end{figure}
+
+Figure \ref{fig:neighborhood2018}, Figure \ref{fig:neighborhood2019} and Figure \ref{fig:neighborhood2020}, show that across all years \textbf{Downtown West} and \textbf{Whittier} have the highest crime rate, followed by \textbf{Longfellow}, \textbf{Lowry Hill East} and \textbf{Marcy Holmes}.
 
 Figure \ref{fig:Crimeanalysis} explores the relationship between precinct and offense type. Across all precincts, theft is the most commonly committed crime, consistent with Figure \ref{fig:plot-number-crimes}. Interestingly enough, precinct 1 and 2 have a similar incidence of theft, however, precinct 5 has a much higher incidence of bulglary.
 
@@ -755,8 +671,8 @@ Figure \ref{fig:Crimeanalysis} explores the relationship between precinct and of
 \caption{Crimes comparison of different districts}\label{fig:Crimeanalysis}
 \end{figure}
 
-\hypertarget{crime-with-time}{%
-\subsection{Crime with Time}\label{crime-with-time}}
+\hypertarget{crime-over-time}{%
+\subsection{Crime over Time}\label{crime-over-time}}
 
 Figure \ref{fig:timefig} compares the incidence of crimes in each month. As stated above, 2019 is the only complete year in the data set. In 2018, crime peaked in October, and dropped in December. In 2019, crime was very low in the colder months (January, February and March), peaking in the summer months (July and August). Comparitively, the incidence of crime in 2020 was much lower than 2019 and did not increase in May, which is likely due to the stay at home orders resulting from COVID-19.
 
@@ -772,7 +688,7 @@ Figure \ref{fig:timefig} compares the incidence of crimes in each month. As stat
 \hypertarget{force-used-by-police-data}{%
 \subsection{Force Used by Police Data}\label{force-used-by-police-data}}
 
-The following figures show the distribution of crimes and force using every day. It can be seen that there are more crimes on weekdays than on weekends, but the situation of force using by police is just the opposite. It is possible that most people will go to recreation places on weekends, and too many people gather will lead to conflicts, so the times of patrol by police will stay high. And criminals will not commit crimes when there are so many police (See Figure \ref{fig:weekdaysituation}).
+Figure \ref{fig:weekdaysituation} show the distribution of crime and force used over a given week. There are more crimes on weekdays than on weekends, however, the force use by police is the opposite with greater force use on weekends. It is likely that weekends will attract larger crowds, particularly at entertainment venues, therefore attracting a larger police presence. Furthermore, it is unlikely criminals will commit crimes, particularly when police presence is so high.
 
 \begin{figure}
 
@@ -783,8 +699,7 @@ The following figures show the distribution of crimes and force using every day.
 \caption{The average crimes and force using in a week}\label{fig:weekdaysituation}
 \end{figure}
 
-The last three figures are about the data of force using by police.
-Figure \ref{fig:TypeOfResistance} shows The Different Type of Resistance in Each Precinct. In a sense, it can be seen that the efficiency of the police and the risk of criminals in each precinct. For example, No.~4 precinct is significantly more dangerous than No.~1 precinct, the probability of criminals escaping is greatly increased, while the Commission of crime is too low to be frightening.
+Figure \ref{fig:TypeOfResistance} shows the resistance used in each precinct. In essence, this figure captures the prevalance of crime and perhaps the effiency of police in controlling the crime rate. It can be inferred that the fourth precinct is significantly more dangerous than the fifth precinct, and the force use in the fourth precinct is much higher.
 
 \begin{figure}
 
@@ -795,7 +710,7 @@ Figure \ref{fig:TypeOfResistance} shows The Different Type of Resistance in Each
 \caption{The different Resistance of criminals in each Precinct}\label{fig:TypeOfResistance}
 \end{figure}
 
-Figure \ref{fig:relationshipfig} shows the relationship between the force type and the type of resistance. The purpose of this figure is to show the effect of the force type used by the police when treating the criminals. I think the content in that figure is obvious, for example, if only using the police dog, the effect is not good and the criminals are easy to escape. If firearm and chemical irritant are combined, better results will be achieved.
+Figure \ref{fig:relationshipfig} shows the relationship between the force type and the type of resistance. This figure captures the effectiveness of the force type used by police. If the only resistance used by police is a dog, criminals are more likely to flee on foot. However, if a firearm or chemical irritant is used, criminals are less likely to escape.
 
 \begin{figure}
 
@@ -806,7 +721,7 @@ Figure \ref{fig:relationshipfig} shows the relationship between the force type a
 \caption{The relationship between Force Type adopted by police and type of resistance of criminals}\label{fig:relationshipfig}
 \end{figure}
 
-The last one is the proportion of different Race in the use of force.(See Figure \ref{fig:Race}) This is a sensitive topic, but it is clear that without the influence of NA, only when police use the less lethal related way to deal with criminals then the incidences of black people will be significantly reduced, otherwise black people accounted for more than 70\% in the rest of the various use of force. Our group is not clear about the situation on the ground in Minneapolis, nor clear about other things about black people. Only from this figure alone, is the way the police treat black people too radical?
+Figure \ref{fig:Race} shows the use of force, according to race. It is clear that African Americans are subject to more aggressive forms of force. Further, the figure demonstrates police are less likely to use less lethal force on African Americans.
 
 \begin{figure}
 
@@ -840,13 +755,13 @@ WIP: need to join table with demographics (racial composition in each Precinct) 
 
 \begin{verbatim}
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "/Users/brenwin/Desktop/ETC5513-Assignment-4/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp", layer: "Police_Use_of_Force"
+## Source: "/Users/emsheehan/Documents/UNI - POSTGRAD/COLLAB/ETC5513-Assignment-4/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp", layer: "Police_Use_of_Force"
 ## with 30024 features
 ## It has 28 fields
 \end{verbatim}
 
 \begin{verbatim}
-## Reading layer `Police_Use_of_Force' from data source `/Users/brenwin/Desktop/ETC5513-Assignment-4/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp' using driver `ESRI Shapefile'
+## Reading layer `Police_Use_of_Force' from data source `/Users/emsheehan/Documents/UNI - POSTGRAD/COLLAB/ETC5513-Assignment-4/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 30024 features and 28 fields
 ## geometry type:  POINT
 ## dimension:      XY

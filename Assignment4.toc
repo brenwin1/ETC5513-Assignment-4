@@ -4,30 +4,30 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2}Data}{4}{section.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Methodology}{5}{section.3}%
+\contentsline {section}{\numberline {3}Methodology}{4}{section.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Analysis on neighborhoods with the most crimes}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.1}Analysing the Crime Incidence}{5}{subsection.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Analysing the crime incident data}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}Analysing the Neighborhoods with the Most Crime}{5}{subsection.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3}Analysing crime with time}{5}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.3}Analysing the Crime over Time}{5}{subsection.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4}Analysing the force used by Police}{5}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.4}Analysing the Force Used by Police}{5}{subsection.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5}Mapping the use of force data}{5}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.5}Mapping the Use of Force Data}{5}{subsection.3.5}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4}Results}{5}{section.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Analysis on neighborhoods with the most crimes}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.1}Crime Incidence}{5}{subsection.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}Crime incident Data}{9}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}Neighborhoods with the Most Crimes}{6}{subsection.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3}Crime with Time}{10}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.3}Crime over Time}{10}{subsection.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4}Force Used by Police Data}{12}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.4}Force Used by Police Data}{10}{subsection.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Police use of force map analysis}{16}{section.5}%
+\contentsline {section}{\numberline {5}Police use of force map analysis}{14}{section.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1}Police use of force map}{16}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.1}Police use of force map}{14}{subsection.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2}Precincts}{18}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.2}Precincts}{16}{subsection.5.2}%
