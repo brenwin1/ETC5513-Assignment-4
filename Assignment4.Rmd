@@ -328,7 +328,7 @@ crime_MPLS_selected %>% filter(offense %in%
     scale_fill_ordinal()
 ```
 
-## Crime with time
+## Crime with Time
 
 Figure \@ref(fig:timefig) compares the incidence of crimes in each month. As stated above, 2019 is the only complete year in the data set. In 2018, crime peaked in October, and dropped in December. In 2019, crime was very low in the colder months (January, February and March), peaking in the summer months (July and August). Comparitively, the incidence of crime in 2020 was much lower than 2019 and did not increase in May, which is likely due to the stay at home orders resulting from COVID-19. 
 
@@ -388,7 +388,7 @@ p3 <-  ggplot(crime_MPLS_month_2020,
 grid.arrange(p1, p2, p3, ncol = 3)
 ```
 
-## Force Used By Police Data
+## Force Used by Police Data
 
 The following figures show the distribution of crimes and force using every day. It can be seen that there are more crimes on weekdays than on weekends, but the situation of force using by police is just the opposite. It is possible that most people will go to recreation places on weekends, and too many people gather will lead to conflicts, so the times of patrol by police will stay high. And criminals will not commit crimes when there are so many police (See Figure \@ref(fig:weekdaysituation)). 
 
@@ -454,16 +454,32 @@ police_force_selected %>%
     coord_flip()
 ```
 
-## Mapping the the Use of Police Force
+\clearpage
 
+# Police use of force map analysis
+
+```{r puofbar, fig.cap = "proportion of race in police use of force by Precincts"}
+police_use_of_force %>% 
+  ggplot(aes(x = Race)) +
+  geom_bar(aes(y = stat(prop),
+               group = 1)) +
+  facet_wrap(~Precinct) +
+  coord_flip()
+```
+
+**Figure \@ref(fig:puofbar)** shows the proportion of race in police use of force by Precincts.
+
+> WIP: need to join table with demographics (racial composition in each Precinct) and data on proportion of crimes commited by race in each precinct.
+
+## Police use of force map
 ```{r}
 library(leaflet)
 library(rgdal)
 
+# read in shape file
 shp <- rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Police_Use_of_Force-shp", sep=""), layer = "Police_Use_of_Force.shp") , stringsAsFactors = FALSE)
 ```
 
-## Police use of force map
 ```{r}
 library(sf)
 # Read shp file into a data frame
@@ -471,7 +487,7 @@ shp_sf1 <- st_read(dsn = file.path(paste(getwd(),"/data/Police_Use_of_Force-shp/
   filter(CenterLati != 0)
 ```
 
-```{r}
+```{r puofmap, fig.cap = "Number of police use of force incidents in Precincts", fig.align = "center"}
 shp_sf1 %>% 
   leaflet() %>% 
   addTiles() %>% 
@@ -479,15 +495,17 @@ shp_sf1 %>%
   addCircleMarkers(lng = shp_sf1$CenterLong, 
              lat = shp_sf1$CenterLati, 
              clusterOptions = markerClusterOptions()) # cluster circles and prevent hanging!
-
-
-# xxxxx potentially; group and label markers (by race and neighbourhood)
-# xxxxx change tile to Google maps (more familiar )
 ```
 
+**Figure \@ref(fig:puofmap)** shows the police use of force map in Minneapolis. The numbers show number of incidents per precinct. 
 
-
-
+## Precincts
+```{r}
+# mapping points where police use of force were recorded. 
+shp_sf1 %>% 
+  ggplot() +
+  geom_sf(aes(colour = Precinct)) # colour points by precincts
+```
 
 
 

@@ -4,7 +4,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2}Data}{4}{section.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Methodology}{4}{section.3}%
+\contentsline {section}{\numberline {3}Methodology}{5}{section.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.1}Analysis on neighborhoods with the most crimes}{5}{subsection.3.1}%
 \defcounter {refsection}{0}\relax 
@@ -22,10 +22,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.2}Crime incident Data}{9}{subsection.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3}Crime with time}{11}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.3}Crime with Time}{10}{subsection.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4}Force Used By Police Data}{12}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.4}Force Used by Police Data}{12}{subsection.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5}Mapping the the Use of Police Force}{14}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Police use of force map analysis}{16}{section.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.6}Police use of force map}{14}{subsection.4.6}%
+\contentsline {subsection}{\numberline {5.1}Police use of force map}{16}{subsection.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2}Precincts}{18}{subsection.5.2}%
