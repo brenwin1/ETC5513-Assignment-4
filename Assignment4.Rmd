@@ -279,12 +279,16 @@ Figure \@ref(fig:plot-number-crimes) demonstrates that across all years, theft i
 
 ```{r number-crimes}
 number_crimes <- clean_crime %>%
+  # group by offense and year
   group_by(offense,
            Year) %>%
+  # calculate crime incidence 
   summarise(Incidence = n())
 
 kable(number_crimes,
+      # Add caption to the table
       caption = "The Incidence of Crime according to Year and Offense Type") %>%
+  # Add kable styling options, position the table in the centre of the report
   kable_styling(bootstrap_options = "striped", 
                 position = "center") 
 ```
@@ -294,11 +298,15 @@ ggplot(number_crimes,
        aes(x = offense,
            y = Incidence,
            group = Year,
+           # colour the plot according to offense
            fill = offense)) +
   geom_col() +
+  # colour using the viridis package
   scale_fill_ordinal() +
+  # split the plots according to year
   facet_wrap(~Year) +
   xlab("Type of Offense") +
+  # rotate the text to enhance readability of the plot
   theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
 ```
 
@@ -306,12 +314,18 @@ Figure \@ref(fig:Crimeanalysis) explores the relationship between precinct and o
 
 ```{r Crimeanalysis, fig.align="center", fig.width= 8, fig.cap="Crimes comparison of different districts"}
 crime_MPLS_selected %>% filter(offense %in% 
-                                 (crime_MPLS_selected  
-                                  %>% count(offense) %>% arrange(-n) %>% head(10) %>% pull(offense))) %>% 
+                                 (crime_MPLS_selected 
+                                  %>% count(offense) %>%
+                                  arrange(-n) %>%
+                                  # use top ten offenses only
+                                  head(10) 
+                                  %>% pull(offense))) %>% 
     ggplot(aes(precinct, 
                fill = offense))+
     geom_bar()+
+  # swap the x and y axis
     coord_flip()+
+   # colour using the viridis package
     scale_fill_ordinal()
 ```
 
@@ -321,42 +335,57 @@ Figure \@ref(fig:timefig) compares the incidence of crimes in each month. As sta
 
 ```{r timefig, fig.align="center", fig.width= 8, fig.cap="Comparison of crimes in different months"}
 crime_MPLS_month_2018 <- crime_MPLS_selected %>%
+  # filter according to year
   filter(year == 2018) %>% 
   select(year, month) %>% 
+  # group by year
   group_by(year) %>% 
   count(month) 
 p1 <-   ggplot(crime_MPLS_month_2018, 
         aes(x=as.factor(month), y=n)) + 
+  # fill with red
         geom_bar(stat='identity', fill='red') +
         scale_y_continuous(labels=comma, limits = c(0, 2000)) + 
+  # facet according to year
         facet_grid(.~year) + 
+  # label x and y axis
         labs(x='Month', y='Number of incidents')
 
 crime_MPLS_month_2019 <- crime_MPLS_selected %>%
+  # filter according to year
   filter(year == 2019) %>% 
   select(year, month) %>% 
+  # group by year
   group_by(year) %>% 
   count(month) 
 p2 <-   ggplot(crime_MPLS_month_2019, 
         aes(x=as.factor(month), y=n)) + 
+  # fill with red
         geom_bar(stat='identity', fill='red') +
         scale_y_continuous(labels=comma) + 
+  # facet according to year
         facet_grid(.~year) + 
+  # label x and y axis
         labs(x='Month', y='Number of incidents')
 
 crime_MPLS_month_2020 <- crime_MPLS_selected %>%
+  # filter according to year
   filter(year == 2020) %>% 
-  select(year, month) %>% 
+  select(year, month) %>%
+  # group by year
   group_by(year) %>% 
   count(month) 
 p3 <-  ggplot(crime_MPLS_month_2020, 
           aes(x=as.factor(month), y=n)) + 
+  # fill with red
           geom_bar(stat='identity', fill='red') +
           scale_y_continuous(labels=comma, limits = c(0, 2000)) + 
+  # facet according to year
           facet_grid(.~year) + 
+  # label x and y axis
           labs(x='Month', y='Number of incidents')
 
-
+# arrange the plots so they are displayed as one plot
 grid.arrange(p1, p2, p3, ncol = 3)
 ```
 
