@@ -1,24 +1,30 @@
 ---
 title: "Crime in Minneapolis"
 author:
-- familyname: XXXX
-  othernames: XXX
-  address: Monash Universtidy
-  email: XXX
+- familyname: Pi
+  othernames: Lulu
+  address: Monash University
+  email: lpi2@student.monash.edu
   correspondingauthor: true
-  qualifications:  XXX
-- familyname: XXXX
-  othernames: Reports
-  address: XXX
   qualifications: XXX
-- familyname: XXX
-  othernames: XXX
-  address: XXX
-  email: XXX
+- familyname: Sheehan
+  othernames: Emily
+  address: Monash University
+  email: eshe0012@student.monash.edu
+  correspondingauthor: true
+  qualifications: BComm
+- familyname: Ang
+  othernames: Brenwin
+  address: ang0005@student.monash.edu
+  qualifications: XXX
+- familyname: Ye
+  othernames: Chengzhi
+  address: Monash University
+  email: cyee0011@student.monash.edu
   correspondingauthor: true
   qualifications:  XXX
-department: Our consultancy \newline add names &\newline add names
-organization: Australian Government COVID19
+department: Faculty of \newline Business &\newline Economics
+organization: Monash University
 bibliography: references.bib
 biblio-style: authoryear-comp
 linestretch: 1.5
@@ -53,7 +59,7 @@ knitr::opts_chunk$set(echo = FALSE,
                       warning=FALSE)
 ```
 
-```{r libraries, include = FALSE}
+```{r libraries}
 library(tidyverse)
 library(rgdal)
 library(ggrepel)
@@ -68,7 +74,6 @@ library(leaflet)
 
 ```{r crime-incident-data}
 crime_incidents <- read_csv("data/Police_Incidents_Last_2Years.csv") 
-
 ```
 
 ```{r shapefiles-data}
@@ -81,6 +86,68 @@ police_use_of_force <- read_csv("data/Police_Use_of_Force.csv")
 
 ```{r police-stop-data, eval = FALSE}
 police_stop_data <- read_csv("data/Police_Stop_Data.csv")
+```
+```{r clean-crime}
+clean_crime <- crime_incidents %>%
+  mutate(offense = case_when(
+    offense %in% c("ARSON") ~ "Arson",
+    offense %in% c("ASLT1",
+                   "ASLT2",
+                   "ASLT3",
+                   "ASLT4") ~ "Assault",
+    # Combining automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle, theft of motor vehicle parts
+    offense %in% c("AUTOTH",
+                   "MVTHFT",
+                   "BIKETF",
+                   "COINOP",
+                   "NOPAY",
+                   "ONLTHT",
+                   "PETIT",
+                   "POCKET",
+                   "SCRAP",
+                   "TBLDG",
+                   "TFMV",
+                   "TFPER",
+                   "THEFT",
+                   "THFTSW",
+                   "TMVP") ~ "Theft",
+    # Combining burglary of business and burglary of dwelling
+    offense %in% c("BURGB",
+                   "BURGD") ~ "Burglary",
+    offense %in% c("ROBBIZ",
+                   "ROBPAG",
+                   "ROBPER") ~ "Robbery",
+    offense %in% c("SHOPLF") ~ "Shoplifting",
+    offense %in% c("COMPUT") ~ "Computer Hacking",
+    offense %in% c("CSCR") ~ "Rape",
+    # Combing first, second and third degree domestic assult with domestic assault strangulation
+    offense %in% c("DASLT1",
+                   "DASLT2",
+                   "DASLT3",
+                   "DASTR") ~ "Domestic Assault",
+    offense %in% c("DISARM") ~ "Disarm a police officer",
+    offense %in% c("LOOT") ~ "Looting",
+    offense %in% c("MURDR") ~ "Murder")) %>%
+  mutate(Year = year(enteredDate))
+```
+
+```{r cleaning data}
+crime_MPLS_selected <- clean_crime %>% 
+  select(reportedDate, offense, neighborhood, precinct, X, Y, description)
+crime_MPLS_selected$year <- year(crime_MPLS_selected$reportedDate)
+crime_MPLS_selected$month <- month(crime_MPLS_selected$reportedDate)
+crime_MPLS_selected$days <- day(crime_MPLS_selected$reportedDate)
+
+police_force_selected <- police_use_of_force %>% 
+  select(ResponseDate, Problem, PrimaryOffense, ForceType, Race, Sex, TypeOfResistance ,Precinct,Neighborhood) 
+
+
+police_force_selected$year <- year(police_force_selected$ResponseDate)
+police_force_selected$month <- month(police_force_selected$ResponseDate)
+police_force_selected$days <- day(police_force_selected$ResponseDate)
+
+police_force_2018 <- police_force_selected %>% 
+  filter(year %in% c("2018","2019", "2020"))
 ```
 
 # Introduction
@@ -97,30 +164,19 @@ To perform this analysis
 
 # Methodology 
 
-## Analysing the crime which is most common 
+## Analysis on neighborhoods with the most crimes
 
-The crime incidence data was wrangled. This involved assigning each crime to its relevant offence type. The incidence of each offense was calculated, and plotted according to year.
+## Analysing the crime incident data 
 
+## Analysing crime with time 
 
-## Analysing the crime being committed by each race
-number_crimes
+## Analysing the force used by Police
 
-
-## Computing the most common force type
-
-
-The police use of force data was wrangled, and a summary was generated to count the incidence of each offense according to race. The data was plotted. 
-
-## Analysing the months of the year which have the most criminal records
-
-## Analysing the areas that have the most crime 
-
-## Analysing whether Police are repeat offenders?
-
+## Mapping the use of force data
 
 # Results
 
-## Depth analysis on crime
+## Analysis on neighborhoods with the most crimes
 
 To make the division of crime distribution more detailed, I used Neighborhood instead of Precinct, but due to the quite large number, I only took Top10 neighborhood with the highest crimes and the Top5 most frequent offenses(See Figure \@ref(fig:offencetype)).
 It is obvious that basically in each neighborhood, theft is still the most frequent occurrence. But Longflow is the only exception, shoplifting is about to reach the number of theft.
@@ -136,7 +192,6 @@ crime_MPLS_selected %>%
     coord_flip()
 ```
 
-
 ```{r neighborhood-2018}
 neighborhood_summary <- clean_crime %>% select(precinct,
                                                 reportedDate,
@@ -151,7 +206,7 @@ neighborhood_summary2018 <- neighborhood_summary %>%
   distinct() %>%
   top_n(20)
 
-kable(neighborhood_summary2018, caption = "top 20 neighborhood with most cases in 2018") %>%
+kable(neighborhood_summary2018, caption = "Top 20 neighborhood with most cases in 2018") %>%
   kable_styling(bootstrap_options = c("striped", "hover"))
 ```
 
@@ -217,75 +272,9 @@ As in  Figure\@ref(fig:neighborhood2018), Figure\@ref(fig:neighborhood2019) and 
 
 The precinct with the most cases contributed to precinct 3 in three years, as shown in the Figure\@ref(fig:precinct), while the top 2 neigorborhoods located in precinct 1 and 5. There should be more force transferred to the related precinct if it is necessary, and prepare efficient and effective resistance to the neighborhood with most cases as soon as possible. 
 
-The most reason for force used in 2018, 2019 and 2020 is **ASLT4** as shown in Figure\@ref(fig:force used for primary offense), which means the offense is less than substantive harm. The safety of polices when they use of force is need to be paid attention as well. According to Figure\@ref(fig:resistant type), polices would provide resistant mostly with **tensed** cases, typically when people experienced anxiety or nervousness. Chasing crimes with cases when **fled on foot**, or dealing with **assaulted Officers** are the common tasks they faced every day no matter in which year. Therefore, polices would use **bodily force** in more than 70% cases as in Figure\@ref(fig:force type), the following would be using **chemical irritant**, and they actually would use gun in rare cases. However, they still got injured in approximately 52% cases according to the recorded data we have in 2018 and 2019 with Figure\@ref(fig:injury condition), since they take punches, kicks, Body Weight to pin and joint lock, related protection tools should be prepared to them and regularly training as well if possible. 
-
-
 ## Crime incident Data
 
-Figure \@ref(fig:plot-number-crimes) demonstrates that across all years, theft is the most commonly committed crime in Minneapolis. In this instance theft includes; automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle and theft of motor vehicle parts. 
-
-```{r clean-crime}
-clean_crime <- crime_incidents %>%
-  mutate(offense = case_when(
-    offense %in% c("ARSON") ~ "Arson",
-    offense %in% c("ASLT1",
-                   "ASLT2",
-                   "ASLT3",
-                   "ASLT4") ~ "Assault",
-    # Combining automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle, theft of motor vehicle parts
-    offense %in% c("AUTOTH",
-                   "MVTHFT",
-                   "BIKETF",
-                   "COINOP",
-                   "NOPAY",
-                   "ONLTHT",
-                   "PETIT",
-                   "POCKET",
-                   "SCRAP",
-                   "TBLDG",
-                   "TFMV",
-                   "TFPER",
-                   "THEFT",
-                   "THFTSW",
-                   "TMVP") ~ "Theft",
-    # Combining burglary of business and burglary of dwelling
-    offense %in% c("BURGB",
-                   "BURGD") ~ "Burglary",
-    offense %in% c("ROBBIZ",
-                   "ROBPAG",
-                   "ROBPER") ~ "Robbery",
-    offense %in% c("SHOPLF") ~ "Shoplifting",
-    offense %in% c("COMPUT") ~ "Computer Hacking",
-    offense %in% c("CSCR") ~ "Rape",
-    # Combing first, second and third degree domestic assult with domestic assault strangulation
-    offense %in% c("DASLT1",
-                   "DASLT2",
-                   "DASLT3",
-                   "DASTR") ~ "Domestic Assault",
-    offense %in% c("DISARM") ~ "Disarm a police officer",
-    offense %in% c("LOOT") ~ "Looting",
-    offense %in% c("MURDR") ~ "Murder")) %>%
-  mutate(Year = year(enteredDate))
-```
-
-```{r cleaning data}
-crime_MPLS_selected <- clean_crime %>% 
-  select(reportedDate, offense, neighborhood, precinct, X, Y, description)
-crime_MPLS_selected$year <- year(crime_MPLS_selected$reportedDate)
-crime_MPLS_selected$month <- month(crime_MPLS_selected$reportedDate)
-crime_MPLS_selected$days <- day(crime_MPLS_selected$reportedDate)
-
-police_force_selected <- police_use_of_force %>% 
-  select(ResponseDate, Problem, PrimaryOffense, ForceType, Race, Sex, TypeOfResistance ,Precinct,Neighborhood) 
-
-
-police_force_selected$year <- year(police_force_selected$ResponseDate)
-police_force_selected$month <- month(police_force_selected$ResponseDate)
-police_force_selected$days <- day(police_force_selected$ResponseDate)
-
-police_force_2018 <- police_force_selected %>% 
-  filter(year %in% c("2018","2019", "2020"))
-```
+Figure \@ref(fig:plot-number-crimes) demonstrates that across all years, theft is the most commonly committed crime in Minneapolis. In this instance theft includes; automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle and theft of motor vehicle parts. Burglary and assault are the second and third highest committed crimes, respectively. It should be noted that 2019 is the only complete year, hence the higher incidence. 
 
 ```{r number-crimes}
 number_crimes <- clean_crime %>%
@@ -294,20 +283,27 @@ number_crimes <- clean_crime %>%
   summarise(Incidence = n())
 ```
 
-```{r plot-number-crimes}
+```{r plot-number-crimes, fig.cap= "Crime incidence according to Year and Offense Type"}
 ggplot(number_crimes,
        aes(x = offense,
            y = Incidence,
-           group = Year)) +
+           group = Year,
+           fill = offense)) +
   geom_col() +
+  scale_fill_ordinal() +
   facet_wrap(~Year) +
   xlab("Type of Offense") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.3))
 ```
 
+Figure \@ref(fig:Crimeanalysis) explores the relationship between precinct and offense type. Across all precincts, theft is the most commonly committed crime, consistent with Figure \@ref(fig:plot-number-crimes). Interestingly enough, precinct 1 and 2 have a similar incidence of theft, however, precinct 5 has a much higher incidence of bulglary. 
+
 ```{r Crimeanalysis, fig.align="center", fig.width= 8, fig.cap="Crimes comparison of different districts"}
-crime_MPLS_selected %>% filter(offense %in% (crime_MPLS_selected  %>% count(offense) %>% arrange(-n) %>% head(10) %>% pull(offense))) %>% 
-    ggplot(aes(precinct, fill = offense))+
+crime_MPLS_selected %>% filter(offense %in% 
+                                 (crime_MPLS_selected  
+                                  %>% count(offense) %>% arrange(-n) %>% head(10) %>% pull(offense))) %>% 
+    ggplot(aes(precinct, 
+               fill = offense))+
     geom_bar()+
     coord_flip()+
     scale_fill_ordinal()
@@ -315,8 +311,7 @@ crime_MPLS_selected %>% filter(offense %in% (crime_MPLS_selected  %>% count(offe
 
 ## Crime with time
 
-The part I am responsible for mainly includes the relationship between different time and precinct with crime. 
-The first figure shows the total number of crimes in each month from 2018 to 2020, from which we can see that crimes soared from May, peaked in July and August, and then gradually began to decline(See Figure \@ref(fig:timefig)). If we compare different years, 2018 is significantly safer than 2019. As for 2020, compared with the May of previous year, the number of crimes did not increase but decrease, which is probably due to COVID19.
+Figure \@ref(fig:timefig) compares the incidence of crimes in each month. As stated above, 2019 is the only complete year in the data set. In 2018, crime peaked in October, and dropped in December. In 2019, crime was very low in the colder months (January, February and March), peaking in the summer months (July and August). Comparitively, the incidence of crime in 2020 was much lower than 2019 and did not increase in May, which is likely due to the stay at home orders resulting from COVID-19. 
 
 ```{r timefig, fig.align="center", fig.width= 8, fig.cap="Comparison of crimes in different months"}
 crime_MPLS_month_2018 <- crime_MPLS_selected %>%
@@ -432,13 +427,9 @@ library(leaflet)
 library(rgdal)
 
 shp <- rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Police_Use_of_Force-shp", sep=""), layer = "Police_Use_of_Force.shp") , stringsAsFactors = FALSE)
-
-head(shp@data)
-summary(shp@data)
-head(shp@data)
 ```
 
-# Police use of force map
+## Police use of force map
 ```{r}
 library(sf)
 # Read shp file into a data frame

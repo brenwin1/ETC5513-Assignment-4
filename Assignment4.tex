@@ -239,11 +239,11 @@
 \DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
 \makeatother
 
-\author{\sf\Large\textbf{ XXX XXXX}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ Reports XXXX}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ XXX XXX}\\ {\sf\large XXX\\[0.5cm]}}
+\author{\sf\Large\textbf{ Lulu Pi}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ Emily Sheehan}\\ {\sf\large BComm\\[0.5cm]} \sf\Large\textbf{ Brenwin Ang}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ Chengzhi Ye}\\ {\sf\large XXX\\[0.5cm]}}
 
 \date{\sf\Date~\Month~\Year}
 \makeatletter
-\lfoot{\sf XXXX, XXXX, XXX: \@date}
+\lfoot{\sf Pi, Sheehan, Ang, Ye: \@date}
 \makeatother
 
 
@@ -254,9 +254,9 @@
 \def\telephone#1{\gdef\@telephone{#1}}
 \def\email#1{\gdef\@email{#1}}
 \makeatother
-  \organization{Australian Government COVID19}
+  \organization{Monash University}
 
-  \def\name{Our consultancy \newline add names \&\newline add names}
+  \def\name{Faculty of \newline Business \&\newline Economics}
 
   \telephone{(03) 9905 2478}
 
@@ -325,6 +325,20 @@
 \setstretch{1.5}
 
 %% Any special functions or other packages can be loaded here.
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 
 
 \begin{document}           % Begining of document body -----------------------------------------------
@@ -434,35 +448,26 @@ To perform this analysis
 \hypertarget{methodology}{%
 \section{Methodology}\label{methodology}}
 
-\hypertarget{analysing-the-crime-which-is-most-common}{%
-\subsection{Analysing the crime which is most common}\label{analysing-the-crime-which-is-most-common}}
+\hypertarget{analysis-on-neighborhoods-with-the-most-crimes}{%
+\subsection{Analysis on neighborhoods with the most crimes}\label{analysis-on-neighborhoods-with-the-most-crimes}}
 
-The crime incidence data was wrangled. This involved assigning each crime to its relevant offence type. The incidence of each offense was calculated, and plotted according to year.
+\hypertarget{analysing-the-crime-incident-data}{%
+\subsection{Analysing the crime incident data}\label{analysing-the-crime-incident-data}}
 
-\hypertarget{analysing-the-crime-being-committed-by-each-race}{%
-\subsection{Analysing the crime being committed by each race}\label{analysing-the-crime-being-committed-by-each-race}}
+\hypertarget{analysing-crime-with-time}{%
+\subsection{Analysing crime with time}\label{analysing-crime-with-time}}
 
-number\_crimes
+\hypertarget{analysing-the-force-used-by-police}{%
+\subsection{Analysing the force used by Police}\label{analysing-the-force-used-by-police}}
 
-\hypertarget{computing-the-most-common-force-type}{%
-\subsection{Computing the most common force type}\label{computing-the-most-common-force-type}}
-
-The police use of force data was wrangled, and a summary was generated to count the incidence of each offense according to race. The data was plotted.
-
-\hypertarget{analysing-the-months-of-the-year-which-have-the-most-criminal-records}{%
-\subsection{Analysing the months of the year which have the most criminal records}\label{analysing-the-months-of-the-year-which-have-the-most-criminal-records}}
-
-\hypertarget{analysing-the-areas-that-have-the-most-crime}{%
-\subsection{Analysing the areas that have the most crime}\label{analysing-the-areas-that-have-the-most-crime}}
-
-\hypertarget{analysing-whether-police-are-repeat-offenders}{%
-\subsection{Analysing whether Police are repeat offenders?}\label{analysing-whether-police-are-repeat-offenders}}
+\hypertarget{mapping-the-use-of-force-data}{%
+\subsection{Mapping the use of force data}\label{mapping-the-use-of-force-data}}
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
-\hypertarget{depth-analysis-on-crime}{%
-\subsection{Depth analysis on crime}\label{depth-analysis-on-crime}}
+\hypertarget{analysis-on-neighborhoods-with-the-most-crimes-1}{%
+\subsection{Analysis on neighborhoods with the most crimes}\label{analysis-on-neighborhoods-with-the-most-crimes-1}}
 
 To make the division of crime distribution more detailed, I used Neighborhood instead of Precinct, but due to the quite large number, I only took Top10 neighborhood with the highest crimes and the Top5 most frequent offenses(See Figure \ref{fig:offencetype}).
 It is obvious that basically in each neighborhood, theft is still the most frequent occurrence. But Longflow is the only exception, shoplifting is about to reach the number of theft.
@@ -482,7 +487,7 @@ It is obvious that basically in each neighborhood, theft is still the most frequ
 
 \begin{table}
 
-\caption{\label{tab:neighborhood-2018}top 20 neighborhood with most cases in 2018}
+\caption{\label{tab:neighborhood-2018}Top 20 neighborhood with most cases in 2018}
 \centering
 \begin{tabular}[t]{l|r}
 \hline
@@ -651,14 +656,18 @@ As in Figure\ref{fig:neighborhood2018}, Figure\ref{fig:neighborhood2019} and Fig
 
 The precinct with the most cases contributed to precinct 3 in three years, as shown in the Figure\ref{fig:precinct}, while the top 2 neigorborhoods located in precinct 1 and 5. There should be more force transferred to the related precinct if it is necessary, and prepare efficient and effective resistance to the neighborhood with most cases as soon as possible.
 
-The most reason for force used in 2018, 2019 and 2020 is \textbf{ASLT4} as shown in Figure@ref(fig:force used for primary offense), which means the offense is less than substantive harm. The safety of polices when they use of force is need to be paid attention as well. According to Figure@ref(fig:resistant type), polices would provide resistant mostly with \textbf{tensed} cases, typically when people experienced anxiety or nervousness. Chasing crimes with cases when \textbf{fled on foot}, or dealing with \textbf{assaulted Officers} are the common tasks they faced every day no matter in which year. Therefore, polices would use \textbf{bodily force} in more than 70\% cases as in Figure@ref(fig:force type), the following would be using \textbf{chemical irritant}, and they actually would use gun in rare cases. However, they still got injured in approximately 52\% cases according to the recorded data we have in 2018 and 2019 with Figure@ref(fig:injury condition), since they take punches, kicks, Body Weight to pin and joint lock, related protection tools should be prepared to them and regularly training as well if possible.
-
 \hypertarget{crime-incident-data}{%
 \subsection{Crime incident Data}\label{crime-incident-data}}
 
-Figure \ref{fig:plot-number-crimes} demonstrates that across all years, theft is the most commonly committed crime in Minneapolis. In this instance theft includes; automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle and theft of motor vehicle parts.
+Figure \ref{fig:plot-number-crimes} demonstrates that across all years, theft is the most commonly committed crime in Minneapolis. In this instance theft includes; automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle and theft of motor vehicle parts. Burglary and assault are the second and third highest committed crimes, respectively. It should be noted that 2019 is the only complete year, hence the higher incidence.
 
+\begin{figure}
+\centering
 \includegraphics{Assignment4_files/figure-latex/plot-number-crimes-1.pdf}
+\caption{\label{fig:plot-number-crimes}Crime incidence according to Year and Offense Type}
+\end{figure}
+
+Figure \ref{fig:Crimeanalysis} explores the relationship between precinct and offense type. Across all precincts, theft is the most commonly committed crime, consistent with Figure \ref{fig:plot-number-crimes}. Interestingly enough, precinct 1 and 2 have a similar incidence of theft, however, precinct 5 has a much higher incidence of bulglary.
 
 \begin{figure}
 
@@ -672,8 +681,7 @@ Figure \ref{fig:plot-number-crimes} demonstrates that across all years, theft is
 \hypertarget{crime-with-time}{%
 \subsection{Crime with time}\label{crime-with-time}}
 
-The part I am responsible for mainly includes the relationship between different time and precinct with crime.
-The first figure shows the total number of crimes in each month from 2018 to 2020, from which we can see that crimes soared from May, peaked in July and August, and then gradually began to decline(See Figure \ref{fig:timefig}). If we compare different years, 2018 is significantly safer than 2019. As for 2020, compared with the May of previous year, the number of crimes did not increase but decrease, which is probably due to COVID19.
+Figure \ref{fig:timefig} compares the incidence of crimes in each month. As stated above, 2019 is the only complete year in the data set. In 2018, crime peaked in October, and dropped in December. In 2019, crime was very low in the colder months (January, February and March), peaking in the summer months (July and August). Comparitively, the incidence of crime in 2020 was much lower than 2019 and did not increase in May, which is likely due to the stay at home orders resulting from COVID-19.
 
 \begin{figure}
 
@@ -742,143 +750,8 @@ The last one is the proportion of different Race in the use of force.(See Figure
 ## It has 28 fields
 \end{verbatim}
 
-\begin{verbatim}
-##   PoliceUseO CaseNumber ResponseDa                    Problem Is911Call
-## 1   11164176  08-001987 2008/01/02       Paramedic Needs Help        No
-## 2   11164177  08-017957 2008/01/18 Domestic Abuse-In Progress       Yes
-## 3   11164178  08-028467 2008/01/29         Suspicious Vehicle        No
-## 4   11164179  08-034324 2008/02/04 Domestic Abuse-In Progress       Yes
-## 5   11164180  08-052461 2008/02/24          Suspicious Person        No
-## 6   11164181  08-054881 2008/02/26          Suspicious Person        No
-##   PrimaryOff SubjectInj ForceRepor SubjectRol SubjectR_1    ForceType
-## 1      ASLT5       <NA>          1          A          1 Bodily Force
-## 2     OBSTRU         No          2          A          1 Bodily Force
-## 3       FLEE        Yes          1          A          1 Bodily Force
-## 4     DASLT5       <NA>          1          A          1 Bodily Force
-## 5     DISCON         No          2          A          1 Bodily Force
-## 6     OBSTRU         No          2          A          1 Bodily Force
-##           ForceTypeA  Race    Sex EventAge          TypeOfResi Precinct
-## 1 Body Weight to Pin White   Male       46 Commission of Crime       05
-## 2              Knees Black   Male       34              Tensed       02
-## 3 Body Weight to Pin Black   Male       24     Fled in Vehicle       04
-## 4          Push Away White Female       29              Tensed       05
-## 5              Knees Black   Male       34              Tensed       01
-## 6              Knees Black   Male       40        Fled on Foot       03
-##        Neighborho TotalCityC TotalPreci TotalNeigh CenterGBSI CenterLati
-## 1        Whittier     322402      55689      13263      17960   44.95919
-## 2      Waite Park     322402      48901       2071      20459   45.03253
-## 3    Near - North     322402      80434      10077      25298   44.99637
-## 4 Lowry Hill East     322402      55689       5734      16102   44.96181
-## 5   Downtown West     322402      46998      23458      16700   44.98007
-## 6 Ventura Village     322402      84018      10316      20569   44.96332
-##   CenterLong   CenterX CenterY  DateAdded OBJECTID
-## 1  -93.27720 -10383570 5615100 2020/05/31        1
-## 2  -93.24723 -10380234 5626645 2020/05/31        2
-## 3  -93.27993 -10383875 5620950 2020/05/31        3
-## 4  -93.29054 -10385055 5615512 2020/05/31        4
-## 5  -93.27188 -10382979 5618384 2020/05/31        5
-## 6  -93.26511 -10382224 5615749 2020/05/31        6
-\end{verbatim}
-
-\begin{verbatim}
-##    PoliceUseO        CaseNumber         ResponseDa          Problem         
-##  Min.   :11164176   Length:30024       Length:30024       Length:30024      
-##  1st Qu.:11171682   Class :character   Class :character   Class :character  
-##  Median :11179188   Mode  :character   Mode  :character   Mode  :character  
-##  Mean   :11179188                                                           
-##  3rd Qu.:11186693                                                           
-##  Max.   :11194199                                                           
-##                                                                             
-##   Is911Call          PrimaryOff         SubjectInj          ForceRepor    
-##  Length:30024       Length:30024       Length:30024       Min.   : 0.000  
-##  Class :character   Class :character   Class :character   1st Qu.: 1.000  
-##  Mode  :character   Mode  :character   Mode  :character   Median : 1.000  
-##                                                           Mean   : 1.473  
-##                                                           3rd Qu.: 2.000  
-##                                                           Max.   :19.000  
-##                                                                           
-##   SubjectRol          SubjectR_1      ForceType          ForceTypeA       
-##  Length:30024       Min.   : 0.000   Length:30024       Length:30024      
-##  Class :character   1st Qu.: 1.000   Class :character   Class :character  
-##  Mode  :character   Median : 1.000   Mode  :character   Mode  :character  
-##                     Mean   : 1.153                                        
-##                     3rd Qu.: 1.000                                        
-##                     Max.   :18.000                                        
-##                     NA's   :12                                            
-##      Race               Sex               EventAge         TypeOfResi       
-##  Length:30024       Length:30024       Min.   :-1952.00   Length:30024      
-##  Class :character   Class :character   1st Qu.:   21.00   Class :character  
-##  Mode  :character   Mode  :character   Median :   26.00   Mode  :character  
-##                                        Mean   :   28.25                     
-##                                        3rd Qu.:   34.00                     
-##                                        Max.   :   82.00                     
-##                                        NA's   :1626                         
-##    Precinct          Neighborho          TotalCityC       TotalPreci   
-##  Length:30024       Length:30024       Min.   :     0   Min.   :    0  
-##  Class :character   Class :character   1st Qu.:314926   1st Qu.:53956  
-##  Mode  :character   Mode  :character   Median :324520   Median :68123  
-##                                        Mean   :327649   Mean   :66215  
-##                                        3rd Qu.:351659   3rd Qu.:79638  
-##                                        Max.   :380794   Max.   :90815  
-##                                                         NA's   :1131   
-##    TotalNeigh      CenterGBSI      CenterLati      CenterLong    
-##  Min.   :    0   Min.   :    0   Min.   : 0.00   Min.   :-93.33  
-##  1st Qu.: 4692   1st Qu.:15327   1st Qu.:44.96   1st Qu.:-93.29  
-##  Median : 8509   Median :17122   Median :44.98   Median :-93.27  
-##  Mean   :12802   Mean   :17119   Mean   :43.07   Mean   :-89.33  
-##  3rd Qu.:23458   3rd Qu.:20302   3rd Qu.:45.00   3rd Qu.:-93.26  
-##  Max.   :38522   Max.   :26058   Max.   :45.05   Max.   :  0.00  
-##                                                                  
-##     CenterX             CenterY         DateAdded            OBJECTID    
-##  Min.   :-10389272   Min.   :      0   Length:30024       Min.   :    1  
-##  1st Qu.:-10385027   1st Qu.:5614789   Class :character   1st Qu.: 7507  
-##  Median :-10383119   Median :5618315   Mode  :character   Median :15012  
-##  Mean   : -9943743   Mean   :5380373                      Mean   :15012  
-##  3rd Qu.:-10381650   3rd Qu.:5621043                      3rd Qu.:22518  
-##  Max.   :        0   Max.   :5629593                      Max.   :30024  
-## 
-\end{verbatim}
-
-\begin{verbatim}
-##   PoliceUseO CaseNumber ResponseDa                    Problem Is911Call
-## 1   11164176  08-001987 2008/01/02       Paramedic Needs Help        No
-## 2   11164177  08-017957 2008/01/18 Domestic Abuse-In Progress       Yes
-## 3   11164178  08-028467 2008/01/29         Suspicious Vehicle        No
-## 4   11164179  08-034324 2008/02/04 Domestic Abuse-In Progress       Yes
-## 5   11164180  08-052461 2008/02/24          Suspicious Person        No
-## 6   11164181  08-054881 2008/02/26          Suspicious Person        No
-##   PrimaryOff SubjectInj ForceRepor SubjectRol SubjectR_1    ForceType
-## 1      ASLT5       <NA>          1          A          1 Bodily Force
-## 2     OBSTRU         No          2          A          1 Bodily Force
-## 3       FLEE        Yes          1          A          1 Bodily Force
-## 4     DASLT5       <NA>          1          A          1 Bodily Force
-## 5     DISCON         No          2          A          1 Bodily Force
-## 6     OBSTRU         No          2          A          1 Bodily Force
-##           ForceTypeA  Race    Sex EventAge          TypeOfResi Precinct
-## 1 Body Weight to Pin White   Male       46 Commission of Crime       05
-## 2              Knees Black   Male       34              Tensed       02
-## 3 Body Weight to Pin Black   Male       24     Fled in Vehicle       04
-## 4          Push Away White Female       29              Tensed       05
-## 5              Knees Black   Male       34              Tensed       01
-## 6              Knees Black   Male       40        Fled on Foot       03
-##        Neighborho TotalCityC TotalPreci TotalNeigh CenterGBSI CenterLati
-## 1        Whittier     322402      55689      13263      17960   44.95919
-## 2      Waite Park     322402      48901       2071      20459   45.03253
-## 3    Near - North     322402      80434      10077      25298   44.99637
-## 4 Lowry Hill East     322402      55689       5734      16102   44.96181
-## 5   Downtown West     322402      46998      23458      16700   44.98007
-## 6 Ventura Village     322402      84018      10316      20569   44.96332
-##   CenterLong   CenterX CenterY  DateAdded OBJECTID
-## 1  -93.27720 -10383570 5615100 2020/05/31        1
-## 2  -93.24723 -10380234 5626645 2020/05/31        2
-## 3  -93.27993 -10383875 5620950 2020/05/31        3
-## 4  -93.29054 -10385055 5615512 2020/05/31        4
-## 5  -93.27188 -10382979 5618384 2020/05/31        5
-## 6  -93.26511 -10382224 5615749 2020/05/31        6
-\end{verbatim}
-
 \hypertarget{police-use-of-force-map}{%
-\section{Police use of force map}\label{police-use-of-force-map}}
+\subsection{Police use of force map}\label{police-use-of-force-map}}
 
 \begin{verbatim}
 ## Reading layer `Police_Use_of_Force' from data source `/Users/emsheehan/Documents/UNI - POSTGRAD/COLLAB/ETC5513-Assignment-4/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp' using driver `ESRI Shapefile'
