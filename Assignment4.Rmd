@@ -451,9 +451,7 @@ shp_sf1 %>%
 # xxxxx change tile to Google maps (more familiar )
 ```
 
-## Analysis of the neighborhood data
 
-These next figures are made by ggplot2 and scale_fill_ ordinal, to show the relationship between crime and various factors more clearly. This figure shows the total number of crimes per precinct between 2018 and 2020(See Figure \@ref(fig:Crimeanalysis)). No. 3 precinct has the highest number of crimes, while No. 2 precinct has the lowest number of crimes, which is relatively safe. It can be seen from the above that theft accounts for the highest proportion of all precinct crimes, while burglary and robbery are closely followed, ranking second and third respectively.
 
 
 
