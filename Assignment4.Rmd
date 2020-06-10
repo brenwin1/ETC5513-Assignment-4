@@ -12,11 +12,11 @@ author:
   address: Monash University
   email: eshe0012@student.monash.edu
   correspondingauthor: true
-  qualifications: BComm
+  qualifications: BCom
 - familyname: Ang
   othernames: Brenwin
   address: ang0005@student.monash.edu
-  qualifications: XXX
+  qualifications: BsC
 - familyname: Ye
   othernames: Chengzhi
   address: Monash University
@@ -162,13 +162,29 @@ The use of force data has a high number of missing values which will adversely i
 
 ## Analysing the Crime Incidence
 
-The crime incident data was wrangled, and each offense was assigned to its relevant offense type. Each offense was grouped according to year, and the incidence of each offense was calculated. The results were plotted.
+The crime incident data was wrangled, and each offense was assigned to its relevant offense type. Each offense was grouped according to year, and the incidence of each offense was calculated. The results were plotted in Figure \@ref(fig:plot-number-crimes).
 
 ## Analysing the Neighborhoods with the Most Crime
 
+To create Figure \@ref(fig:offencetype), the top ten neighborhoods with the highest crime rate were plotted, and then filled according to offense.
+
+To create Figure \@ref(fig:neighborhood2018), Figure \@ref(fig:neighborhood2019) and Figure \@ref(fig:neighborhood2020), the crime incident data was cleaned, using lubridate package. It was filtered for year and grouped by neighborhood. The incidence was counted, and the top 20 neighborhoods were plotted and tabulated for each year. 
+
+For Figure \@ref(fig:Crimeanalysis), all precincts were plotted and filled according to offense. 
+
 ## Analysing the Crime over Time
 
+The crime incident data was filtered and grouped according to year, and crime was counted for each month. The results were plotted in Figure \@ref(fig:timefig). 
+
 ## Analysing the Force Used by Police
+
+To create Figure \@ref(fig:weekdaysituation), incidence for crime and force used was counted according to weekday.
+
+To create Figure \@ref(fig:TypeOfResistance) the use of force data was filtered for type of resistance. The results were plotted. Each resistance band was filled according to Precinct. 
+
+To create Figure \@ref(fig:relationshipfig) the use of force data was filtered for type of resistance. The results were plotted and each force type band was filled according to resistance type. 
+
+To create Figure \@ref(fig:Race) the use of force data was filtered for race. The results were plotted and each force type band was filled according to race. 
 
 ## Mapping the Use of Force Data
 
@@ -238,7 +254,6 @@ kable(neighborhood_summary2018, caption = "Top 20 Neighborhoods with the Highest
   kable_styling(bootstrap_options = c("striped", "hover"))
 ```
 
-
 ```{r neighborhood-2019, include=FALSE}
 neighborhood_summary2019 <- neighborhood_summary %>%
   dplyr::filter(year %in% c("2019")) %>%
@@ -267,7 +282,6 @@ neighborhood_summary2020 <- neighborhood_summary %>%
 kable(neighborhood_summary2020, caption = "Top 20 Neighborhoods with the Highest Crime Rate for 2020") %>%
   kable_styling(bootstrap_options = c("striped", "hover"))
 ```
-
 
 ```{r neighborhood2018, fig.dim = c(6,4), fig.cap= "Top 20 Neighborhoods with the Highest Crime Rate for 2018"}
 neighborhood_summary2018 %>%
@@ -382,9 +396,9 @@ grid.arrange(p1, p2, p3, ncol = 3)
 
 ## Force Used by Police Data
 
-Figure \@ref(fig:weekdaysituation) show the distribution of the total crimes and force used in each weekday and weekend. There are more crimes on weekdays than on weekends, however, the force use by police is the opposite with greater force use on weekends. It is likely that weekends will attract larger crowds, particularly at entertainment venues, therefore attracting a larger police presence. Furthermore, it is unlikely criminals will commit crimes, particularly when police presence is so high. 
+Figure \@ref(fig:weekdaysituation) shows the distribution of the total crimes and force used over the week. There are more crimes on weekdays than on weekends, however, there is greater force use on weekends. It is likely that weekends attract larger crowds, particularly at entertainment venues, therefore attracting a larger police presence. Furthermore, it is unlikely criminals will commit crimes, particularly when police presence is so high. 
 
-```{r weekdaysituation, fig.align="center", fig.width= 8, fig.cap="The average crimes and force used in a week"}
+```{r weekdaysituation, fig.align="center", fig.width= 8, fig.cap="The average crimes and force used in a given week"}
 crime_MPLS_selected$weekday <- wday(crime_MPLS_selected$reportedDate, label=TRUE)
 police_force_2018$weekday <- wday(police_force_2018$ResponseDate, label=TRUE)
 
@@ -393,19 +407,19 @@ w1 <- crime_MPLS_selected %>%
           ggplot(aes(x=weekday, y=n)) + 
           geom_bar(stat='identity', fill="midnight blue") +
           scale_y_continuous(labels=comma) +
-          labs(x='Weekday', y='Number of incidents', title='Incidents in each day')
+          labs(x='Weekday', y='Number of Crimes', title='Daily Crime Incidence')
 
 w2 <- police_force_2018 %>% 
         count(weekday) %>%
           ggplot(aes(x=weekday, y=n)) + 
           geom_bar(stat='identity', fill="yellow") +
           scale_y_continuous(labels=comma) +
-          labs(x='Weekday', y='Number of using force', title='force using in each day')
+          labs(x='Weekday', y='Incidence of Force Use', title='Daily Force Use')
 
 grid.arrange(w1, w2, ncol = 2)
 ```
 
-The last three figures are made by ggplot2 package and scales package, to make the exploratory analysis in force using by police and show the figures more clearly. Figure \@ref(fig:TypeOfResistance) shows the resistance used in each precinct. In essence, this figure captures the prevalance of crime and perhaps the effiency of police in controlling the crime rate. It can be inferred that the fourth precinct is significantly more dangerous than the fifth precinct, and the force use in the fourth precinct is much higher. 
+Figure \@ref(fig:TypeOfResistance) shows the resistance used in each precinct. In essence, this figure captures the prevalance of crime and the effiency of police in controlling the crime rate. It can be inferred that the fourth precinct is significantly more dangerous than the fifth precinct, and the force use in the fourth precinct is much higher. 
 
 ```{r TypeOfResistance, fig.align="center", fig.width= 8, fig.cap="The different Resistance of criminals in each Precinct"}
 police_force_selected %>% 
@@ -418,7 +432,7 @@ police_force_selected %>%
     coord_flip()
 ```
 
-Figure \@ref(fig:relationshipfig) shows the relationship between the force type and the type of resistance. This figure captures the effectiveness of the force type used by police. If the only resistance used by police is a police dog, criminals are more likely to flee on foot. However, if a firearm or chemical irritant is used, better results will be achieved.  
+Figure \@ref(fig:relationshipfig) shows the relationship between the force type and the type of resistance. This figure captures the effectiveness of the force type used by police. For example, if the only resistance used by police is a police dog, criminals are more likely to flee on foot. However, if a firearm or chemical irritant is used, better results will be achieved.  
 
 ```{r relationshipfig, fig.align="center", fig.width= 8, fig.cap="The relationship between Force Type adopted by police and type of resistance of criminals"}
 
@@ -432,7 +446,7 @@ police_force_selected %>%
     coord_flip()
 ```
 
-The last Figure \@ref(fig:Race) shows the proportion of different Race in the use of force. It is clear that African Americans are subject to more aggressive forms of force, which accounts for 70% in most force using ways. Further, the figure demonstrates police are less likely to use less lethal force on African Americans. Only from this figure alone, we may have a question, Is the way the police treat black people too radical?
+The last Figure \@ref(fig:Race) shows the use of force on different races. African Americans are subject to more aggressive forms of force. Further, the figure demonstrates police are less likely to use less lethal force on African Americans. Looking at this figure alone, it is likely the treatment of African Americans is too violent. 
 
 ```{r Race, fig.align="center", fig.width= 8, fig.cap="Different races are treated differently"}
 police_force_selected %>% 

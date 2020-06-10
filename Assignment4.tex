@@ -199,7 +199,7 @@
 \DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
 \makeatother
 
-\author{\sf\Large\textbf{ Lulu Pi}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ Emily Sheehan}\\ {\sf\large BComm\\[0.5cm]} \sf\Large\textbf{ Brenwin Ang}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ Chengzhi Ye}\\ {\sf\large XXX\\[0.5cm]}}
+\author{\sf\Large\textbf{ Lulu Pi}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ Emily Sheehan}\\ {\sf\large BCom\\[0.5cm]} \sf\Large\textbf{ Brenwin Ang}\\ {\sf\large BsC\\[0.5cm]} \sf\Large\textbf{ Chengzhi Ye}\\ {\sf\large XXX\\[0.5cm]}}
 
 \date{\sf\Date~\Month~\Year}
 \makeatletter
@@ -318,16 +318,32 @@ The use of force data has a high number of missing values which will adversely i
 \hypertarget{analysing-the-crime-incidence}{%
 \subsection{Analysing the Crime Incidence}\label{analysing-the-crime-incidence}}
 
-The crime incident data was wrangled, and each offense was assigned to its relevant offense type. Each offense was grouped according to year, and the incidence of each offense was calculated. The results were plotted.
+The crime incident data was wrangled, and each offense was assigned to its relevant offense type. Each offense was grouped according to year, and the incidence of each offense was calculated. The results were plotted in Figure \ref{fig:plot-number-crimes}.
 
 \hypertarget{analysing-the-neighborhoods-with-the-most-crime}{%
 \subsection{Analysing the Neighborhoods with the Most Crime}\label{analysing-the-neighborhoods-with-the-most-crime}}
 
+To create Figure \ref{fig:offencetype}, the top ten neighborhoods with the highest crime rate were plotted, and then filled according to offense.
+
+To create Figure \ref{fig:neighborhood2018}, Figure \ref{fig:neighborhood2019} and Figure \ref{fig:neighborhood2020}, the crime incident data was cleaned, using lubridate package. It was filtered for year and grouped by neighborhood. The incidence was counted, and the top 20 neighborhoods were plotted and tabulated for each year.
+
+For Figure \ref{fig:Crimeanalysis}, all precincts were plotted and filled according to offense.
+
 \hypertarget{analysing-the-crime-over-time}{%
 \subsection{Analysing the Crime over Time}\label{analysing-the-crime-over-time}}
 
+The crime incident data was filtered and grouped according to year, and crime was counted for each month. The results were plotted in Figure \ref{fig:timefig}.
+
 \hypertarget{analysing-the-force-used-by-police}{%
 \subsection{Analysing the Force Used by Police}\label{analysing-the-force-used-by-police}}
+
+To create Figure \ref{fig:weekdaysituation}, incidence for crime and force used was counted according to weekday.
+
+To create Figure \ref{fig:TypeOfResistance} the use of force data was filtered for type of resistance. The results were plotted. Each resistance band was filled according to Precinct.
+
+To create Figure \ref{fig:relationshipfig} the use of force data was filtered for type of resistance. The results were plotted and each force type band was filled according to resistance type.
+
+To create Figure \ref{fig:Race} the use of force data was filtered for race. The results were plotted and each force type band was filled according to race.
 
 \hypertarget{mapping-the-use-of-force-data}{%
 \subsection{Mapping the Use of Force Data}\label{mapping-the-use-of-force-data}}
@@ -561,7 +577,7 @@ Figure \ref{fig:timefig} compares the incidence of crimes in each month. As stat
 \hypertarget{force-used-by-police-data}{%
 \subsection{Force Used by Police Data}\label{force-used-by-police-data}}
 
-Figure \ref{fig:weekdaysituation} show the distribution of the total crimes and force used in each weekday and weekend. There are more crimes on weekdays than on weekends, however, the force use by police is the opposite with greater force use on weekends. It is likely that weekends will attract larger crowds, particularly at entertainment venues, therefore attracting a larger police presence. Furthermore, it is unlikely criminals will commit crimes, particularly when police presence is so high.
+Figure \ref{fig:weekdaysituation} shows the distribution of the total crimes and force used over the week. There are more crimes on weekdays than on weekends, however, there is greater force use on weekends. It is likely that weekends attract larger crowds, particularly at entertainment venues, therefore attracting a larger police presence. Furthermore, it is unlikely criminals will commit crimes, particularly when police presence is so high.
 
 \begin{figure}
 
@@ -569,10 +585,10 @@ Figure \ref{fig:weekdaysituation} show the distribution of the total crimes and 
 
 }
 
-\caption{The average crimes and force used in a week}\label{fig:weekdaysituation}
+\caption{The average crimes and force used in a given week}\label{fig:weekdaysituation}
 \end{figure}
 
-The last three figures are made by ggplot2 package and scales package, to make the exploratory analysis in force using by police and show the figures more clearly. Figure \ref{fig:TypeOfResistance} shows the resistance used in each precinct. In essence, this figure captures the prevalance of crime and perhaps the effiency of police in controlling the crime rate. It can be inferred that the fourth precinct is significantly more dangerous than the fifth precinct, and the force use in the fourth precinct is much higher.
+Figure \ref{fig:TypeOfResistance} shows the resistance used in each precinct. In essence, this figure captures the prevalance of crime and the effiency of police in controlling the crime rate. It can be inferred that the fourth precinct is significantly more dangerous than the fifth precinct, and the force use in the fourth precinct is much higher.
 
 \begin{figure}
 
@@ -583,7 +599,7 @@ The last three figures are made by ggplot2 package and scales package, to make t
 \caption{The different Resistance of criminals in each Precinct}\label{fig:TypeOfResistance}
 \end{figure}
 
-Figure \ref{fig:relationshipfig} shows the relationship between the force type and the type of resistance. This figure captures the effectiveness of the force type used by police. If the only resistance used by police is a police dog, criminals are more likely to flee on foot. However, if a firearm or chemical irritant is used, better results will be achieved.
+Figure \ref{fig:relationshipfig} shows the relationship between the force type and the type of resistance. This figure captures the effectiveness of the force type used by police. For example, if the only resistance used by police is a police dog, criminals are more likely to flee on foot. However, if a firearm or chemical irritant is used, better results will be achieved.
 
 \begin{figure}
 
@@ -594,7 +610,7 @@ Figure \ref{fig:relationshipfig} shows the relationship between the force type a
 \caption{The relationship between Force Type adopted by police and type of resistance of criminals}\label{fig:relationshipfig}
 \end{figure}
 
-The last Figure \ref{fig:Race} shows the proportion of different Race in the use of force. It is clear that African Americans are subject to more aggressive forms of force, which accounts for 70\% in most force using ways. Further, the figure demonstrates police are less likely to use less lethal force on African Americans. Only from this figure alone, we may have a question, Is the way the police treat black people too radical?
+The last Figure \ref{fig:Race} shows the use of force on different races. African Americans are subject to more aggressive forms of force. Further, the figure demonstrates police are less likely to use less lethal force on African Americans. Looking at this figure alone, it is likely the treatment of African Americans is too violent.
 
 \begin{figure}
 
