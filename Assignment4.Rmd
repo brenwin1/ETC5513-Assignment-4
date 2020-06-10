@@ -382,9 +382,9 @@ grid.arrange(p1, p2, p3, ncol = 3)
 
 ## Force Used by Police Data
 
-Figure \@ref(fig:weekdaysituation) show the distribution of crime and force used over a given week. There are more crimes on weekdays than on weekends, however, the force use by police is the opposite with greater force use on weekends. It is likely that weekends will attract larger crowds, particularly at entertainment venues, therefore attracting a larger police presence. Furthermore, it is unlikely criminals will commit crimes, particularly when police presence is so high. 
+Figure \@ref(fig:weekdaysituation) show the distribution of the total crimes and force used in each weekday and weekend. There are more crimes on weekdays than on weekends, however, the force use by police is the opposite with greater force use on weekends. It is likely that weekends will attract larger crowds, particularly at entertainment venues, therefore attracting a larger police presence. Furthermore, it is unlikely criminals will commit crimes, particularly when police presence is so high. 
 
-```{r weekdaysituation, fig.align="center", fig.width= 8, fig.cap="The average crimes and force using in a week"}
+```{r weekdaysituation, fig.align="center", fig.width= 8, fig.cap="The average crimes and force used in a week"}
 crime_MPLS_selected$weekday <- wday(crime_MPLS_selected$reportedDate, label=TRUE)
 police_force_2018$weekday <- wday(police_force_2018$ResponseDate, label=TRUE)
 
@@ -405,7 +405,7 @@ w2 <- police_force_2018 %>%
 grid.arrange(w1, w2, ncol = 2)
 ```
 
-Figure \@ref(fig:TypeOfResistance) shows the resistance used in each precinct. In essence, this figure captures the prevalance of crime and perhaps the effiency of police in controlling the crime rate. It can be inferred that the fourth precinct is significantly more dangerous than the fifth precinct, and the force use in the fourth precinct is much higher. 
+The last three figures are made by ggplot2 package and scales package, to make the exploratory analysis in force using by police and show the figures more clearly. Figure \@ref(fig:TypeOfResistance) shows the resistance used in each precinct. In essence, this figure captures the prevalance of crime and perhaps the effiency of police in controlling the crime rate. It can be inferred that the fourth precinct is significantly more dangerous than the fifth precinct, and the force use in the fourth precinct is much higher. 
 
 ```{r TypeOfResistance, fig.align="center", fig.width= 8, fig.cap="The different Resistance of criminals in each Precinct"}
 police_force_selected %>% 
@@ -418,7 +418,7 @@ police_force_selected %>%
     coord_flip()
 ```
 
-Figure \@ref(fig:relationshipfig) shows the relationship between the force type and the type of resistance. This figure captures the effectiveness of the force type used by police. If the only resistance used by police is a dog, criminals are more likely to flee on foot. However, if a firearm or chemical irritant is used, criminals are less likely to escape.  
+Figure \@ref(fig:relationshipfig) shows the relationship between the force type and the type of resistance. This figure captures the effectiveness of the force type used by police. If the only resistance used by police is a police dog, criminals are more likely to flee on foot. However, if a firearm or chemical irritant is used, better results will be achieved.  
 
 ```{r relationshipfig, fig.align="center", fig.width= 8, fig.cap="The relationship between Force Type adopted by police and type of resistance of criminals"}
 
@@ -432,7 +432,7 @@ police_force_selected %>%
     coord_flip()
 ```
 
-Figure \@ref(fig:Race) shows the use of force, according to race. It is clear that African Americans are subject to more aggressive forms of force. Further, the figure demonstrates police are less likely to use less lethal force on African Americans.
+The last Figure \@ref(fig:Race) shows the proportion of different Race in the use of force. It is clear that African Americans are subject to more aggressive forms of force, which accounts for 70% in most force using ways. Further, the figure demonstrates police are less likely to use less lethal force on African Americans. Only from this figure alone, we may have a question, Is the way the police treat black people too radical?
 
 ```{r Race, fig.align="center", fig.width= 8, fig.cap="Different races are treated differently"}
 police_force_selected %>% 
