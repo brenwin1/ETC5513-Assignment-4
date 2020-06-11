@@ -20,10 +20,10 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.1}Crime Incidence}{4}{subsection.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}Neighborhoods with the Most Crimes}{5}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}Neighborhoods with the Most Crimes}{4}{subsection.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3}Crime over Time}{5}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.3}Crime over Time}{9}{subsection.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4}Force Used by Police Data}{10}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.4}Force Used by Police Data}{9}{subsection.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5}Use of Force Map Analysis}{14}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.5}Use of Force Map Analysis}{13}{subsection.4.5}%

@@ -199,7 +199,7 @@
 \DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
 \makeatother
 
-\author{\sf\Large\textbf{ Lulu Pi}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ Emily Sheehan}\\ {\sf\large BCom\\[0.5cm]} \sf\Large\textbf{ Brenwin Ang}\\ {\sf\large BsC\\[0.5cm]} \sf\Large\textbf{ Chengzhi Ye}\\ {\sf\large XXX\\[0.5cm]}}
+\author{\sf\Large\textbf{ Lulu Pi}\\ {\sf\large Bachelor of Accounting\\[0.5cm]} \sf\Large\textbf{ Emily Sheehan}\\ {\sf\large BCom\\[0.5cm]} \sf\Large\textbf{ Brenwin Ang}\\ {\sf\large BsC\\[0.5cm]} \sf\Large\textbf{ Chengzhi Ye}\\ {\sf\large BCom\\[0.5cm]}}
 
 \date{\sf\Date~\Month~\Year}
 \makeatletter
@@ -308,7 +308,7 @@ This paper hopes to explore and understand crime in Minneapolis. Specifically, t
 
 To perform this analysis data was downloaded from the City of \textcite{Minneapolis-2020}. The data obtained included the shapefiles, the crime dashboard (crime incident data) and the use of force dashboard (the use of force data).
 
-The crime incident data had a high number of missing values, where the race of the offender was not recorded. To mitigate the impact on the calculated proportions, particularly where race is concerned, they were not removed. This considered, the analysis will be impacted and the resulting proportions may be over or under-estimated as a result of the missing values.
+The crime incident data had a high number of missing values, where the race of the offender was not recorded. To mitigate the impact on the calculated proportions, particularly where race is concerned, they were not removed. This considered, the analysis will be impacted and the resulting proportions may be under-estimated as a result of the missing values.
 
 The use of force data has a high number of missing values which will adversely impact the accuracy of the analysis. In addition, there is a Precinct 0 and there is no explanation on the offical Minneapolis website which will certainly impact the results. The `ResponseDate' can be traced back to 2008, however, no records have been kept, therefore it cannot be used in analysis. Finally, the `PoliceUseOfForceID' and `OBJECTID' cannot be used for analysis as they are arranged in order and are independent of `real' police officers and `real' witnesses. While it protects the privacy of these individuals, it means that conclusions on agressive police officers cannot be drawn.
 
@@ -339,11 +339,11 @@ The crime incident data was filtered and grouped according to year, and crime wa
 
 To create Figure \ref{fig:weekdaysituation}, incidence for crime and force used was counted according to weekday.
 
-To create Figure \ref{fig:TypeOfResistance} the use of force data was filtered for type of resistance. The results were plotted. Each resistance band was filled according to Precinct.
+The use of force data was filtered for type of resistance. The results were plotted in Figure \ref{fig:TypeOfResistance}. Each resistance band was filled according to Precinct.
 
 To create Figure \ref{fig:relationshipfig} the use of force data was filtered for type of resistance. The results were plotted and each force type band was filled according to resistance type.
 
-To create Figure \ref{fig:Race} the use of force data was filtered for race. The results were plotted and each force type band was filled according to race.
+The use of force data was filtered for race. The results were plotted in Figure \ref{fig:Race} and each force type band was filled according to race.
 
 \hypertarget{mapping-the-use-of-force-data}{%
 \subsection{Mapping the Use of Force Data}\label{mapping-the-use-of-force-data}}
@@ -354,7 +354,7 @@ To create Figure \ref{fig:Race} the use of force data was filtered for race. The
 \hypertarget{crime-incidence}{%
 \subsection{Crime Incidence}\label{crime-incidence}}
 
-Figure \ref{fig:plot-number-crimes} demonstrates that across all years, theft is the most commonly committed crime in Minneapolis. In this instance theft includes; automobile theft, bike theft, coin-operated device theft, gas-station drive off, online theft, petty theft, pocket picking, scrapping-recycling theft, theft from a building, theft from a motor vehicle, theft from a person, other theft, theft by swindle and theft of motor vehicle parts. Burglary and assault are the second and third highest committed crimes, respectively. It should be noted that 2019 is the only complete year, hence the higher incidence.
+Figure \ref{fig:plot-number-crimes} demonstrates that across all years, theft is the most commonly committed crime in Minneapolis. Burglary and assault are the second and third highest committed crimes, respectively. It should be noted that 2019 is the only complete year, hence the higher incidence.
 
 \begin{figure}
 \centering
@@ -610,7 +610,7 @@ Figure \ref{fig:relationshipfig} shows the relationship between the force type a
 \caption{The relationship between Force Type adopted by police and type of resistance of criminals}\label{fig:relationshipfig}
 \end{figure}
 
-The last Figure \ref{fig:Race} shows the use of force on different races. African Americans are subject to more aggressive forms of force. Further, the figure demonstrates police are less likely to use less lethal force on African Americans. Looking at this figure alone, it is likely the treatment of African Americans is too violent.
+Figure \ref{fig:Race} shows the use of force on different races. African Americans are subject to more aggressive forms of force. The figure clearly demonstrates that police are less likely to use less lethal force on African Americans. Looking at this figure alone, it is likely that the treatment of African Americans is unnessarily barbaric at times.
 
 \begin{figure}
 
