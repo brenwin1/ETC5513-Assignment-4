@@ -285,20 +285,6 @@
 \setstretch{1.5}
 
 %% Any special functions or other packages can be loaded here.
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{multirow}
-\usepackage{wrapfig}
-\usepackage{float}
-\usepackage{colortbl}
-\usepackage{pdflscape}
-\usepackage{tabu}
-\usepackage{threeparttable}
-\usepackage{threeparttablex}
-\usepackage[normalem]{ulem}
-\usepackage{makecell}
-\usepackage{xcolor}
 
 
 \begin{document}           % Begining of document body -----------------------------------------------
@@ -326,7 +312,7 @@ To perform this analysis data was downloaded from the City of \textcite{Minneapo
 
 The crime incident data had a high number of missing values, where the race of the offender was not recorded. To mitigate the impact on the calculated proportions, particularly where race is concerned, they were not removed. This considered, the analysis will be impacted and the resulting proportions may be under-estimated as a result of the missing values.
 
-The use of force data has a high number of missing values which will adversely impact the accuracy of the analysis. In addition, there is a Precinct 0 and there is no explanation on the offical Minneapolis website which will certainly impact the results. The `ResponseDate' can be traced back to 2008, however, no records have been kept, therefore it cannot be used in analysis. Finally, the `PoliceUseOfForceID' and `OBJECTID' cannot be used for analysis as they are arranged in order and are independent of `real' police officers and `real' witnesses. While it protects the privacy of these individuals, it means that conclusions on agressive police officers cannot be drawn.
+The use of force data has a high number of missing values which will adversely impact the accuracy of the analysis. In addition, there is a Precinct 0 and there is no explanation on the official Minneapolis website which will certainly impact the results. The `ResponseDate' can be traced back to 2008, however, no records have been kept, therefore it cannot be used in analysis. Finally, the `PoliceUseOfForceID' and `OBJECTID' cannot be used for analysis as they are arranged in order and are independent of `real' police officers and `real' witnesses. While it protects the privacy of these individuals, it means that conclusions on aggressive police officers cannot be drawn.
 
 \clearpage
 
@@ -382,7 +368,7 @@ Figure \ref{fig:plot-number-crimes} demonstrates that across all years, theft is
 \hypertarget{neighborhoods-with-the-most-crimes}{%
 \subsection{Neighborhoods with the Most Crimes}\label{neighborhoods-with-the-most-crimes}}
 
-Figure \ref{fig:offencetype} captures the top five most frequent offenses in the neighborhoods with the highest crime rates. It is clear that theft is the most commonly committed crime across all neighborhoods, consistent with Figure \ref{fig:plot-number-crimes}. Comparitively, Longflow has a similar incidence of shoplifting and theft.
+Figure \ref{fig:offencetype} captures the top five most frequently committed offenses in the neighborhoods with the highest crime rates. It is clear that theft is the most commonly committed crime across all neighborhoods, consistent with Figure \ref{fig:plot-number-crimes}. Comparatively, Longflow has a similar incidence of shoplifting and theft.
 
 \begin{figure}
 
@@ -566,7 +552,7 @@ Willard - Hay & 146\\
 
 Figure \ref{fig:neighborhood2018}, Figure \ref{fig:neighborhood2019} and Figure \ref{fig:neighborhood2020}, show that across all years \textbf{Downtown West} and \textbf{Whittier} have the highest crime rate, followed by \textbf{Longfellow}, \textbf{Lowry Hill East} and \textbf{Marcy Holmes}.
 
-Figure \ref{fig:Crimeanalysis} explores the relationship between precinct and offense type. Across all precincts, theft is the most commonly committed crime, consistent with Figure \ref{fig:plot-number-crimes}. Interestingly enough, precinct 1 and 2 have a similar incidence of theft, however, precinct 5 has a much higher incidence of bulglary.
+Figure \ref{fig:Crimeanalysis} explores the relationship between precinct and offense type. Across all precincts, theft is the most commonly committed crime, consistent with Figure \ref{fig:plot-number-crimes}. Interestingly enough, precinct 1 and 2 have a similar incidence of theft, however, precinct 5 has a much higher incidence of burglary.
 
 \begin{figure}
 
@@ -580,7 +566,7 @@ Figure \ref{fig:Crimeanalysis} explores the relationship between precinct and of
 \hypertarget{crime-over-time}{%
 \subsection{Crime over Time}\label{crime-over-time}}
 
-Figure \ref{fig:timefig} compares the incidence of crimes in each month. As stated above, 2019 is the only complete year in the data set. In 2018, crime peaked in October, and dropped in December. In 2019, crime was very low in the colder months (January, February and March), peaking in the summer months (July and August). Comparitively, the incidence of crime in 2020 was much lower than 2019 and did not increase in May, which is likely due to the stay at home orders resulting from COVID-19.
+Figure \ref{fig:timefig} compares the incidence of crimes in each month. As stated above, 2019 is the only complete year in the data set. In 2018, crime peaked in October, and dropped in December. In 2019, crime was very low in the colder months (January, February and March), peaking in the summer months (July and August). Comparatively, the incidence of crime in 2020 was much lower than 2019 and did not increase in May, which is likely due to the stay at home orders resulting from COVID-19.
 
 \begin{figure}
 
@@ -594,7 +580,7 @@ Figure \ref{fig:timefig} compares the incidence of crimes in each month. As stat
 \hypertarget{force-used-by-police-data}{%
 \subsection{Force Used by Police Data}\label{force-used-by-police-data}}
 
-Figure \ref{fig:weekdaysituation} shows the distribution of the total crimes and force used over the week. There are more crimes on weekdays than on weekends, however, there is greater force use on weekends. It is likely that weekends attract larger crowds, particularly at entertainment venues, therefore attracting a larger police presence. Furthermore, it is unlikely criminals will commit crimes, particularly when police presence is so high.
+Figure \ref{fig:weekdaysituation} shows the distribution of the total crimes and force used over the week. There are more crimes on weekdays than on weekends, however, there is greater force use on weekends. It is likely that entertainment venues draw large crowds on the weekends, therefore attracting a large police presence. Furthermore, it is unlikely criminals will commit crimes, particularly when police presence is so high.
 
 \begin{figure}
 
@@ -605,7 +591,7 @@ Figure \ref{fig:weekdaysituation} shows the distribution of the total crimes and
 \caption{The average crimes and force used in a given week}\label{fig:weekdaysituation}
 \end{figure}
 
-Figure \ref{fig:TypeOfResistance} shows the resistance used in each precinct. In essence, this figure captures the prevalance of crime and the effiency of police in controlling the crime rate. It can be inferred that the fourth precinct is significantly more dangerous than the fifth precinct, and the force use in the fourth precinct is much higher.
+Figure \ref{fig:TypeOfResistance} shows the resistance used in each precinct. In essence, this figure captures the prevalence of crime and the efficiency of police in controlling the crime rate. It can be inferred that the fourth precinct is significantly more dangerous than the fifth precinct, and the force use in the fourth precinct is much higher.
 
 \begin{figure}
 
@@ -627,7 +613,7 @@ Figure \ref{fig:relationshipfig} shows the relationship between the force type a
 \caption{The relationship between Force Type adopted by police and type of resistance of criminals}\label{fig:relationshipfig}
 \end{figure}
 
-Figure \ref{fig:Race} shows the use of force on different races. African Americans are subject to more aggressive forms of force. The figure clearly demonstrates that police are less likely to use less lethal force on African Americans. Looking at this figure alone, it is likely that the treatment of African Americans is unnessarily barbaric at times.
+Figure \ref{fig:Race} shows the use of force on different races. African Americans are subject to more aggressive forms of force. The figure clearly demonstrates that police are less likely to use less lethal force on African Americans. Looking at this figure alone, it is likely that the treatment of African Americans is unnecessarily barbaric.
 
 \begin{figure}
 
@@ -638,17 +624,12 @@ Figure \ref{fig:Race} shows the use of force on different races. African America
 \caption{Different races are treated differently}\label{fig:Race}
 \end{figure}
 
-\clearpage
-
-\hypertarget{mapping-the-data-and-black-composition}{%
-\section{Mapping the data and Black composition}\label{mapping-the-data-and-black-composition}}
-
-\hypertarget{summary-table}{%
-\subsection{summary table}\label{summary-table}}
+\hypertarget{mapping-the-data}{%
+\subsection{Mapping the Data}\label{mapping-the-data}}
 
 \begin{table}
 
-\caption{\label{tab:summarytable}Share of black in each category}
+\caption{\label{tab:summarytable}Proportion of African Americans for each Category}
 \centering
 \begin{tabular}[t]{l|r}
 \hline
@@ -663,12 +644,7 @@ Police Stop & 0.53\\
 \end{tabular}
 \end{table}
 
-Black or African Americans accounts only for 19\% of the total Population in Minneapolis. (Data source: \textcite{mncompass}). However, as we can see from \textbf{table \ref{tab:summarytable}}, they cover the largest proportion of being subjects to police use of force. Furthermore, they also cover the biggest share in terms of their vehicles getting stopped by the police.
-
-*Note that each share racial population share are subject to a 5\% or less margin of error.
-
-\hypertarget{police-use-of-force-data-mapping}{%
-\subsection{Police Use of force Data mapping}\label{police-use-of-force-data-mapping}}
+African Americans count for 20\% of the total population in Minneapolis, \textcite{mncompass}. However, they are most likely to be stopped by police and the subject of police force as in table \ref{tab:summarytable}. Note that all proportions are subject to a 5\% or less margin of error.
 
 \begin{figure}
 \centering
@@ -676,21 +652,30 @@ Black or African Americans accounts only for 19\% of the total Population in Min
 \caption{\label{fig:puofmap}Police use of force data on a Minneapolis Map}
 \end{figure}
 
-In \textbf{Figure \ref{fig:puofmap}} the map layout of Minneapolis is shown. The map is segmented by neighbourhoods. The shade of green show the composition of black in each neighbourhood - with dark green indicating a higher proportion. Each circle shows an incident where police force were used coloured by Race (either White/Black/Others) - minority groups were placed under ``Others''.
+Figure \ref{fig:puofmap} shows Minneapolis, segmented by neighbourhoods. The shade of green represents the number of African Americans in each neighbourhood; with dark green indicating a higher proportion of African Americans. Each circle represents an incident where police used force, and the color represents the ethnicity of the subject. Minority groups were classed as `others'.
 
-Particularly in the northwest and center of the map where black communities are highly represented, there are high concentrations of police use of force incidents especially towards the black race.
+There's a high concentration of African Americans living in the north-west and centre of Minneapolis. These areas also have a high number of incidents where police have used force against African Americans.
 
-\hypertarget{police-stop-data-mapping}{%
-\subsection{Police Stop Data Mapping}\label{police-stop-data-mapping}}
-
+\begin{figure}
+\centering
 \includegraphics{Assignment4_files/figure-latex/psbar-1.pdf}
-With Police Stop data, in the major problems categorized (i.e.~reasons to stop a vehicle), Blacks were most likely to have their vehicles stopped by Minneapolis Police.
+\caption{\label{fig:psbar}Counts per Race in each reason to stop a Vehicle}
+\end{figure}
+
+Figure \ref{fig:psbar} shows the number of cars stopped for a given reason, according to race. African Americans were the most likely to be stopped for all reasons.
 
 \begin{figure}
 \includegraphics[width=4\linewidth]{Assignment4_files/figure-latex/psmap-1} \caption{Police Stop data on Minneapolis map}\label{fig:psmap}
 \end{figure}
 
-Similar to the analysis with the police use of force map, a similar pattern were observed in police stop in \textbf{Figure \ref{fig:psmap}}. Police stops are mostly concentrated in the northwestern and central parts of Minneapolis where black communities are highly represented.
+A similar pattern to Figure \ref{fig:puofmap} was observed in Figure \ref{fig:psmap}. Police stops are highly concentrated in the north western and central areas of Minneapolis, where African American communities are highly represented.
+
+\hypertarget{conclusion}{%
+\section{Conclusion}\label{conclusion}}
+
+Theft is the most commonly committed crime in Minneapolis. Downtown West and Whittier are the neighborhoods with the highest crime rate. Interestingly enough, the crime rate tends to be lower in the colder months of the year, and has been lower in 2020 due to the stay at home orders resulting from COVID-19. The crime rate is higher during the week, while the force use is much higher on weekends; indicating a greater police presence on weekends.
+
+Analysis of the use of force dashboard revealed that police dogs are generally ineffective in arrests as criminals are more likely to flee on foot. The use of force towards African Americans is significantly higher for all force types, except the less lethal force type. This is disproportionate to the number of African Americans in Minneapolis. Additionally, the incidence of force use on African Americans and the number of African Americans stopped is much higher in communities where African Americans are highly represented. Unfortunately, the analysis has divulged clear patterns of discrimination which is deeply distressing and calls for immediate action.
 
 \printbibliography
 

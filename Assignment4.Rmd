@@ -176,7 +176,7 @@ To perform this analysis data was downloaded from the City of @Minneapolis-2020.
 
 The crime incident data had a high number of missing values, where the race of the offender was not recorded. To mitigate the impact on the calculated proportions, particularly where race is concerned, they were not removed. This considered, the analysis will be impacted and the resulting proportions may be under-estimated as a result of the missing values. 
 
-The use of force data has a high number of missing values which will adversely impact the accuracy of the analysis. In addition, there is a Precinct 0 and there is no explanation on the offical Minneapolis website which will certainly impact the results. The 'ResponseDate' can be traced back to 2008, however, no records have been kept, therefore it cannot be used in analysis. Finally, the 'PoliceUseOfForceID' and 'OBJECTID' cannot be used for analysis as they are arranged in order and are independent of 'real' police officers and 'real' witnesses. While it protects the privacy of these individuals, it means that conclusions on agressive police officers cannot be drawn. 
+The use of force data has a high number of missing values which will adversely impact the accuracy of the analysis. In addition, there is a Precinct 0 and there is no explanation on the official Minneapolis website which will certainly impact the results. The 'ResponseDate' can be traced back to 2008, however, no records have been kept, therefore it cannot be used in analysis. Finally, the 'PoliceUseOfForceID' and 'OBJECTID' cannot be used for analysis as they are arranged in order and are independent of 'real' police officers and 'real' witnesses. While it protects the privacy of these individuals, it means that conclusions on aggressive police officers cannot be drawn. 
 
 \clearpage
 # Methodology 
@@ -243,7 +243,7 @@ ggplot(number_crimes,
 
 ## Neighborhoods with the Most Crimes
 
-Figure \@ref(fig:offencetype) captures the top five most frequent offenses in the neighborhoods with the highest crime rates. It is clear that theft is the most commonly committed crime across all neighborhoods, consistent with Figure \@ref(fig:plot-number-crimes). Comparitively, Longflow has a similar incidence of shoplifting and theft. 
+Figure \@ref(fig:offencetype) captures the top five most frequently committed offenses in the neighborhoods with the highest crime rates. It is clear that theft is the most commonly committed crime across all neighborhoods, consistent with Figure \@ref(fig:plot-number-crimes). Comparatively, Longflow has a similar incidence of shoplifting and theft. 
 
 ```{r offencetype, fig.dim = c(6,4), fig.align="center", fig.cap="The most common offence type in the Neighborhoods with the highest Crime Incidence"}
 crime_MPLS_selected %>% 
@@ -336,7 +336,7 @@ neighborhood_summary2020 %>%
 
 Figure \@ref(fig:neighborhood2018), Figure \@ref(fig:neighborhood2019) and Figure \@ref(fig:neighborhood2020), show that across all years **Downtown West** and **Whittier** have the highest crime rate, followed by **Longfellow**, **Lowry Hill East** and **Marcy Holmes**. 
 
-Figure \@ref(fig:Crimeanalysis) explores the relationship between precinct and offense type. Across all precincts, theft is the most commonly committed crime, consistent with Figure \@ref(fig:plot-number-crimes). Interestingly enough, precinct 1 and 2 have a similar incidence of theft, however, precinct 5 has a much higher incidence of bulglary. 
+Figure \@ref(fig:Crimeanalysis) explores the relationship between precinct and offense type. Across all precincts, theft is the most commonly committed crime, consistent with Figure \@ref(fig:plot-number-crimes). Interestingly enough, precinct 1 and 2 have a similar incidence of theft, however, precinct 5 has a much higher incidence of burglary. 
 
 ```{r Crimeanalysis, fig.align="center", fig.width= 8, fig.cap="Crimes comparison of different districts"}
 crime_MPLS_selected %>% filter(offense %in% 
@@ -357,7 +357,7 @@ crime_MPLS_selected %>% filter(offense %in%
 
 ## Crime over Time 
 
-Figure \@ref(fig:timefig) compares the incidence of crimes in each month. As stated above, 2019 is the only complete year in the data set. In 2018, crime peaked in October, and dropped in December. In 2019, crime was very low in the colder months (January, February and March), peaking in the summer months (July and August). Comparitively, the incidence of crime in 2020 was much lower than 2019 and did not increase in May, which is likely due to the stay at home orders resulting from COVID-19. 
+Figure \@ref(fig:timefig) compares the incidence of crimes in each month. As stated above, 2019 is the only complete year in the data set. In 2018, crime peaked in October, and dropped in December. In 2019, crime was very low in the colder months (January, February and March), peaking in the summer months (July and August). Comparatively, the incidence of crime in 2020 was much lower than 2019 and did not increase in May, which is likely due to the stay at home orders resulting from COVID-19. 
 
 ```{r timefig, fig.align="center", fig.width= 8, fig.cap="Comparison of crimes in different months"}
 crime_MPLS_month_2018 <- crime_MPLS_selected %>%
@@ -417,7 +417,7 @@ grid.arrange(p1, p2, p3, ncol = 3)
 
 ## Force Used by Police Data
 
-Figure \@ref(fig:weekdaysituation) shows the distribution of the total crimes and force used over the week. There are more crimes on weekdays than on weekends, however, there is greater force use on weekends. It is likely that weekends attract larger crowds, particularly at entertainment venues, therefore attracting a larger police presence. Furthermore, it is unlikely criminals will commit crimes, particularly when police presence is so high. 
+Figure \@ref(fig:weekdaysituation) shows the distribution of the total crimes and force used over the week. There are more crimes on weekdays than on weekends, however, there is greater force use on weekends. It is likely that entertainment venues draw large crowds on the weekends, therefore attracting a large police presence. Furthermore, it is unlikely criminals will commit crimes, particularly when police presence is so high. 
 
 ```{r weekdaysituation, fig.align="center", fig.width= 8, fig.cap="The average crimes and force used in a given week"}
 crime_MPLS_selected$weekday <- wday(crime_MPLS_selected$reportedDate, label=TRUE)
@@ -440,7 +440,7 @@ w2 <- police_force_2018 %>%
 grid.arrange(w1, w2, ncol = 2)
 ```
 
-Figure \@ref(fig:TypeOfResistance) shows the resistance used in each precinct. In essence, this figure captures the prevalance of crime and the effiency of police in controlling the crime rate. It can be inferred that the fourth precinct is significantly more dangerous than the fifth precinct, and the force use in the fourth precinct is much higher. 
+Figure \@ref(fig:TypeOfResistance) shows the resistance used in each precinct. In essence, this figure captures the prevalence of crime and the efficiency of police in controlling the crime rate. It can be inferred that the fourth precinct is significantly more dangerous than the fifth precinct, and the force use in the fourth precinct is much higher. 
 
 ```{r TypeOfResistance, fig.align="center", fig.width= 8, fig.cap="The different Resistance of criminals in each Precinct"}
 police_force_selected %>% 
@@ -467,7 +467,7 @@ police_force_selected %>%
     coord_flip()
 ```
 
-Figure \@ref(fig:Race) shows the use of force on different races. African Americans are subject to more aggressive forms of force. The figure clearly demonstrates that police are less likely to use less lethal force on African Americans. Looking at this figure alone, it is likely that the treatment of African Americans is unnessarily barbaric at times. 
+Figure \@ref(fig:Race) shows the use of force on different races. African Americans are subject to more aggressive forms of force. The figure clearly demonstrates that police are less likely to use less lethal force on African Americans. Looking at this figure alone, it is likely that the treatment of African Americans is unnecessarily barbaric. 
 
 ```{r Race, fig.align="center", fig.width= 8, fig.cap="Different races are treated differently"}
 police_force_selected %>% 
@@ -480,11 +480,8 @@ police_force_selected %>%
     coord_flip()
 ```
 
-\clearpage
+## Mapping the Data
 
-# Mapping the data and Black composition
-
-## summary table
 ```{r neighborhood_racial_composition_table, include = FALSE}
 # ----------- Summary Table across all areas
 demographics_raw <- read_csv(here::here("data/minneapolis_demographics/profile_download_file_msp_neighborhoods_2014_2018.csv"))
@@ -526,7 +523,7 @@ puof_table <- as.tibble(c(Race = "Black",
               share_of_puof = share_of_puof)) 
 ```
 
-```{r}
+```{r ps-total}
 # no. of blacks subject to police stop
 ps_black <- police_stop_data %>% 
   filter(race %in% c("Black", "East African")) %>% 
@@ -549,7 +546,7 @@ summary_table <- tibble(categories = categories,
                         share = share_of_black_categories)
 
 summary_table %>% 
-  kable(caption = "Share of black in each category",
+  kable(caption = "Proportion of African Americans for each Category",
         digits = 2) %>% 
   kable_styling(bootstrap_options = c("striped", "hover"))
 
@@ -561,18 +558,15 @@ summary_table %>%
 #            stat = "identity")
 ```
 
-Black or African Americans accounts only for 19% of the total Population in Minneapolis. (Data source: @mncompass). However, as we can see from **table \@ref(tab:summarytable)**, they cover the largest proportion of being subjects to police use of force. Furthermore, they also cover the biggest share in terms of their vehicles getting stopped by the police. 
+African Americans count for 20% of the total population in Minneapolis, @mncompass. However, they are most likely to be stopped by police and the subject of police force as in table \@ref(tab:summarytable). Note that all proportions are subject to a 5% or less margin of error.
 
-*Note that each share racial population share are subject to a 5% or less margin of error. 
-
-## Police Use of force Data mapping
-```{r, include = FALSE, message = FALSE, warning = FALSE}
+```{r read-shp-file, include = FALSE, message = FALSE, warning = FALSE}
 # ----------- Police use of force
 # read shp file
 puof_shp <- rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Police_Use_of_Force-shp", sep=""), layer = "Police_Use_of_Force.shp") , stringsAsFactors = FALSE)
 ```
 
-```{r, include = FALSE, message = FALSE, warning = FALSE}
+```{r puof-sf, include = FALSE, message = FALSE, warning = FALSE}
 library(sf)
 # Read shp file into a data frame
 puof_sf <- st_read(dsn = file.path(paste(getwd(),"/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp", sep=""))) %>% 
@@ -580,20 +574,19 @@ puof_sf <- st_read(dsn = file.path(paste(getwd(),"/data/Police_Use_of_Force-shp/
   filter(!(Race %in% c("not recorded", "Unknown")))
 ```
 
-
-```{r, include = FALSE, message = FALSE, warning = FALSE}
+```{r neighborhood-shp, include = FALSE, message = FALSE, warning = FALSE}
 # --------- Neighbourhood data
 # read in shape files
 neighborhood_shp <- 
   rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Minneapolis_Neighborhoods-shp", sep=""), layer = "Minneapolis_Neighborhoods.shp") , stringsAsFactors = FALSE)
 ```
 
-```{r, include = FALSE, message = FALSE, warning = FALSE}
+```{r neighborhood-sf, include = FALSE, message = FALSE, warning = FALSE}
 # Read in shp file into a data frame
 neighborhood_sf <- st_read(dsn = file.path(paste(getwd(),"/data/Minneapolis_Neighborhoods-shp/Minneapolis_Neighborhoods.shp", sep="")))
 ```
 
-```{r}
+```{r black-share}
 # demographics data and neighbourhood shape file data have different neighbourhood area due to some areas (e.g. rivers or industrial area; not inhabited)
 ## shp file more broken up// demographics data; in neighbourhood area less broken up 
 black_share <- demographics %>% 
@@ -641,20 +634,17 @@ ggplot() +
   scale_colour_viridis(discrete = TRUE)
 ```
 
-In **Figure \@ref(fig:puofmap)** the map layout of Minneapolis is shown. The map is segmented by neighbourhoods. The shade of green show the composition of black in each neighbourhood - with dark green indicating a higher proportion. Each circle shows an incident where police force were used coloured by Race (either White/Black/Others) - minority groups were placed under "Others".
+Figure \@ref(fig:puofmap) shows Minneapolis, segmented by neighbourhoods. The shade of green represents the number of African Americans in each neighbourhood; with dark green indicating a higher proportion of African Americans. Each circle represents an incident where police used force, and the color represents the ethnicity of the subject. Minority groups were classed as 'others'. 
 
-Particularly in the northwest and center of the map where black communities are highly represented, there are high concentrations of police use of force incidents especially towards the black race.
+There's a high concentration of African Americans living in the north-west and centre of Minneapolis. These areas also have a high number of incidents where police have used force against African Americans. 
 
-
-## Police Stop Data Mapping
-
-```{r, include = FALSE}
+```{r ps-shp, include = FALSE}
 # ----------- Police use of force
 # read shp file
 ps_shp <- rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Police_Stop_Data-shp", sep=""), layer = "Police_Stop_Data.shp") , stringsAsFactors = FALSE)
 ```
 
-```{r, include = FALSE}
+```{r ps-sf, include = FALSE}
 library(sf)
 # Read shp file into a data frame
 ps_sf <- st_read(dsn = file.path(paste(getwd(),"/data/Police_Stop_Data-shp/Police_Stop_Data.shp", sep=""))) %>% 
@@ -672,9 +662,10 @@ police_stop_data %>%
   facet_wrap(~problem) +
   coord_flip()
 ```
-With Police Stop data, in the major problems categorized (i.e. reasons to stop a vehicle), Blacks were most likely to have their vehicles stopped by Minneapolis Police. 
 
-```{r}
+Figure \@ref(fig:psbar) shows the number of cars stopped for a given reason, according to race. African Americans were the most likely to be stopped for all reasons. 
+
+```{r ps-sf-1}
 ps_sf1 <- ps_sf %>% 
   mutate(race = case_when(
     str_detect(race, "Black") ~ "Black",
@@ -704,6 +695,11 @@ ggplot() +
   scale_colour_viridis(discrete = TRUE)
 ```
 
-Similar to the analysis with the police use of force map, a similar pattern were  observed in police stop in **Figure \@ref(fig:psmap)**. Police stops are mostly concentrated in the northwestern and central parts of Minneapolis where black communities are highly represented.
+A similar pattern to Figure \@ref(fig:puofmap) was observed in Figure \@ref(fig:psmap). Police stops are highly concentrated in the north western and central areas of Minneapolis, where African American communities are highly represented.
 
+# Conclusion
+
+Theft is the most commonly committed crime in Minneapolis. Downtown West and Whittier are the neighborhoods with the highest crime rate. Interestingly enough, the crime rate tends to be lower in the colder months of the year, and has been lower in 2020 due to the stay at home orders resulting from COVID-19. The crime rate is higher during the week, while the force use is much higher on weekends; indicating a greater police presence on weekends. 
+
+Analysis of the use of force dashboard revealed that police dogs are generally ineffective in arrests as criminals are more likely to flee on foot. The use of force towards African Americans is significantly higher for all force types, except the less lethal force type. This is disproportionate to the number of African Americans in Minneapolis. Additionally, the incidence of force use on African Americans and the number of African Americans stopped is much higher in communities where African Americans are highly represented. Unfortunately, the analysis has divulged clear patterns of discrimination which is deeply distressing and calls for immediate action.  
 
