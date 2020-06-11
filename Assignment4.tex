@@ -285,6 +285,20 @@
 \setstretch{1.5}
 
 %% Any special functions or other packages can be loaded here.
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 
 
 \begin{document}           % Begining of document body -----------------------------------------------
@@ -294,6 +308,8 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
+\clearpage
+
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
@@ -311,6 +327,8 @@ To perform this analysis data was downloaded from the City of \textcite{Minneapo
 The crime incident data had a high number of missing values, where the race of the offender was not recorded. To mitigate the impact on the calculated proportions, particularly where race is concerned, they were not removed. This considered, the analysis will be impacted and the resulting proportions may be under-estimated as a result of the missing values.
 
 The use of force data has a high number of missing values which will adversely impact the accuracy of the analysis. In addition, there is a Precinct 0 and there is no explanation on the offical Minneapolis website which will certainly impact the results. The `ResponseDate' can be traced back to 2008, however, no records have been kept, therefore it cannot be used in analysis. Finally, the `PoliceUseOfForceID' and `OBJECTID' cannot be used for analysis as they are arranged in order and are independent of `real' police officers and `real' witnesses. While it protects the privacy of these individuals, it means that conclusions on agressive police officers cannot be drawn.
+
+\clearpage
 
 \hypertarget{methodology}{%
 \section{Methodology}\label{methodology}}
@@ -345,8 +363,7 @@ To create Figure \ref{fig:relationshipfig} the use of force data was filtered fo
 
 The use of force data was filtered for race. The results were plotted in Figure \ref{fig:Race} and each force type band was filled according to race.
 
-\hypertarget{mapping-the-use-of-force-data}{%
-\subsection{Mapping the Use of Force Data}\label{mapping-the-use-of-force-data}}
+\clearpage
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
@@ -623,52 +640,59 @@ Figure \ref{fig:Race} shows the use of force on different races. African America
 
 \clearpage
 
-\hypertarget{use-of-force-map-analysis}{%
-\subsection{Use of Force Map Analysis}\label{use-of-force-map-analysis}}
+\hypertarget{mapping-the-data-and-black-composition}{%
+\section{Mapping the data and Black composition}\label{mapping-the-data-and-black-composition}}
+
+\hypertarget{summary-table}{%
+\subsection{summary table}\label{summary-table}}
+
+\begin{table}
+
+\caption{\label{tab:summarytable}Share of black in each category}
+\centering
+\begin{tabular}[t]{l|r}
+\hline
+categories & share\\
+\hline
+Minneapolis Population & 0.20\\
+\hline
+Police Use of Force & 0.60\\
+\hline
+Police Stop & 0.53\\
+\hline
+\end{tabular}
+\end{table}
+
+Black or African Americans accounts only for 19\% of the total Population in Minneapolis. (Data source: \textcite{mncompass}). However, as we can see from \textbf{table \ref{tab:summarytable}}, they cover the largest proportion of being subjects to police use of force. Furthermore, they also cover the biggest share in terms of their vehicles getting stopped by the police.
+
+*Note that each share racial population share are subject to a 5\% or less margin of error.
+
+\hypertarget{police-use-of-force-data-mapping}{%
+\subsection{Police Use of force Data mapping}\label{police-use-of-force-data-mapping}}
 
 \begin{figure}
 \centering
-\includegraphics{Assignment4_files/figure-latex/puofbar-1.pdf}
-\caption{\label{fig:puofbar}proportion of race in police use of force by Precincts}
+\includegraphics{Assignment4_files/figure-latex/puofmap-1.pdf}
+\caption{\label{fig:puofmap}Police use of force data on a Minneapolis Map}
 \end{figure}
 
-Dataset comes from \textcite{openmn}
-\textbf{Figure \ref{fig:puofbar}} shows the proportion of race in police use of force by Precincts.
+In \textbf{Figure \ref{fig:puofmap}} the map layout of Minneapolis is shown. The map is segmented by neighbourhoods. The shade of green show the composition of black in each neighbourhood - with dark green indicating a higher proportion. Each circle shows an incident where police force were used coloured by Race (either White/Black/Others) - minority groups were placed under ``Others''.
 
-\begin{quote}
-WIP: need to join table with demographics (racial composition in each Precinct) and data on proportion of crimes commited by race in each precinct.
-\end{quote}
+Particularly in the northwest and center of the map where black communities are highly represented, there are high concentrations of police use of force incidents especially towards the black race.
 
-\begin{verbatim}
-## OGR data source with driver: ESRI Shapefile 
-## Source: "/Users/emsheehan/Documents/UNI - POSTGRAD/COLLAB/ETC5513-Assignment-4/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp", layer: "Police_Use_of_Force"
-## with 30024 features
-## It has 28 fields
-\end{verbatim}
+\hypertarget{police-stop-data-mapping}{%
+\subsection{Police Stop Data Mapping}\label{police-stop-data-mapping}}
 
-\begin{verbatim}
-## Reading layer `Police_Use_of_Force' from data source `/Users/emsheehan/Documents/UNI - POSTGRAD/COLLAB/ETC5513-Assignment-4/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp' using driver `ESRI Shapefile'
-## Simple feature collection with 30024 features and 28 fields
-## geometry type:  POINT
-## dimension:      XY
-## bbox:           xmin: -93.32842 ymin: 0 xmax: 0 ymax: 45.05124
-## CRS:            4326
-\end{verbatim}
+\includegraphics{Assignment4_files/figure-latex/psbar-1.pdf}
+With Police Stop data, in the major problems categorized (i.e.~reasons to stop a vehicle), Blacks were most likely to have their vehicles stopped by Minneapolis Police.
 
 \begin{figure}
-
-{\centering \includegraphics{Assignment4_files/figure-latex/puofmap-1} 
-
-}
-
-\caption{Number of police use of force incidents in Precincts}\label{fig:puofmap}
+\includegraphics[width=4\linewidth]{Assignment4_files/figure-latex/psmap-1} \caption{Police Stop data on Minneapolis map}\label{fig:psmap}
 \end{figure}
 
-\textbf{Figure \ref{fig:puofmap}} shows the police use of force map in Minneapolis. The numbers show number of incidents per precinct.
+Similar to the analysis with the police use of force map, a similar pattern were observed in police stop in \textbf{Figure \ref{fig:psmap}}. Police stops are mostly concentrated in the northwestern and central parts of Minneapolis where black communities are highly represented.
 
-\includegraphics{Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf}
-
-\printbibliography[title=Conclusion]
+\printbibliography
 
 \end{document}
 

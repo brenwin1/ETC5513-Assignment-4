@@ -1,14 +1,14 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.9)  11 JUN 2020 11:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.8)  11 JUN 2020 17:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Assignment4.tex
 (./Assignment4.tex
 LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-06-03> (/Users/emsheehan/Library/TinyTeX/texmf-dist/
-tex/latex/base/article.cls
+L3 programming layer <2020-06-03> (/Users/brenwin/Library/TinyTeX/texmf-dist/te
+x/latex/base/article.cls
 Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/base/size11.clo
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
 \c@part=\count167
@@ -22,7 +22,7 @@ File: size11.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen134
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty
 Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
@@ -56,9 +56,9 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks15
 \symAMSa=\mathgroup4
@@ -66,20 +66,20 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+)) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2020/01/20 v2.17e AMS math features
 \@mathmargin=\skip49
 For additional information on amsmath, use the `?' option.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks16
 \ex@=\dimen135
-)) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
+)) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen136
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count175
@@ -119,13 +119,13 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 \mathdisplay@stack=\toks20
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/generic/iftex/ifxetex.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/generic/iftex/ifxetex.sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
-)) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/generic/iftex/ifluatex.sty
+)) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/base/fixltx2e.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/base/fixltx2e.sty
 Package: fixltx2e 2016/12/29 v2.1a fixes to LaTeX (obsolete)
 Applying: [2015/01/01] Old fixltx2e package on input line 46.
 
@@ -134,25 +134,24 @@ Package fixltx2e Warning: fixltx2e is not required with releases after 2015
 (fixltx2e)                See the latexrelease package for details.
 
 Already applied: [0000/00/00] Old fixltx2e package on input line 53.
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
 2.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
+)) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks21
 \inpenc@posthook=\toks22
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/upquote/upquote.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-)) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/microtype/microtype.s
-ty
+)) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2019/11/18 v2.7d Micro-typographical refinements (RS)
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks23
 )
@@ -163,8 +162,8 @@ LaTeX Info: Redefining \textls on input line 790.
 LaTeX Info: Redefining \textmicrotypecontext on input line 1354.
 \MT@listname@count=\count188
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/microtype/microtype-pdft
-ex.def
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/microtype/microtype-pdftex
+.def
 File: microtype-pdftex.def 2019/11/18 v2.7d Definitions specific to pdftex (RS)
 
 LaTeX Info: Redefining \lsstyle on input line 914.
@@ -172,65 +171,58 @@ LaTeX Info: Redefining \lslig on input line 914.
 \MT@outer@space=\skip52
 )
 Package microtype Info: Loading configuration file microtype.cfg.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/microtype/microtype.cfg
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/microtype/microtype.cfg
 File: microtype.cfg 2019/11/18 v2.7d microtype main configuration file (RS)
-)) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
+)) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
-)
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.st
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.st
 y
 Package: pdftexcmds 2020-06-04 v0.32 Utility functions of pdfTeX for LuaTeX (HO
 )
-
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.st
-y
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-)
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.st
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.st
 y
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 )
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinek
-eys.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekey
+s.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-)
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.st
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.st
 y
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 )
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/letltxmacro/letltxmacro.
-sty
-Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty
-Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.st
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/letltxmacro/letltxmacro.st
 y
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
 \@linkdim=\dimen145
 \Hy@linkcounter=\count189
 \Hy@pagecounter=\count190
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/generic/etexcmds/etexcmds.st
-y
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count191
 Package hyperref Info: Option `unicode' set `true' on input line 4338.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2020-05-15 v7.00e Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
@@ -243,17 +235,17 @@ Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4717.
 \c@Hy@tempcnt=\count192
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5076.
 \XeTeXLinkMargin=\dimen146
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.
-sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.st
+y
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
@@ -269,7 +261,7 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6372.
 Package hyperref Info: PDF/A mode OFF on input line 6377.
 LaTeX Info: Redefining \ref on input line 6417.
 LaTeX Info: Redefining \pageref on input line 6421.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/generic/atbegshi/atbegshi.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/generic/atbegshi/atbegshi.sty
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
 \Hy@abspage=\count194
@@ -277,21 +269,21 @@ Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 \c@Hfootnote=\count196
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2020-05-15 v7.00e Hyperref driver for pdfTeX
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/atveryend/atveryend.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/atveryend/atveryend.sty
 Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
 )
 \Fld@listcount=\count197
 \c@bookmark@seq@number=\count198
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfile
-check.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilech
+eck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniqueco
-unter.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecoun
+ter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
@@ -300,9 +292,9 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \Hy@SectionHShift=\skip53
 )
 Package hyperref Info: Option `breaklinks' set `true' on input line 26.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
 \Gm@cnth=\count199
@@ -317,17 +309,17 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layouthoffset=\dimen155
 \Gm@layoutvoffset=\dimen156
 \Gm@dimlist=\toks25
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2019/12/01 v3.14 programmable bibliographies (PK/MW)
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count268
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/logreq/logreq.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
 \lrq@indent=\count269
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/logreq/logreq.def
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
-)) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty
+)) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \c@tabx@nest=\count270
@@ -387,7 +379,7 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \c@mincompwidth=\count313
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/biblatex/blx-dm.def
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/biblatex/blx-dm.def
 File: blx-dm.def 2019/12/01 v3.14 biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex style data model...
@@ -478,12 +470,12 @@ Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \localshorteditorwidth=\skip75
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/biblatex/blx-compat.def
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/biblatex/blx-compat.def
 File: blx-compat.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
 )
 Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.def
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
 \c@textcitecount=\count382
 \c@textcitetotal=\count383
@@ -502,20 +494,18 @@ File: biblatex.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'authoryear-comp'...
 Package biblatex Info: ... file 'authoryear-comp.bbx' found.
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/biblatex/bbx/authoryear-
-comp.bbx
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/biblatex/bbx/authoryear-co
+mp.bbx
 File: authoryear-comp.bbx 2019/12/01 v3.14 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'authoryear'...
 Package biblatex Info: ... file 'authoryear.bbx' found.
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/biblatex/bbx/authoryear.
-bbx
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/biblatex/bbx/authoryear.bb
+x
 File: authoryear.bbx 2019/12/01 v3.14 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
-
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/biblatex/bbx/standard.bb
-x
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2019/12/01 v3.14 biblatex bibliography style (PK/MW)
 \c@bbx:relatedcount=\count391
 \c@bbx:relatedtotal=\count392
@@ -523,8 +513,8 @@ File: standard.bbx 2019/12/01 v3.14 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load citation style 'authoryear-comp'...
 Package biblatex Info: ... file 'authoryear-comp.cbx' found.
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/biblatex/cbx/authoryear-
-comp.cbx
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/biblatex/cbx/authoryear-co
+mp.cbx
 File: authoryear-comp.cbx 2019/12/01 v3.14 biblatex citation style (PK/MW)
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
@@ -541,9 +531,9 @@ Package biblatex Info: Redefining '\smartcites'.
 )
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.cfg
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.cfg
 File: biblatex.cfg 
-)) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
+)) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LTleft=\skip76
 \LTright=\skip77
@@ -560,7 +550,7 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \c@LT@tables=\count396
 \c@LT@chunks=\count397
 \LT@p@ftn=\toks26
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen158
 \lightrulewidth=\dimen159
@@ -579,31 +569,30 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisruleclass=\count400
 \@lastruleclass=\count401
 \@thisrulewidth=\dimen170
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-)
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cf
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cf
 g
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen171
 \Gin@req@width=\dimen172
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/grffile/grffile.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/grffile/grffile.sty
 Package: grffile 2019/11/11 v2.1 Extended file name support for graphics (legac
 y)
 Package grffile Info: This package is an empty stub for compatibility on input 
 line 40.
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2020/05/10 v3.4j Customizing captions (AR)
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2020/05/10 v1.11 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 61.
 \captionmargin=\dimen173
@@ -619,40 +608,37 @@ Package caption Info: Standard document class detected.
 \c@continuedfloat=\count403
 Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2018/08/26 v1.4a longtable captions (AR)
-)) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/bera/bera.sty
+)) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/bera/bera.sty
 Package: bera 2004/01/31 (WaS)
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/bera/beraserif.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/bera/beraserif.sty
 Package: beraserif 2004/01/30 (WaS)
 LaTeX Font Info:    Trying to load font information for T1+fve on input line 30
 .
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/bera/t1fve.fd
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/bera/t1fve.fd
 File: t1fve.fd 2004/09/07 scalable font definitions for T1/fve.
 )
 LaTeX Font Info:    Font shape `T1/fve/m/n' will be
 (Font)              scaled to size 9.85492pt on input line 30.
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/bera/berasans.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/bera/berasans.sty
 Package: berasans 2004/01/30 (WaS)
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/bera/beramono.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/bera/beramono.sty
 Package: beramono 2004/01/31 (WaS)
-))
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mathdesign.st
-y
+)) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mathdesign.s
+ty
 Package: mathdesign 2013/08/29 v2.31 Math Design Project
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/mdbch.c
-fg)
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/mdbch.s
-ty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/mdbch.cfg
+)
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/mdbch.sty
 Package: mdbch 2013/08/29 v2.31 bitstream bitstream charter + mdbch (Math Desig
 n Project)
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdfont.def
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdfont.def
 File: mdfont.def 2013/08/29 v2.31 (Math Design Project)
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdsffont.de
-f
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdsffont.def
 File: mdsffont.def 2013/08/29 v2.31 (Math Design Project)
 
 LaTeX Warning: Font shape declaration has incorrect series value `mc'.
@@ -734,8 +720,7 @@ LaTeX Warning: Font shape declaration has incorrect series value `mc'.
                It should not contain an `m'! Please correct it.
                Found on input line 322.
 
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdttfont.de
-f
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdttfont.def
 File: mdttfont.def 2013/08/29 v2.31 (Math Design Project)
 )
 \symmdcal=\mathgroup6
@@ -794,10 +779,10 @@ LaTeX Font Info:    Overwriting symbol font `lettersupright' in version `bold'
 LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 145.
 LaTeX Font Info:    Overwriting math alphabet `\mathcal' in version `normal'
 (Font)                  OMS/mdbch/m/n --> OMS/mdbch/m/n on input line 167.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/
-Users/emsheehan/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/Us
+ers/brenwin/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex
 \XKV@toks=\toks27
 \XKV@tempa@toks=\toks28
 )
@@ -807,8 +792,8 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 LaTeX Font Info:    Trying to load font information for T1+mdbch on input line 
 186.
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/t1mdbch
-.fd
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/t1mdbch.f
+d
 File: t1mdbch.fd 2013/08/29 Fontinst v1.933 font definitions for T1/mdbch.
 )
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
@@ -831,18 +816,18 @@ LaTeX Info: Redefining \bold on input line 510.
 LaTeX Font Info:    Redeclaring math accent \widetilde on input line 532.
 LaTeX Font Info:    Redeclaring math accent \widehat on input line 533.
 \rulethickness=\skip80
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
 ))
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/fontawesome/fontawesome.
-sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/fontawesome/fontawesome.st
+y
 Package: fontawesome 2016/05/15 v4.6.3.1 font awesome icons
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/fontawesome/fontawesomes
-ymbols-generic.tex)
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/fontawesome/fontawesomes
-ymbols-pdftex.tex)) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/fanc
-yhdr/fancyhdr.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/fontawesome/fontawesomesym
+bols-generic.tex)
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/fontawesome/fontawesomesym
+bols-pdftex.tex)) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/fancyhdr
+/fancyhdr.sty
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
 s
 \f@nch@headwidth=\skip81
@@ -854,7 +839,7 @@ s
 \f@nch@O@erf=\skip87
 \f@nch@O@olf=\skip88
 \f@nch@O@orf=\skip89
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/tools/bm.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2019/07/24 v1.2d Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup11
 \symboldletters=\mathgroup12
@@ -862,7 +847,7 @@ Package: bm 2019/07/24 v1.2d Bold Symbol Support (DPC/FMi)
 \symboldlargesymbols=\mathgroup14
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
 LaTeX Info: Redefining \bm on input line 209.
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/titlesec/titlesec.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2019/10/16 v2.13 Sectioning titles
 \ttl@box=\box51
 \beforetitleunit=\skip90
@@ -873,9 +858,9 @@ Package: titlesec 2019/10/16 v2.13 Sectioning titles
 \titlewidth=\dimen182
 \titlewidthlast=\dimen183
 \titlewidthfirst=\dimen184
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
@@ -894,9 +879,9 @@ Package hyperref Info: Option `bookmarksopen' set `true' on input line 160.
 Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 160.
 
 Package hyperref Info: Option `colorlinks' set `true' on input line 160.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/mathtools/mathtools.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2020/03/24 v1.24 mathematical typesetting tools
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count405
 \calc@Bcount=\count406
@@ -908,7 +893,7 @@ LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count407
 \calc@Cskip=\skip94
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/mathtools/mhsetup.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
 )
 LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
@@ -926,106 +911,206 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
 \l_MT_below_shortintertext_sep=\dimen193
 \xmathstrut@box=\box52
 \xmathstrut@dim=\dimen194
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/eukdate/eukdate.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/eukdate/eukdate.sty
 Package: eukdate 2009/03/18 v1.04 UK format date (Hart's Rules) with weekday
 \c@euk@date=\count409
 \c@euk@month=\count410
 \c@euk@century=\count411
 \c@euk@year=\count412
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/xpatch/xpatch.sty (/Us
-ers/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/xpatch/xpatch.sty (/User
+s/brenwin/Library/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2020-06-03 L3 programming layer (loader) 
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdfm
-ode.def
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdfmod
+e.def
 File: l3backend-pdfmode.def 2020-06-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count413
 \l__pdf_internal_box=\box53
 ))
 Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse
-.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.s
+ty
 Package: xparse 2020-05-15 L3 Experimental document command parser
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse
--generic.tex
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse-g
+eneric.tex
 \l__xparse_current_arg_int=\count414
 \g__xparse_grabber_int=\count415
 \l__xparse_m_args_int=\count416
 \l__xparse_v_nesting_int=\count417
-))) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/setspace/setspace.st
-y
+))) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/tools/array.sty
+Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
+\col@sep=\dimen195
+\ar@mcellbox=\box54
+\extrarowheight=\dimen196
+\NC@list=\toks30
+\extratabsurround=\skip96
+\backup@length=\skip97
+\ar@cellbox=\box55
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
+\multirow@colwidth=\skip98
+\multirow@cntb=\count418
+\multirow@dima=\skip99
+\bigstrutjot=\dimen197
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen198
+\WF@size=\dimen199
+\c@WF@wrappedlines=\count419
+\WF@box=\box56
+\WF@everypar=\toks31
+Package: wrapfig 2003/01/31  v 3.6
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count420
+\float@exts=\toks32
+\float@box=\box57
+\@float@everytoks=\toks33
+\@floatcapt=\box58
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
+\everycr=\toks34
+\minrowclearance=\skip100
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
-\@quotelevel=\count418
-\@quotereset=\count419
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/tabu/tabu.sty
+Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box59
+\sift@deathcycles=\count421
+\@vwid@loff=\dimen256
+\@vwid@roff=\dimen257
+)
+\c@taburow=\count422
+\tabu@nbcols=\count423
+\tabu@cnt=\count424
+\tabu@Xcol=\count425
+\tabu@alloc=\count426
+\tabu@nested=\count427
+\tabu@target=\dimen258
+\tabu@spreadtarget=\dimen259
+\tabu@naturalX=\dimen260
+\tabucolX=\dimen261
+\tabu@Xsum=\dimen262
+\extrarowdepth=\dimen263
+\abovetabulinesep=\dimen264
+\belowtabulinesep=\dimen265
+\tabustrutrule=\dimen266
+\tabu@thebody=\toks35
+\tabu@footnotes=\toks36
+\tabu@box=\box60
+\tabu@arstrutbox=\box61
+\tabu@hleads=\box62
+\tabu@vleads=\box63
+\tabu@cellskip=\skip101
+)
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/threeparttable/threepartta
+ble.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box64
+)
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/threeparttablex/threepartt
+ablex.sty
+Package: threeparttablex 2013/07/23 v0.3 by daleif
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\TPTL@width=\skip102
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box65
+\UL@hyphenbox=\box66
+\UL@skip=\skip103
+\UL@hook=\toks37
+\UL@height=\dimen267
+\UL@pe=\count428
+\UL@pixel=\dimen268
+\ULC@box=\box67
+Package: ulem 2019/11/18
+\ULdepth=\dimen269
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen270
+\c@nlinenum=\count429
+\TeXr@lab=\toks38
+)
+\@quotelevel=\count430
+\@quotereset=\count431
 (./Assignment4.aux)
 \openout1 = `Assignment4.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 290.
-LaTeX Font Info:    ... okay on input line 290.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 290.
-LaTeX Font Info:    ... okay on input line 290.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 290.
-LaTeX Font Info:    ... okay on input line 290.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 290.
-LaTeX Font Info:    ... okay on input line 290.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 290.
-LaTeX Font Info:    ... okay on input line 290.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 290.
-LaTeX Font Info:    ... okay on input line 290.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 290.
-LaTeX Font Info:    ... okay on input line 290.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 290.
-LaTeX Font Info:    ... okay on input line 290.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 290.
-LaTeX Font Info:    ... okay on input line 290.
-LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 290.
-LaTeX Font Info:    Trying to load font information for MDA+cmr on input line 2
-90.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdacmr.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 304.
+LaTeX Font Info:    ... okay on input line 304.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 304.
+LaTeX Font Info:    ... okay on input line 304.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 304.
+LaTeX Font Info:    ... okay on input line 304.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 304.
+LaTeX Font Info:    ... okay on input line 304.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 304.
+LaTeX Font Info:    ... okay on input line 304.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 304.
+LaTeX Font Info:    ... okay on input line 304.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 304.
+LaTeX Font Info:    ... okay on input line 304.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 304.
+LaTeX Font Info:    ... okay on input line 304.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 304.
+LaTeX Font Info:    ... okay on input line 304.
+LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 304.
+LaTeX Font Info:    Trying to load font information for MDA+cmr on input line 3
+04.
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdacmr.fd
 File: mdacmr.fd 
 )
-LaTeX Font Info:    ... okay on input line 290.
-LaTeX Font Info:    Checking defaults for MDB/cmr/m/n on input line 290.
-LaTeX Font Info:    Trying to load font information for MDB+cmr on input line 2
-90.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbcmr.fd
+LaTeX Font Info:    ... okay on input line 304.
+LaTeX Font Info:    Checking defaults for MDB/cmr/m/n on input line 304.
+LaTeX Font Info:    Trying to load font information for MDB+cmr on input line 3
+04.
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbcmr.fd
 File: mdbcmr.fd 
 )
-LaTeX Font Info:    ... okay on input line 290.
-LaTeX Info: Redefining \microtypecontext on input line 290.
+LaTeX Font Info:    ... okay on input line 304.
+LaTeX Info: Redefining \microtypecontext on input line 304.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `basictext'.
-LaTeX Info: Redefining \showhyphens on input line 290.
+LaTeX Info: Redefining \showhyphens on input line 304.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/microtype/mt-bch.cfg
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/microtype/mt-bch.cfg
 File: mt-bch.cfg 2007/03/03 v1.5 microtype config. file: Bitstream Charter (RS)
 
 )
-\AtBeginShipoutBox=\box54
-Package hyperref Info: Link coloring ON on input line 290.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
+\AtBeginShipoutBox=\box68
+Package hyperref Info: Link coloring ON on input line 304.
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 )
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitl
-estring.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitles
+tring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count420
+\c@section@level=\count432
 )
-LaTeX Info: Redefining \ref on input line 290.
-LaTeX Info: Redefining \pageref on input line 290.
-LaTeX Info: Redefining \nameref on input line 290.
+LaTeX Info: Redefining \ref on input line 304.
+LaTeX Info: Redefining \pageref on input line 304.
+LaTeX Info: Redefining \nameref on input line 304.
 (./Assignment4.out) (./Assignment4.out)
 \@outlinefile=\write4
 \openout4 = `Assignment4.out'.
@@ -1068,8 +1153,7 @@ LaTeX Info: Redefining \nameref on input line 290.
 
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
-
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 File: english.lbx 2019/12/01 v3.14 biblatex localization (PK/MW)
 )
 Package biblatex Info: Input encoding 'utf8' detected.
@@ -1080,506 +1164,486 @@ Package biblatex Info: Data encoding 'utf8' specified.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Assignment4.bbl' found.
 (./Assignment4.bbl)
-Package biblatex Info: Reference section=0 on input line 290.
-Package biblatex Info: Reference segment=0 on input line 290.
+Package biblatex Info: Reference section=0 on input line 304.
+Package biblatex Info: Reference segment=0 on input line 304.
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-ba
-se.sty
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base
+.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys
-.cfg
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.c
+fg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: threeparttable package is loaded.
+Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 Package mathdesign/mdbch Warning: Package 'amssymb' shouldn't be used in conjon
-ction with package mdbch, on input line 290.
+ction with package mdbch, on input line 304.
 
 
 Package mathdesign/mdbch Warning: Package 'amsfonts' shouldn't be used in conjo
-nction with package mdbch, on input line 290.
+nction with package mdbch, on input line 304.
 
-<logo.jpg, id=60, 702.625pt x 702.625pt>
+<logo.jpg, id=68, 702.625pt x 702.625pt>
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
-Package pdftex.def Info: logo.jpg  used on input line 291.
+Package pdftex.def Info: logo.jpg  used on input line 305.
 (pdftex.def)             Requested size: 170.71335pt x 170.71335pt.
 LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 9.24173pt on input line 291.
+(Font)              scaled to size 9.24173pt on input line 305.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `fvs' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 10.12793pt on input line 291.
+(Font)              scaled to size 10.12793pt on input line 305.
 LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
-(Font)              scaled to size 10.12793pt on input line 291.
+(Font)              scaled to size 10.12793pt on input line 305.
 LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 8.43994pt on input line 291.
+(Font)              scaled to size 8.43994pt on input line 305.
 LaTeX Font Info:    Trying to load font information for OT1+mdbch on input line
- 291.
+ 305.
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/ot1mdbc
-h.fd
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/ot1mdbch.
+fd
 File: ot1mdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OT1/mdbch.
 )
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 291.
+(Font)              scaled to size 9.60007pt on input line 305.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 291.
+(Font)              scaled to size 6.72005pt on input line 305.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 291.
+(Font)              scaled to size 4.80003pt on input line 305.
 LaTeX Font Info:    Trying to load font information for OML+mdbch on input line
- 291.
+ 305.
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/omlmdbc
-h.fd
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/omlmdbch.
+fd
 File: omlmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OML/mdbch.
 )
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 9.60007pt on input line 291.
+(Font)              scaled to size 9.60007pt on input line 305.
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `OML/mdbch/m/it/10'. Switching off
-(microtype)                protrusion for this font on input line 291.
+(microtype)                protrusion for this font on input line 305.
 
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 6.72005pt on input line 291.
+(Font)              scaled to size 6.72005pt on input line 305.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 4.80003pt on input line 291.
+(Font)              scaled to size 4.80003pt on input line 305.
 LaTeX Font Info:    Trying to load font information for OMS+mdbch on input line
- 291.
+ 305.
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/omsmdbc
-h.fd
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/omsmdbch.
+fd
 File: omsmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMS/mdbch.
 )
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 291.
+(Font)              scaled to size 9.60007pt on input line 305.
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `OMS/mdbch/m/n/10'. Switching off
-(microtype)                protrusion for this font on input line 291.
+(microtype)                protrusion for this font on input line 305.
 
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 291.
+(Font)              scaled to size 6.72005pt on input line 305.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 291.
+(Font)              scaled to size 4.80003pt on input line 305.
 LaTeX Font Info:    Trying to load font information for OMX+mdbch on input line
- 291.
+ 305.
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/omxmdbc
-h.fd
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/omxmdbch.
+fd
 File: omxmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdbch.
 )
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 291.
+(Font)              scaled to size 9.60007pt on input line 305.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 291.
+(Font)              scaled to size 6.72005pt on input line 305.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 291.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 291
+(Font)              scaled to size 4.80003pt on input line 305.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 305
 .
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/microtype/mt-msa.cfg
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 291
+LaTeX Font Info:    Trying to load font information for U+msb on input line 305
 .
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
+) (/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 291.
+(Font)              scaled to size 9.60007pt on input line 305.
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `OML/mdbch/m/n/10'. Switching off
-(microtype)                protrusion for this font on input line 291.
+(microtype)                protrusion for this font on input line 305.
 
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 291.
+(Font)              scaled to size 6.72005pt on input line 305.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 291.
+(Font)              scaled to size 4.80003pt on input line 305.
 LaTeX Font Info:    Trying to load font information for MDA+mdbch on input line
- 291.
+ 305.
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/mdamdbc
-h.fd
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/mdamdbch.
+fd
 File: mdamdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDA/mdbch.
 )
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 291.
+(Font)              scaled to size 9.60007pt on input line 305.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 291.
+(Font)              scaled to size 6.72005pt on input line 305.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 291.
+(Font)              scaled to size 4.80003pt on input line 305.
 LaTeX Font Info:    Trying to load font information for MDB+mdbch on input line
- 291.
+ 305.
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/mdbmdbc
-h.fd
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/mathdesign/mdbch/mdbmdbch.
+fd
 File: mdbmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDB/mdbch.
 )
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 291.
+(Font)              scaled to size 9.60007pt on input line 305.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 291.
+(Font)              scaled to size 6.72005pt on input line 305.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 291.
+(Font)              scaled to size 4.80003pt on input line 305.
 LaTeX Font Info:    Font shape `OT1/mdbch/b/n' will be
-(Font)              scaled to size 9.60007pt on input line 291.
+(Font)              scaled to size 9.60007pt on input line 305.
 LaTeX Font Info:    Font shape `OT1/mdbch/b/n' will be
-(Font)              scaled to size 6.72005pt on input line 291.
+(Font)              scaled to size 6.72005pt on input line 305.
 LaTeX Font Info:    Font shape `OT1/mdbch/b/n' will be
-(Font)              scaled to size 4.80003pt on input line 291.
+(Font)              scaled to size 4.80003pt on input line 305.
 LaTeX Font Info:    Font shape `OML/mdbch/b/it' will be
-(Font)              scaled to size 9.60007pt on input line 291.
+(Font)              scaled to size 9.60007pt on input line 305.
 LaTeX Font Info:    Font shape `OML/mdbch/b/it' will be
-(Font)              scaled to size 6.72005pt on input line 291.
+(Font)              scaled to size 6.72005pt on input line 305.
 LaTeX Font Info:    Font shape `OML/mdbch/b/it' will be
-(Font)              scaled to size 4.80003pt on input line 291.
+(Font)              scaled to size 4.80003pt on input line 305.
 LaTeX Font Info:    Font shape `OMS/mdbch/b/n' will be
-(Font)              scaled to size 9.60007pt on input line 291.
+(Font)              scaled to size 9.60007pt on input line 305.
 LaTeX Font Info:    Font shape `OMS/mdbch/b/n' will be
-(Font)              scaled to size 6.72005pt on input line 291.
+(Font)              scaled to size 6.72005pt on input line 305.
 LaTeX Font Info:    Font shape `OMS/mdbch/b/n' will be
-(Font)              scaled to size 4.80003pt on input line 291.
+(Font)              scaled to size 4.80003pt on input line 305.
 LaTeX Font Info:    Font shape `OMX/mdbch/b/n' will be
-(Font)              scaled to size 9.60007pt on input line 291.
+(Font)              scaled to size 9.60007pt on input line 305.
 LaTeX Font Info:    Font shape `OMX/mdbch/b/n' will be
-(Font)              scaled to size 6.72005pt on input line 291.
+(Font)              scaled to size 6.72005pt on input line 305.
 LaTeX Font Info:    Font shape `OMX/mdbch/b/n' will be
-(Font)              scaled to size 4.80003pt on input line 291.
+(Font)              scaled to size 4.80003pt on input line 305.
 LaTeX Font Info:    Trying to load font information for U+fontawesometwo on inp
-ut line 291.
+ut line 305.
 
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/fontawesome/ufontawesome
-two.fd
+(/Users/brenwin/Library/TinyTeX/texmf-dist/tex/latex/fontawesome/ufontawesometw
+o.fd
 File: ufontawesometwo.fd 2016/05/22 Font definitions for U/fontawesometwo.
 )
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 10.51207pt on input line 291.
+(Font)              scaled to size 10.51207pt on input line 305.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 291.
+(Font)              scaled to size 7.68005pt on input line 305.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 291.
+(Font)              scaled to size 5.76004pt on input line 305.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 10.51207pt on input line 291.
+(Font)              scaled to size 10.51207pt on input line 305.
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `OML/mdbch/m/it/10.95'. Switching off
-(microtype)                protrusion for this font on input line 291.
+(microtype)                protrusion for this font on input line 305.
 
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 7.68005pt on input line 291.
+(Font)              scaled to size 7.68005pt on input line 305.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 5.76004pt on input line 291.
+(Font)              scaled to size 5.76004pt on input line 305.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 10.51207pt on input line 291.
+(Font)              scaled to size 10.51207pt on input line 305.
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `OMS/mdbch/m/n/10.95'. Switching off
-(microtype)                protrusion for this font on input line 291.
+(microtype)                protrusion for this font on input line 305.
 
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 291.
+(Font)              scaled to size 7.68005pt on input line 305.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 291.
+(Font)              scaled to size 5.76004pt on input line 305.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 10.51207pt on input line 291.
+(Font)              scaled to size 10.51207pt on input line 305.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 291.
+(Font)              scaled to size 7.68005pt on input line 305.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 291.
+(Font)              scaled to size 5.76004pt on input line 305.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 10.51207pt on input line 291.
+(Font)              scaled to size 10.51207pt on input line 305.
 
 Package microtype Warning: I cannot find a protrusion list for font
 (microtype)                `OML/mdbch/m/n/10.95'. Switching off
-(microtype)                protrusion for this font on input line 291.
+(microtype)                protrusion for this font on input line 305.
 
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 291.
+(Font)              scaled to size 7.68005pt on input line 305.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 291.
+(Font)              scaled to size 5.76004pt on input line 305.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 10.51207pt on input line 291.
+(Font)              scaled to size 10.51207pt on input line 305.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 291.
+(Font)              scaled to size 7.68005pt on input line 305.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 291.
+(Font)              scaled to size 5.76004pt on input line 305.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 10.51207pt on input line 291.
+(Font)              scaled to size 10.51207pt on input line 305.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 291.
+(Font)              scaled to size 7.68005pt on input line 305.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 291.
+(Font)              scaled to size 5.76004pt on input line 305.
 LaTeX Font Info:    Font shape `OT1/mdbch/b/n' will be
-(Font)              scaled to size 10.51207pt on input line 291.
+(Font)              scaled to size 10.51207pt on input line 305.
 LaTeX Font Info:    Font shape `OT1/mdbch/b/n' will be
-(Font)              scaled to size 7.68005pt on input line 291.
+(Font)              scaled to size 7.68005pt on input line 305.
 LaTeX Font Info:    Font shape `OT1/mdbch/b/n' will be
-(Font)              scaled to size 5.76004pt on input line 291.
+(Font)              scaled to size 5.76004pt on input line 305.
 LaTeX Font Info:    Font shape `OML/mdbch/b/it' will be
-(Font)              scaled to size 10.51207pt on input line 291.
+(Font)              scaled to size 10.51207pt on input line 305.
 LaTeX Font Info:    Font shape `OML/mdbch/b/it' will be
-(Font)              scaled to size 7.68005pt on input line 291.
+(Font)              scaled to size 7.68005pt on input line 305.
 LaTeX Font Info:    Font shape `OML/mdbch/b/it' will be
-(Font)              scaled to size 5.76004pt on input line 291.
+(Font)              scaled to size 5.76004pt on input line 305.
 LaTeX Font Info:    Font shape `OMS/mdbch/b/n' will be
-(Font)              scaled to size 10.51207pt on input line 291.
+(Font)              scaled to size 10.51207pt on input line 305.
 LaTeX Font Info:    Font shape `OMS/mdbch/b/n' will be
-(Font)              scaled to size 7.68005pt on input line 291.
+(Font)              scaled to size 7.68005pt on input line 305.
 LaTeX Font Info:    Font shape `OMS/mdbch/b/n' will be
-(Font)              scaled to size 5.76004pt on input line 291.
+(Font)              scaled to size 5.76004pt on input line 305.
 LaTeX Font Info:    Font shape `OMX/mdbch/b/n' will be
-(Font)              scaled to size 10.51207pt on input line 291.
+(Font)              scaled to size 10.51207pt on input line 305.
 LaTeX Font Info:    Font shape `OMX/mdbch/b/n' will be
-(Font)              scaled to size 7.68005pt on input line 291.
+(Font)              scaled to size 7.68005pt on input line 305.
 LaTeX Font Info:    Font shape `OMX/mdbch/b/n' will be
-(Font)              scaled to size 5.76004pt on input line 291.
+(Font)              scaled to size 5.76004pt on input line 305.
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 23.88496pt on input line 291.
+(Font)              scaled to size 23.88496pt on input line 305.
 LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 20.99857pt on input line 291.
+(Font)              scaled to size 20.99857pt on input line 305.
 LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
-(Font)              scaled to size 20.99857pt on input line 291.
+(Font)              scaled to size 20.99857pt on input line 305.
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 11.52008pt on input line 291.
+(Font)              scaled to size 11.52008pt on input line 305.
 LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 12.1535pt on input line 291.
+(Font)              scaled to size 12.1535pt on input line 305.
 LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
-(Font)              scaled to size 12.1535pt on input line 291.
+(Font)              scaled to size 12.1535pt on input line 305.
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 13.82408pt on input line 291.
+(Font)              scaled to size 13.82408pt on input line 305.
 
-Overfull \hbox (172.68228pt too wide) detected at line 291
+Overfull \hbox (172.68228pt too wide) detected at line 305
 [] 
  []
 
 
-Overfull \hbox (56.23262pt too wide) detected at line 291
+Overfull \hbox (56.23262pt too wide) detected at line 305
  [] |  [] []
  []
 
 [1
 
-{/Users/emsheehan/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
- <./logo.jpg>] (./Assignment4.toc
+{/Users/brenwin/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <
+./logo.jpg>] (./Assignment4.toc
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
 (Font)              scaled to size 10.51207pt on input line 3.
 )
 \tf@toc=\write5
 \openout5 = `Assignment4.toc'.
 
-[2] [3]
-<Assignment4_files/figure-latex/plot-number-crimes-1.pdf, id=118, 562.1pt x 352
-.31625pt>
+[2] [3
+
+] [4
+
+]
+<Assignment4_files/figure-latex/plot-number-crimes-1.pdf, id=143, 578.16pt x 36
+1.35pt>
 File: Assignment4_files/figure-latex/plot-number-crimes-1.pdf Graphic file (typ
 e pdf)
 <use Assignment4_files/figure-latex/plot-number-crimes-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/plot-number-crimes-1.pd
-f  used on input line 361.
-(pdftex.def)             Requested size: 455.24706pt x 285.34233pt.
+f  used on input line 378.
+(pdftex.def)             Requested size: 455.24165pt x 284.52603pt.
 LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
-(Font)              scaled to size 10.51207pt on input line 362.
-<Assignment4_files/figure-latex/offencetype-1.pdf, id=121, 417.56pt x 277.035pt
->
+(Font)              scaled to size 10.51207pt on input line 379.
+<Assignment4_files/figure-latex/offencetype-1.pdf, id=146, 433.62pt x 289.08pt>
+
 File: Assignment4_files/figure-latex/offencetype-1.pdf Graphic file (type pdf)
 <use Assignment4_files/figure-latex/offencetype-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/offencetype-1.pdf  used
- on input line 372.
-(pdftex.def)             Requested size: 417.55896pt x 277.03432pt.
-<Assignment4_files/figure-latex/neighborhood2018-1.pdf, id=122, 428.60126pt x 2
-77.035pt>
+ on input line 389.
+(pdftex.def)             Requested size: 433.63878pt x 289.09251pt.
+<Assignment4_files/figure-latex/neighborhood2018-1.pdf, id=147, 433.62pt x 289.
+08pt>
 File: Assignment4_files/figure-latex/neighborhood2018-1.pdf Graphic file (type 
 pdf)
 <use Assignment4_files/figure-latex/neighborhood2018-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/neighborhood2018-1.pdf 
- used on input line 534.
-(pdftex.def)             Requested size: 428.6002pt x 277.03432pt.
-<Assignment4_files/figure-latex/neighborhood2019-1.pdf, id=123, 423.5825pt x 27
-7.035pt>
+ used on input line 551.
+(pdftex.def)             Requested size: 433.63878pt x 289.09251pt.
+<Assignment4_files/figure-latex/neighborhood2019-1.pdf, id=148, 433.62pt x 289.
+08pt>
 File: Assignment4_files/figure-latex/neighborhood2019-1.pdf Graphic file (type 
 pdf)
 <use Assignment4_files/figure-latex/neighborhood2019-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/neighborhood2019-1.pdf 
- used on input line 540.
-(pdftex.def)             Requested size: 423.58147pt x 277.03432pt.
-<Assignment4_files/figure-latex/neighborhood2020-1.pdf, id=124, 423.5825pt x 27
-7.035pt>
+ used on input line 557.
+(pdftex.def)             Requested size: 433.63878pt x 289.09251pt.
+<Assignment4_files/figure-latex/neighborhood2020-1.pdf, id=149, 433.62pt x 289.
+08pt>
 File: Assignment4_files/figure-latex/neighborhood2020-1.pdf Graphic file (type 
 pdf)
 <use Assignment4_files/figure-latex/neighborhood2020-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/neighborhood2020-1.pdf 
- used on input line 546.
-(pdftex.def)             Requested size: 423.58147pt x 277.03432pt.
-[4] [5 <./Assignment4_files/figure-latex/plot-number-crimes-1.pdf> <./Assignmen
-t4_files/figure-latex/offencetype-1.pdf>] [6] [7 <./Assignment4_files/figure-la
-tex/neighborhood2018-1.pdf>] [8 <./Assignment4_files/figure-latex/neighborhood2
-019-1.pdf> <./Assignment4_files/figure-latex/neighborhood2020-1.pdf>]
-<Assignment4_files/figure-latex/Crimeanalysis-1.pdf, id=206, 562.1pt x 349.305p
+ used on input line 563.
+(pdftex.def)             Requested size: 433.63878pt x 289.09251pt.
+<Assignment4_files/figure-latex/Crimeanalysis-1.pdf, id=155, 578.16pt x 361.35p
 t>
 File: Assignment4_files/figure-latex/Crimeanalysis-1.pdf Graphic file (type pdf
 )
 <use Assignment4_files/figure-latex/Crimeanalysis-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/Crimeanalysis-1.pdf  us
-ed on input line 556.
-(pdftex.def)             Requested size: 455.24706pt x 282.90352pt.
-<Assignment4_files/figure-latex/timefig-1.pdf, id=208, 572.1375pt x 349.305pt>
+ed on input line 573.
+(pdftex.def)             Requested size: 455.24165pt x 284.52603pt.
+[5
+
+ <./Assignment4_files/figure-latex/plot-number-crimes-1.pdf>] [6 <./Assignment4
+_files/figure-latex/offencetype-1.pdf>] [7] [8 <./Assignment4_files/figure-late
+x/neighborhood2018-1.pdf> <./Assignment4_files/figure-latex/neighborhood2019-1.
+pdf>] [9 <./Assignment4_files/figure-latex/neighborhood2020-1.pdf> <./Assignmen
+t4_files/figure-latex/Crimeanalysis-1.pdf>]
+<Assignment4_files/figure-latex/timefig-1.pdf, id=217, 578.16pt x 361.35pt>
 File: Assignment4_files/figure-latex/timefig-1.pdf Graphic file (type pdf)
 <use Assignment4_files/figure-latex/timefig-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/timefig-1.pdf  used on 
-input line 570.
-(pdftex.def)             Requested size: 455.24872pt x 277.94131pt.
-<Assignment4_files/figure-latex/weekdaysituation-1.pdf, id=210, 572.1375pt x 35
-1.3125pt>
+input line 587.
+(pdftex.def)             Requested size: 455.24165pt x 284.52603pt.
+<Assignment4_files/figure-latex/weekdaysituation-1.pdf, id=219, 578.16pt x 361.
+35pt>
 File: Assignment4_files/figure-latex/weekdaysituation-1.pdf Graphic file (type 
 pdf)
 <use Assignment4_files/figure-latex/weekdaysituation-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/weekdaysituation-1.pdf 
- used on input line 584.
-(pdftex.def)             Requested size: 455.24872pt x 279.53868pt.
-[9 <./Assignment4_files/figure-latex/Crimeanalysis-1.pdf>]
-<Assignment4_files/figure-latex/TypeOfResistance-1.pdf, id=225, 562.1pt x 349.3
-05pt>
+ used on input line 601.
+(pdftex.def)             Requested size: 455.24165pt x 284.52603pt.
+<Assignment4_files/figure-latex/TypeOfResistance-1.pdf, id=221, 578.16pt x 361.
+35pt>
 File: Assignment4_files/figure-latex/TypeOfResistance-1.pdf Graphic file (type 
 pdf)
 <use Assignment4_files/figure-latex/TypeOfResistance-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/TypeOfResistance-1.pdf 
- used on input line 595.
-(pdftex.def)             Requested size: 455.24706pt x 282.90352pt.
-<Assignment4_files/figure-latex/relationshipfig-1.pdf, id=227, 562.1pt x 349.30
+ used on input line 612.
+(pdftex.def)             Requested size: 455.24165pt x 284.52603pt.
+[10 <./Assignment4_files/figure-latex/timefig-1.pdf>] [11 <./Assignment4_files/
+figure-latex/weekdaysituation-1.pdf> <./Assignment4_files/figure-latex/TypeOfRe
+sistance-1.pdf>]
+<Assignment4_files/figure-latex/relationshipfig-1.pdf, id=247, 578.16pt x 361.3
 5pt>
 File: Assignment4_files/figure-latex/relationshipfig-1.pdf Graphic file (type p
 df)
 <use Assignment4_files/figure-latex/relationshipfig-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/relationshipfig-1.pdf  
-used on input line 606.
-(pdftex.def)             Requested size: 455.24706pt x 282.90352pt.
-<Assignment4_files/figure-latex/Race-1.pdf, id=229, 562.1pt x 349.305pt>
+used on input line 623.
+(pdftex.def)             Requested size: 455.24165pt x 284.52603pt.
+<Assignment4_files/figure-latex/Race-1.pdf, id=249, 578.16pt x 361.35pt>
 File: Assignment4_files/figure-latex/Race-1.pdf Graphic file (type pdf)
 <use Assignment4_files/figure-latex/Race-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/Race-1.pdf  used on inp
-ut line 617.
-(pdftex.def)             Requested size: 455.24706pt x 282.90352pt.
-[10 <./Assignment4_files/figure-latex/timefig-1.pdf>] [11 <./Assignment4_files/
-figure-latex/weekdaysituation-1.pdf> <./Assignment4_files/figure-latex/TypeOfRe
-sistance-1.pdf>] [12 <./Assignment4_files/figure-latex/relationshipfig-1.pdf> <
-./Assignment4_files/figure-latex/Race-1.pdf>]
-<Assignment4_files/figure-latex/puofbar-1.pdf, id=278, 572.1375pt x 351.3125pt>
-
-File: Assignment4_files/figure-latex/puofbar-1.pdf Graphic file (type pdf)
-<use Assignment4_files/figure-latex/puofbar-1.pdf>
-Package pdftex.def Info: Assignment4_files/figure-latex/puofbar-1.pdf  used on 
-input line 631.
-(pdftex.def)             Requested size: 455.24872pt x 279.53868pt.
-LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 9.24173pt on input line 642.
-
-Overfull \hbox (462.7371pt too wide) in paragraph at lines 647--647
-[]\T1/fvm/m/n/10.95 ## Source: "/Users/emsheehan/Documents/UNI - POSTGRAD/COLLA
-B/ETC5513-Assignment-4/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp", l
-ayer: "Police_Use_of_Force"[] 
- []
-
-Package textcomp Info: Symbol \textasciigrave not provided by
-(textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 656.
-LaTeX Font Info:    Font shape `T1/cmtt/m/n' will be
-(Font)              scaled to size 11.73846pt on input line 656.
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-656.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/base/ts1cmtt.fd
-File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-LaTeX Font Info:    Trying to load font information for TS1+fvm on input line 6
-56.
-(/Users/emsheehan/Library/TinyTeX/texmf-dist/tex/latex/bera/ts1fvm.fd
-File: ts1fvm.fd 2004/09/07 scalable font definitions for TS1/fvm.
-)
-LaTeX Font Info:    Font shape `TS1/fvm/m/n' will be
-(Font)              scaled to size 9.85492pt on input line 656.
-Package textcomp Info: Symbol \textasciigrave not provided by
-(textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 656.
-Package textcomp Info: Symbol \textasciigrave not provided by
-(textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 656.
-
-Overfull \hbox (714.48758pt too wide) in paragraph at lines 656--656
-[]\T1/fvm/m/n/10.95 ## Reading layer \TS1/cmtt/m/n/10.95 `\T1/fvm/m/n/10.95 Pol
-ice_Use_of_Force\TS1/fvm/m/n/10.95 ' \T1/fvm/m/n/10.95 from data source \TS1/cm
-tt/m/n/10.95 `\T1/fvm/m/n/10.95 /Users/emsheehan/Documents/UNI - POSTGRAD/COLLA
-B/ETC5513-Assignment-4/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp\TS1
-/fvm/m/n/10.95 ' \T1/fvm/m/n/10.95 using driver \TS1/cmtt/m/n/10.95 `\T1/fvm/m/
-n/10.95 ESRI Shapefile\TS1/fvm/m/n/10.95 '[] 
- []
-
-<Assignment4_files/figure-latex/puofmap-1.pdf, id=281, 580.1675pt x 361.35pt>
+ut line 634.
+(pdftex.def)             Requested size: 455.24165pt x 284.52603pt.
+[12 <./Assignment4_files/figure-latex/relationshipfig-1.pdf>] [13 <./Assignment
+4_files/figure-latex/Race-1.pdf>]
+<Assignment4_files/figure-latex/puofmap-1.pdf, id=271, 650.43pt x 361.35pt>
 File: Assignment4_files/figure-latex/puofmap-1.pdf Graphic file (type pdf)
 <use Assignment4_files/figure-latex/puofmap-1.pdf>
 Package pdftex.def Info: Assignment4_files/figure-latex/puofmap-1.pdf  used on 
-input line 660.
-(pdftex.def)             Requested size: 455.24657pt x 283.54459pt.
-[13
+input line 675.
+(pdftex.def)             Requested size: 455.2582pt x 252.92122pt.
+[14
 
- <./Assignment4_files/figure-latex/puofbar-1.pdf>]
-<Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf, id=300, 280.04625pt x 34
-9.305pt>
-File: Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type p
-df)
-<use Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf>
-Package pdftex.def Info: Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf  
-used on input line 669.
-(pdftex.def)             Requested size: 280.05836pt x 349.32011pt.
-[14 <./Assignment4_files/figure-latex/puofmap-1.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 673.
-[15 <./Assignment4_files/figure-latex/unnamed-chunk-3-1.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 673.
+ <./Assignment4_files/figure-latex/puofmap-1.pdf>]
+<Assignment4_files/figure-latex/psbar-1.pdf, id=294, 578.16pt x 361.35pt>
+File: Assignment4_files/figure-latex/psbar-1.pdf Graphic file (type pdf)
+<use Assignment4_files/figure-latex/psbar-1.pdf>
+Package pdftex.def Info: Assignment4_files/figure-latex/psbar-1.pdf  used on in
+put line 686.
+(pdftex.def)             Requested size: 455.24165pt x 284.52603pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 686--688
+[][]
+ []
+
+<Assignment4_files/figure-latex/psmap-1.pdf, id=295, 578.16pt x 361.35pt>
+File: Assignment4_files/figure-latex/psmap-1.pdf Graphic file (type pdf)
+<use Assignment4_files/figure-latex/psmap-1.pdf>
+Package pdftex.def Info: Assignment4_files/figure-latex/psmap-1.pdf  used on in
+put line 690.
+(pdftex.def)             Requested size: 578.15858pt x 361.34912pt.
+
+Overfull \hbox (122.9145pt too wide) in paragraph at lines 690--690
+[][] 
+ []
+
+[15 <./Assignment4_files/figure-latex/psbar-1.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 697.
+[16 <./Assignment4_files/figure-latex/psmap-1.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 697.
 (./Assignment4.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 673.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 673.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 697.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 697.
 Package rerunfilecheck Info: File `Assignment4.out' has not changed.
-(rerunfilecheck)             Checksum: 41C34E573A63AABF7871635AF675B36A;2709.
+(rerunfilecheck)             Checksum: 6373DA516F301D612549A822F76274B8;3125.
+
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please rerun LaTeX.
+(biblatex)                Page breaks have changed.
+
 Package logreq Info: Writing requests to 'Assignment4.run.xml'.
 \openout1 = `Assignment4.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 673.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 697.
  ) 
 Here is how much of TeX's memory you used:
- 25177 strings out of 482401
- 421433 string characters out of 5945901
- 1079335 words of memory out of 5000000
- 40318 multiletter control sequences out of 15000+600000
- 632438 words of font info for 241 fonts, out of 8000000 for 9000
+ 26449 strings out of 482401
+ 438792 string characters out of 5946079
+ 1105637 words of memory out of 5000000
+ 41539 multiletter control sequences out of 15000+600000
+ 630787 words of font info for 238 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 44i,13n,90p,1018b,1436s stack positions out of 5000i,500n,10000p,200000b,80000s
- </Users/emsheehan/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt
-1095.600pk>{/Users/emsheehan/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r
-.enc}{/Users/emsheehan/Library/TinyTeX/texmf-dist/fonts/enc/dvips/ly1/texnansi.
-enc}{/Users/emsheehan/Library/TinyTeX/texmf-dist/fonts/enc/dvips/fontawesome/fo
-ntawesometwo.enc}</Users/emsheehan/Library/TinyTeX/texmf-dist/fonts/type1/publi
-c/fontawesome/FontAwesome.pfb></Users/emsheehan/Library/TinyTeX/texmf-dist/font
-s/type1/bitstrea/charter/bchb8a.pfb></Users/emsheehan/Library/TinyTeX/texmf-dis
-t/fonts/type1/bitstrea/charter/bchr8a.pfb></Users/emsheehan/Library/TinyTeX/tex
-mf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb></Users/emsheehan/Library/Tiny
-TeX/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></Users/emsheehan/Library/Tin
-yTeX/texmf-dist/fonts/type1/public/bera/fvsb8a.pfb></Users/emsheehan/Library/Ti
-nyTeX/texmf-dist/fonts/type1/public/bera/fvsr8a.pfb></Users/emsheehan/Library/T
-inyTeX/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr8t.pfb>
-Output written on Assignment4.pdf (15 pages, 1303149 bytes).
+ 44i,14n,90p,1018b,1436s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/Users/brenwin/Library/TinyTeX/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}{
+/Users/brenwin/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{/Users/b
+renwin/Library/TinyTeX/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.en
+c}</Users/brenwin/Library/TinyTeX/texmf-dist/fonts/type1/public/fontawesome/Fon
+tAwesome.pfb></Users/brenwin/Library/TinyTeX/texmf-dist/fonts/type1/bitstrea/ch
+arter/bchb8a.pfb></Users/brenwin/Library/TinyTeX/texmf-dist/fonts/type1/bitstre
+a/charter/bchr8a.pfb></Users/brenwin/Library/TinyTeX/texmf-dist/fonts/type1/bit
+strea/charter/bchri8a.pfb></Users/brenwin/Library/TinyTeX/texmf-dist/fonts/type
+1/public/bera/fvsb8a.pfb></Users/brenwin/Library/TinyTeX/texmf-dist/fonts/type1
+/public/bera/fvsr8a.pfb></Users/brenwin/Library/TinyTeX/texmf-dist/fonts/type1/
+public/mathdesign/mdbch/md-chr8t.pfb>
+Output written on Assignment4.pdf (16 pages, 3059557 bytes).
 PDF statistics:
- 404 PDF objects out of 1000 (max. 8388607)
- 322 compressed objects within 4 object streams
- 64 named destinations out of 1000 (max. 500000)
- 30908 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 370 PDF objects out of 1000 (max. 8388607)
+ 310 compressed objects within 4 object streams
+ 70 named destinations out of 1000 (max. 500000)
+ 30924 words of extra memory for PDF output out of 35830 (max. 10000000)
 

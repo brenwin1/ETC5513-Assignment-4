@@ -61,16 +61,34 @@ library(lubridate)
 library(ggpubr)
 library(RColorBrewer)
 library(leaflet)
+library(knitr)
+library(sf)
 ```
 
 ```{r crime-incident-data, include = FALSE}
-# read crime incident data
+# crime incidents data
 crime_incidents <- read_csv("data/Police_Incidents_Last_2Years.csv") 
+
+# police use of force data
+police_use_of_force <- read_csv("data/Police_Use_of_Force.csv")
+
+# police stop data
+police_stop_data <- read_csv("data/Police_Stop_Data.csv") %>% 
+  filter(!(race %in% c("Unknown"))) %>% 
+  filter(!is.na(race))
+
+# demographics data
+demographics_raw <- read_csv(here::here("data/minneapolis_demographics/profile_download_file_msp_neighborhoods_2014_2018.csv"))
 ```
 
-```{r shapefiles-data, include = FALSE}
-# read shapefiles data
-shp <- rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Police_Incidents_Last_2Years-shp", sep=""), layer = "Police_Incidents_Last_2Years.shp") , stringsAsFactors = FALSE)
+```{r, include = FALSE}
+# ----------- Police use of force
+# read shp file
+puof_shp <- rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Police_Use_of_Force-shp", sep=""), layer = "Police_Use_of_Force.shp") , stringsAsFactors = FALSE)
+
+puof_sf <- st_read(dsn = file.path(paste(getwd(),"/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp", sep=""))) %>% 
+  filter(CenterLati != 0) %>% 
+  filter(!(Race %in% c("not recorded", "Unknown")))
 ```
 
 ```{r police-force-data, include = FALSE}
@@ -142,6 +160,8 @@ police_force_2018 <- police_force_selected %>%
   filter(year %in% c("2018","2019", "2020"))
 ```
 
+\clearpage
+
 # Introduction
 
 George Floyd was arrested and killed by Derek Chauvin, a U.S. police officer, on the 25th of May in Minneapolis, @BBC-News-2020. Chauvin knelt on George Floyd’s neck for eight minutes and 46 seconds as Floyd gasped for air.  His abominable death has sparked outrage on police brutality across America. 
@@ -158,6 +178,7 @@ The crime incident data had a high number of missing values, where the race of t
 
 The use of force data has a high number of missing values which will adversely impact the accuracy of the analysis. In addition, there is a Precinct 0 and there is no explanation on the offical Minneapolis website which will certainly impact the results. The 'ResponseDate' can be traced back to 2008, however, no records have been kept, therefore it cannot be used in analysis. Finally, the 'PoliceUseOfForceID' and 'OBJECTID' cannot be used for analysis as they are arranged in order and are independent of 'real' police officers and 'real' witnesses. While it protects the privacy of these individuals, it means that conclusions on agressive police officers cannot be drawn. 
 
+\clearpage
 # Methodology 
 
 ## Analysing the Crime Incidence
@@ -186,15 +207,15 @@ To create Figure \@ref(fig:relationshipfig) the use of force data was filtered f
 
 The use of force data was filtered for race. The results were plotted in Figure \@ref(fig:Race) and each force type band was filled according to race. 
 
-## Mapping the Use of Force Data
 
+\clearpage
 # Results
 
 ## Crime Incidence 
 
 Figure \@ref(fig:plot-number-crimes) demonstrates that across all years, theft is the most commonly committed crime in Minneapolis. Burglary and assault are the second and third highest committed crimes, respectively. It should be noted that 2019 is the only complete year, hence the higher incidence. 
 
-```{r number-crimes}
+```{r number-crimes, warning = FALSE, message = FALSE}
 number_crimes <- clean_crime %>%
   # group by offense and year
   group_by(offense,
@@ -461,57 +482,228 @@ police_force_selected %>%
 
 \clearpage
 
-## Use of Force Map Analysis
+# Mapping the data and Black composition
 
-```{r puofbar, fig.cap = "proportion of race in police use of force by Precincts"}
-police_use_of_force %>% 
-  ggplot(aes(x = Race)) +
-  geom_bar(aes(y = stat(prop),
-               group = 1)) +
-  facet_wrap(~Precinct) +
-  coord_flip()
+## summary table
+```{r neighborhood_racial_composition_table, include = FALSE}
+# ----------- Summary Table across all areas
+demographics_raw <- read_csv(here::here("data/minneapolis_demographics/profile_download_file_msp_neighborhoods_2014_2018.csv"))
+
+demographics <- demographics_raw %>%
+  filter(City == "Minneapolis") %>% 
+  select(Neighborhood, `Total population`, 62:97) %>% 
+  select(-contains("Margin")) # de select rows containing margin of error
+
+demographics <- janitor::clean_names(demographics) # clean demographics column names 
+
+# show % of racial composition in Minneapolis demographics
+demographics_table <- demographics %>% 
+  select(2, 3, 7, 9, 11, 13, 15, 17, 19) %>% 
+  pivot_longer(cols = 1:9,
+               names_to = "Race",
+               values_to = "Counts") %>%  # neighbourhood counts
+  group_by(Race) %>% 
+  summarise(share = sum(Counts)) %>% 
+  mutate(share = share/349260) %>% # share/total population
+  arrange(share)
+
+share_of_pop = demographics_table %>% filter(Race == "black_or_african_american")
 ```
 
-Dataset comes from @openmn
-**Figure \@ref(fig:puofbar)** shows the proportion of race in police use of force by Precincts.
+```{r puof_table}
+# no. of blacks; subject; to puof
+puof_black <- police_use_of_force %>% 
+  filter(Race == "Black") %>% 
+  summarize(count = n())
+# total
+puof_total <- police_use_of_force %>% 
+  count() 
+# share of blacks; subject to puof
+share_of_puof = puof_black/puof_total
 
-> WIP: need to join table with demographics (racial composition in each Precinct) and data on proportion of crimes commited by race in each precinct.
-
-```{r}
-library(leaflet)
-library(rgdal)
-
-# read in shape file
-shp <- rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Police_Use_of_Force-shp", sep=""), layer = "Police_Use_of_Force.shp") , stringsAsFactors = FALSE)
+# put into table
+puof_table <- as.tibble(c(Race = "Black",
+              share_of_puof = share_of_puof)) 
 ```
 
 ```{r}
+# no. of blacks subject to police stop
+ps_black <- police_stop_data %>% 
+  filter(race %in% c("Black", "East African")) %>% 
+  count()
+
+# total
+ps_total <- police_stop_data %>% 
+  count()
+
+# share of blacks; subject to police stop
+share_of_ps = ps_black/ps_total
+```
+
+```{r summarytable}
+categories <- c("Minneapolis Population", "Police Use of Force", "Police Stop")
+
+share_of_black_categories <- c(share_of_pop$share, share_of_puof$count, share_of_ps$n)
+
+summary_table <- tibble(categories = categories,
+                        share = share_of_black_categories)
+
+summary_table %>% 
+  kable(caption = "Share of black in each category",
+        digits = 2) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover"))
+
+# summary_table %>% 
+#   ggplot() +
+#   geom_bar(mapping = aes(x = share,
+#                          y = ..prop..,
+#                          group = 1),
+#            stat = "identity")
+```
+
+Black or African Americans accounts only for 19% of the total Population in Minneapolis. (Data source: @mncompass). However, as we can see from **table \@ref(tab:summarytable)**, they cover the largest proportion of being subjects to police use of force. Furthermore, they also cover the biggest share in terms of their vehicles getting stopped by the police. 
+
+*Note that each share racial population share are subject to a 5% or less margin of error. 
+
+## Police Use of force Data mapping
+```{r, include = FALSE, message = FALSE, warning = FALSE}
+# ----------- Police use of force
+# read shp file
+puof_shp <- rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Police_Use_of_Force-shp", sep=""), layer = "Police_Use_of_Force.shp") , stringsAsFactors = FALSE)
+```
+
+```{r, include = FALSE, message = FALSE, warning = FALSE}
 library(sf)
 # Read shp file into a data frame
-shp_sf1 <- st_read(dsn = file.path(paste(getwd(),"/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp", sep=""))) %>% 
-  filter(CenterLati != 0)
+puof_sf <- st_read(dsn = file.path(paste(getwd(),"/data/Police_Use_of_Force-shp/Police_Use_of_Force.shp", sep=""))) %>% 
+  filter(CenterLati != 0) %>% 
+  filter(!(Race %in% c("not recorded", "Unknown")))
 ```
 
-```{r puofmap, fig.cap = "Number of police use of force incidents in Precincts", fig.align = "center"}
-shp_sf1 %>% 
-  leaflet() %>% 
-  addTiles() %>% 
-  # Add Circle Markers 
-  addCircleMarkers(lng = shp_sf1$CenterLong, 
-             lat = shp_sf1$CenterLati, 
-             clusterOptions = markerClusterOptions()) # cluster circles and prevent hanging!
+
+```{r, include = FALSE, message = FALSE, warning = FALSE}
+# --------- Neighbourhood data
+# read in shape files
+neighborhood_shp <- 
+  rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Minneapolis_Neighborhoods-shp", sep=""), layer = "Minneapolis_Neighborhoods.shp") , stringsAsFactors = FALSE)
 ```
 
-**Figure \@ref(fig:puofmap)** shows the police use of force map in Minneapolis. The numbers show number of incidents per precinct. 
+```{r, include = FALSE, message = FALSE, warning = FALSE}
+# Read in shp file into a data frame
+neighborhood_sf <- st_read(dsn = file.path(paste(getwd(),"/data/Minneapolis_Neighborhoods-shp/Minneapolis_Neighborhoods.shp", sep="")))
+```
 
 ```{r}
-# mapping points where police use of force were recorded. 
-shp_sf1 %>% 
-  ggplot() +
-  geom_sf(aes(colour = Precinct)) # colour points by precincts
+# demographics data and neighbourhood shape file data have different neighbourhood area due to some areas (e.g. rivers or industrial area; not inhabited)
+## shp file more broken up// demographics data; in neighbourhood area less broken up 
+black_share <- demographics %>% 
+  select(neighborhood, total_population, black_or_african_american,
+         black_or_african_american_share)
+
+
+black_share <- black_share %>% 
+  separate(col = black_or_african_american_share,
+           c("black_or_african_american_share", "percent"),
+           sep = "%") %>% 
+  select(-5) # remove % from character string 
+
+black_share$black_or_african_american_share <- as.numeric(black_share$black_or_african_american_share) # change character string to numeric
+
+library(viridis)
+black_composition <-
+  left_join(neighborhood_sf, black_share, by = c("BDNAME" = "neighborhood" ))
+
+puof_sf1 <- puof_sf %>% 
+  mutate(Race = case_when(
+    str_detect(Race, "Black") ~ "Black",
+    str_detect(Race, "White") ~ "White",
+    str_detect(Race, "Asian") ~ "Others",
+    str_detect(Race, "Native American") ~ "Others",
+    str_detect(Race, "Other / Mixed Race") ~ "Others",
+    str_detect(Race, "Pacific Islander") ~ "Others"
+  ))
 ```
 
-# Conclusion
+```{r puofmap, fig.cap = "Police use of force data on a Minneapolis Map",  fig.width = 9}
+ggplot() +
+  geom_sf(data = black_composition,
+          aes(fill = black_or_african_american_share)) +
+  scale_fill_distiller(type = "seq", 
+                       palette = "YIGn",
+                       direction = 1,
+                       na.value = "light grey",
+                       limits = c(0, 53.1)) +
+  geom_sf(data = puof_sf1,
+          shape = 1,
+          alpha = 0.4,
+          aes(colour = Race,
+              group = Neighborho)) +
+  scale_colour_viridis(discrete = TRUE)
+```
 
+In **Figure \@ref(fig:puofmap)** the map layout of Minneapolis is shown. The map is segmented by neighbourhoods. The shade of green show the composition of black in each neighbourhood - with dark green indicating a higher proportion. Each circle shows an incident where police force were used coloured by Race (either White/Black/Others) - minority groups were placed under "Others".
+
+Particularly in the northwest and center of the map where black communities are highly represented, there are high concentrations of police use of force incidents especially towards the black race.
+
+
+## Police Stop Data Mapping
+
+```{r, include = FALSE}
+# ----------- Police use of force
+# read shp file
+ps_shp <- rgdal::readOGR(dsn = file.path(paste(getwd(),"/data/Police_Stop_Data-shp", sep=""), layer = "Police_Stop_Data.shp") , stringsAsFactors = FALSE)
+```
+
+```{r, include = FALSE}
+library(sf)
+# Read shp file into a data frame
+ps_sf <- st_read(dsn = file.path(paste(getwd(),"/data/Police_Stop_Data-shp/Police_Stop_Data.shp", sep=""))) %>% 
+  filter(!(race %in% c("Unknown"))) %>% 
+  filter(!is.na(race)) %>% 
+  filter(lat != 0) 
+```
+
+```{r psbar, fig.cap = "Counts per Race in each reason to stop a Vehicle"}
+police_stop_data %>% 
+  filter(!(problem %in% c("Attempt Pick-Up (P)", "Curfew Violations (P)", "Truancy (P)"))) %>% 
+  ggplot() +
+  geom_bar(aes(x = race,
+               fill = race)) +
+  facet_wrap(~problem) +
+  coord_flip()
+```
+With Police Stop data, in the major problems categorized (i.e. reasons to stop a vehicle), Blacks were most likely to have their vehicles stopped by Minneapolis Police. 
+
+```{r}
+ps_sf1 <- ps_sf %>% 
+  mutate(race = case_when(
+    str_detect(race, "Black") ~ "Black",
+    str_detect(race, "East African") ~ "Black",
+    str_detect(race, "White") ~ "White",
+    str_detect(race, "Asian") ~ "Others",
+    str_detect(race, "Latino") ~ "Others",
+    str_detect(race, "Other") ~ "Others",
+    str_detect(race, "Native American") ~ "Others"
+  ))
+```
+
+```{r psmap, cache = TRUE, out.width="400%", fig.cap = "Police Stop data on Minneapolis map"}
+ggplot() +
+  geom_sf(data = black_composition,
+          aes(fill = black_or_african_american_share)) +
+  scale_fill_distiller(type = "seq", 
+                       palette = "YIGn",
+                       direction = 1,
+                       na.value = "light grey",
+                       limits = c(0, 53.1)) +
+  geom_sf(data = ps_sf1,
+          shape = 1,
+          alpha = 0.4,
+          aes(colour = race,
+              group = neighborho)) +
+  scale_colour_viridis(discrete = TRUE)
+```
+
+Similar to the analysis with the police use of force map, a similar pattern were  observed in police stop in **Figure \@ref(fig:psmap)**. Police stops are mostly concentrated in the northwestern and central parts of Minneapolis where black communities are highly represented.
 
 

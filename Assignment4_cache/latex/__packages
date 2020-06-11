@@ -19,3 +19,6 @@ ggpubr
 RColorBrewer
 leaflet
 sf
+knitr
+viridisLite
+viridis
