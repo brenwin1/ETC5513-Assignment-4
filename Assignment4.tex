@@ -285,6 +285,20 @@
 \setstretch{1.5}
 
 %% Any special functions or other packages can be loaded here.
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 
 
 \begin{document}           % Begining of document body -----------------------------------------------
@@ -352,11 +366,9 @@ The use of force data was filtered for race. The results were plotted in Figure 
 \hypertarget{mapping-the-data}{%
 \subsection{Mapping the Data}\label{mapping-the-data}}
 
-To map the data, shape files were downloaded from Open Minneapolis website (an open data repository containing spatial geographic information on Minneapolis) to draw the neighbourhood outlines and plot the police use of force and stop data circle points. \autocite{neighbourhood}
+The shape files were downloaded from Open Minneapolis, an open data repository containing spatial geographic information on Minneapolis. The shape files were used to map the neighbourhood outlines, plot the police use of force and stop data circle points, \textcite{neighbourhood}.
 
-Data was then wrangled to join with demographics information retrieved from \autocite{mncompass} containing estimates of the 5-year average neighbourhood population with 2014-2018 American Community survey, adjusted to according to Census neighbourhood boundaries. This allows filling each neighbourhood(polygon) on a scale of proportion of black in a neighbourhood.
-
-In assessing the maps, Whites and Blacks comprised the majority composition while minority groups are categorised as others.
+The data was wrangled and joined with the demographics information retrieved from \textcite{mncompass}. The information included estimates of the 5-year average neighbourhood population, collected in the 2014-2018 American Community survey, adjusted to according to Census neighbourhood boundaries. The estimates were adjusted according to the Census neighbourhood boundaries, which means the each neighbourhood could be filled according to the proportion of African Americans residing there.
 
 \clearpage
 
