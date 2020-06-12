@@ -14,16 +14,18 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.4}Analysing the Force Used by Police}{4}{subsection.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Results}{5}{section.4}%
+\contentsline {subsection}{\numberline {3.5}Mapping the Data}{5}{subsection.3.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Crime Incidence}{5}{subsection.4.1}%
+\contentsline {section}{\numberline {4}Results}{6}{section.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}Neighborhoods with the Most Crimes}{5}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.1}Crime Incidence}{6}{subsection.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3}Crime over Time}{10}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.2}Neighborhoods with the Most Crimes}{6}{subsection.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4}Force Used by Police Data}{10}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.3}Crime over Time}{11}{subsection.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5}Mapping the Data}{13}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.4}Force Used by Police Data}{11}{subsection.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Conclusion}{14}{section.5}%
+\contentsline {subsection}{\numberline {4.5}Mapping the Data}{14}{subsection.4.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Conclusion}{16}{section.5}%

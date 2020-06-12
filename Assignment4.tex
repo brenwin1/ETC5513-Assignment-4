@@ -199,7 +199,7 @@
 \DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
 \makeatother
 
-\author{\sf\Large\textbf{ Lulu Pi}\\ {\sf\large Bachelor of Accounting\\[0.5cm]} \sf\Large\textbf{ Emily Sheehan}\\ {\sf\large BCom\\[0.5cm]} \sf\Large\textbf{ Brenwin Ang}\\ {\sf\large BsC\\[0.5cm]} \sf\Large\textbf{ Chengzhi Ye}\\ {\sf\large BCom\\[0.5cm]}}
+\author{\sf\Large\textbf{ Lulu Pi}\\ {\sf\large Bachelor of Accounting\\[0.5cm]} \sf\Large\textbf{ Emily Sheehan}\\ {\sf\large BCom\\[0.5cm]} \sf\Large\textbf{ Brenwin Ang}\\ {\sf\large BCom\\[0.5cm]} \sf\Large\textbf{ Chengzhi Ye}\\ {\sf\large BCom\\[0.5cm]}}
 
 \date{\sf\Date~\Month~\Year}
 \makeatletter
@@ -348,6 +348,15 @@ The use of force data was filtered for type of resistance. The results were plot
 To create Figure \ref{fig:relationshipfig} the use of force data was filtered for type of resistance. The results were plotted and each force type band was filled according to resistance type.
 
 The use of force data was filtered for race. The results were plotted in Figure \ref{fig:Race} and each force type band was filled according to race.
+
+\hypertarget{mapping-the-data}{%
+\subsection{Mapping the Data}\label{mapping-the-data}}
+
+To map the data, shape files were downloaded from Open Minneapolis website (an open data repository containing spatial geographic information on Minneapolis) to draw the neighbourhood outlines and plot the police use of force and stop data circle points. \autocite{neighbourhood}
+
+Data was then wrangled to join with demographics information retrieved from \autocite{mncompass} containing estimates of the 5-year average neighbourhood population with 2014-2018 American Community survey, adjusted to according to Census neighbourhood boundaries. This allows filling each neighbourhood(polygon) on a scale of proportion of black in a neighbourhood.
+
+In assessing the maps, Whites and Blacks comprised the majority composition while minority groups are categorised as others.
 
 \clearpage
 
@@ -624,8 +633,8 @@ Figure \ref{fig:Race} shows the use of force on different races. African America
 \caption{Different races are treated differently}\label{fig:Race}
 \end{figure}
 
-\hypertarget{mapping-the-data}{%
-\subsection{Mapping the Data}\label{mapping-the-data}}
+\hypertarget{mapping-the-data-1}{%
+\subsection{Mapping the Data}\label{mapping-the-data-1}}
 
 \begin{table}
 
@@ -676,6 +685,8 @@ A similar pattern to Figure \ref{fig:puofmap} was observed in Figure \ref{fig:ps
 Theft is the most commonly committed crime in Minneapolis. Downtown West and Whittier are the neighborhoods with the highest crime rate. Interestingly enough, the crime rate tends to be lower in the colder months of the year, and has been lower in 2020 due to the stay at home orders resulting from COVID-19. The crime rate is higher during the week, while the force use is much higher on weekends; indicating a greater police presence on weekends.
 
 Analysis of the use of force dashboard revealed that police dogs are generally ineffective in arrests as criminals are more likely to flee on foot. The use of force towards African Americans is significantly higher for all force types, except the less lethal force type. This is disproportionate to the number of African Americans in Minneapolis. Additionally, the incidence of force use on African Americans and the number of African Americans stopped is much higher in communities where African Americans are highly represented. Unfortunately, the analysis has divulged clear patterns of discrimination which is deeply distressing and calls for immediate action.
+
+\clearpage
 
 \printbibliography
 

@@ -16,7 +16,7 @@ author:
 - familyname: Ang
   othernames: Brenwin
   address: ang0005@student.monash.edu
-  qualifications: BsC
+  qualifications: BCom
 - familyname: Ye
   othernames: Chengzhi
   address: Monash University
@@ -206,6 +206,14 @@ The use of force data was filtered for type of resistance. The results were plot
 To create Figure \@ref(fig:relationshipfig) the use of force data was filtered for type of resistance. The results were plotted and each force type band was filled according to resistance type. 
 
 The use of force data was filtered for race. The results were plotted in Figure \@ref(fig:Race) and each force type band was filled according to race. 
+
+## Mapping the Data
+To map the data, shape files were downloaded from Open Minneapolis website (an open data repository containing spatial geographic information on Minneapolis) to draw the neighbourhood outlines and plot the police use of force and stop data circle points. [@neighbourhood]
+
+Data was then wrangled to join with demographics information retrieved from [@mncompass] containing estimates of the 5-year average neighbourhood population with 2014-2018 American Community survey, adjusted to according to Census neighbourhood boundaries. This allows filling each neighbourhood(polygon) on a scale of proportion of black in a neighbourhood.
+
+In assessing the maps, Whites and Blacks comprised the majority racial composition and minority groups are categorised as others. 
+
 
 
 \clearpage
@@ -703,3 +711,4 @@ Theft is the most commonly committed crime in Minneapolis. Downtown West and Whi
 
 Analysis of the use of force dashboard revealed that police dogs are generally ineffective in arrests as criminals are more likely to flee on foot. The use of force towards African Americans is significantly higher for all force types, except the less lethal force type. This is disproportionate to the number of African Americans in Minneapolis. Additionally, the incidence of force use on African Americans and the number of African Americans stopped is much higher in communities where African Americans are highly represented. Unfortunately, the analysis has divulged clear patterns of discrimination which is deeply distressing and calls for immediate action.  
 
+\clearpage
