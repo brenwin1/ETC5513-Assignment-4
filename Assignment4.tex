@@ -285,20 +285,6 @@
 \setstretch{1.5}
 
 %% Any special functions or other packages can be loaded here.
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{multirow}
-\usepackage{wrapfig}
-\usepackage{float}
-\usepackage{colortbl}
-\usepackage{pdflscape}
-\usepackage{tabu}
-\usepackage{threeparttable}
-\usepackage{threeparttablex}
-\usepackage[normalem]{ulem}
-\usepackage{makecell}
-\usepackage{xcolor}
 
 
 \begin{document}           % Begining of document body -----------------------------------------------
@@ -368,7 +354,7 @@ The use of force data was filtered for race. The results were plotted in Figure 
 
 The shape files were downloaded from Open Minneapolis, an open data repository containing spatial geographic information on Minneapolis. The shape files were used to map the neighbourhood outlines, plot the police use of force and stop data circle points, \textcite{neighbourhood}.
 
-The data was wrangled and joined with the demographics information retrieved from \textcite{mncompass}. The information included estimates of the 5-year average neighbourhood population, collected in the 2014-2018 American Community survey, adjusted to according to Census neighbourhood boundaries. The estimates were adjusted according to the Census neighbourhood boundaries, which means the each neighbourhood could be filled according to the proportion of African Americans residing there.
+The data was wrangled and joined with the demographics information retrieved from \textcite{mncompass}. The information included estimates of the 5-year average neighbourhood population, collected in the 2014-2018 American Community survey. The estimates were adjusted according to the Census neighbourhood boundaries, which means that each neighbourhood could be filled according to the proportion of African Americans residing there.
 
 \clearpage
 
@@ -699,6 +685,8 @@ Theft is the most commonly committed crime in Minneapolis. Downtown West and Whi
 Analysis of the use of force dashboard revealed that police dogs are generally ineffective in arrests as criminals are more likely to flee on foot. The use of force towards African Americans is significantly higher for all force types, except the less lethal force type. This is disproportionate to the number of African Americans in Minneapolis. Additionally, the incidence of force use on African Americans and the number of African Americans stopped is much higher in communities where African Americans are highly represented. Unfortunately, the analysis has divulged clear patterns of discrimination which is deeply distressing and calls for immediate action.
 
 \clearpage
+
+The following packages were used; \textcite{tidyverse}, \textcite{rgdal}, \textcite{ggrepel}, \textcite{scales}, \textcite{gridExtra}, \textcite{kableExtra}, \textcite{lubridate}, \textcite{ggpubr}, \textcite{RColorBrewer}, \textcite{leaflet}, \textcite{knitr}, \textcite{sf}.
 
 \printbibliography
 

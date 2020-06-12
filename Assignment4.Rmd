@@ -709,3 +709,5 @@ Theft is the most commonly committed crime in Minneapolis. Downtown West and Whi
 Analysis of the use of force dashboard revealed that police dogs are generally ineffective in arrests as criminals are more likely to flee on foot. The use of force towards African Americans is significantly higher for all force types, except the less lethal force type. This is disproportionate to the number of African Americans in Minneapolis. Additionally, the incidence of force use on African Americans and the number of African Americans stopped is much higher in communities where African Americans are highly represented. Unfortunately, the analysis has divulged clear patterns of discrimination which is deeply distressing and calls for immediate action.  
 
 \clearpage
+
+The following packages were used; @tidyverse, @rgdal, @ggrepel, @scales, @gridExtra, @kableExtra, @lubridate, @ggpubr, @RColorBrewer, @leaflet, @knitr, @sf. 
